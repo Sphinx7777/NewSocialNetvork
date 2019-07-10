@@ -1,0 +1,31 @@
+
+.users {
+	/*background-image: url("./../../Images/forest.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 1rem;
+	outline: none;*/
+	font-weight: bold;
+	font-size: 1.3rem;
+
+	.user {
+		border-radius: 1rem;
+		outline: none;
+		margin-bottom: 1rem;
+		color: white;
+border: 1px solid black;
+height: 10rem;
+		background-color: rgba(0, 0, 0, .6);
+	}
+	.user:last-child {
+		margin-bottom: 0;
+	}
+	.photo {
+		max-width: 8.75rem;
+	}
+}
+
+
+
+

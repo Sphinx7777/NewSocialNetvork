@@ -3,13 +3,12 @@
 	margin: 0 auto;
 
 	.header {
-
+		background-color: rgba(0, 0, 0, .6);
+		margin: 0 10rem;
 		font-style: italic;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-
-		border-bottom: 1px solid black;
 
 		.logo, .login {
 			padding: 0.3rem;

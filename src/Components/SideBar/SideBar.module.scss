@@ -1,0 +1,30 @@
+
+.sideBarWrapper {
+	width: 8rem;
+	float: left;
+	position: sticky;
+	top: 0;
+	left: 0;
+	bottom: 0;
+
+
+	.sideBar {
+
+		padding-top: 0.5rem;
+		max-width: 100%;
+
+		.item {
+			background-color: rgba(0, 0, 0, .6);
+			margin-top: 1rem;
+			text-align: center;
+			border: 3px solid black;
+			border-radius: 0.5rem;
+			padding: 0.5rem 1rem;
+			font-weight: bold;
+		}
+
+		.item:first-child {
+			margin-top: 0;
+		}
+	}
+}
