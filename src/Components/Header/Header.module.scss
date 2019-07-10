@@ -1,3 +1,44 @@
-.header {
-	text-align: center;
+.headerWrapper {
+	max-width: 100%;
+	margin: 0 auto;
+
+	.header {
+
+		font-style: italic;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		border-bottom: 1px solid black;
+
+		.logo, .login {
+			padding: 0.3rem;
+
+		}
+
+		.logo {
+			font-weight: bold;
+			font-size: 1.5rem;
+		}
+
+		.login {
+			text-align: center;
+
+			.loginPhoto {
+				display: inline-block;
+				max-width: 2rem;
+				border: 1px solid black;
+				border-top-left-radius: 0.5rem;
+				border-top-right-radius: 0.5rem;
+			}
+			.loginName {
+           display: block;
+				max-width: 3rem;
+				border: 1px solid black;
+				margin-top: -0.5rem;
+				font-size: 0.8rem;
+				font-weight: bold;
+			}
+		}
+	}
 }
