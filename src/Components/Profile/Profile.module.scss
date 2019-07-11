@@ -6,57 +6,87 @@
 	border-radius: 1rem;
 	outline: none;
 	font-weight: bold;
-	min-height: 89vh;
+
 	.profile {
 		display: flex;
 		flex-direction: column;
-		border: 1px solid white;
-		min-height: 89vh;
+		border-radius: 1rem;
 		margin: 0 0 0 50%;
+		background-color: rgba(0, 0, 0, .6);
+		min-height: 89vh;
 
 		.avaAndBtn {
-display: flex;
-			flex-direction: row;
+      display: flex;
+			flex-direction: column;
 			.photo {
 				border-radius: 1rem;
-				min-width: 12rem;
+				max-width: 8.75rem;
+				margin: 0 auto;
 			}
 			.btnAdd, .btnDell{
         align-self: center;
 				margin: 0 auto;
-				font-size: 1.5rem;
+				font-size: 1.3rem;
 				font-weight: bold;
-				padding: 1rem;
+				padding: 0.5rem;
 				font-style: italic;
 				border: 3px solid black;
 				border-radius: 1rem;
-				background-color: rgba(0, 0, 0, .6);
+
 				outline: none;
 				cursor: pointer;
+				max-width: 8.75rem;
+				display: inline-block;
 
 			}
 			.btnAdd {
 				border: 3px solid green;
 				color: green;
-				padding: 1rem 2.2825rem;
+				background-color: rgba(0, 128, 0, 0.1);
+
 			}
 			.btnDell {
 				border: 3px solid red;
 				color: red;
+				background-color: rgba(255, 0, 0, 0.1);
 			}
 		}
-		.description {
-			padding-top: 1rem;
+		.description, .contacts {
 			display: flex;
 			flex-direction: column;
+		}
+
+		.description {
+			padding-top: 0.4rem;
 			justify-content: space-around;
 			align-items: flex-start;
 
+			.title {
+       font-weight: bold;
+				font-size: 1.1rem;
+				padding: 0 0 0.5rem 0.5rem;
+
+			}
+			.desc {
+				font-size: 1.2rem;
+				border-bottom: 1px solid white;
+				border-bottom-right-radius: 1rem;
+				padding: 0.1rem;
+
+			}
 			.contacts {
 				display: flex;
-				flex-direction: column;
-				padding-left: 3rem
-			;
+				padding-left: 1rem;
+
+
+				.title {
+        display: block;
+
+				}
+				.desc {
+					display: block;
+					color: blue;
+				}
 			}
 		}
 	}

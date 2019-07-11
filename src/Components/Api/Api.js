@@ -12,5 +12,18 @@ let instans = axios.create({
 export const usersApi = {
 	getUsers(currentPage, numberUsersOnPage) {
 		return instans.get(`users/?page=${currentPage}&count=${numberUsersOnPage}`)
-		.then(response => response.data)
-	}};
+			.then(response => response.data)
+	}
+};
+
+export const profileApi = {
+	getProfile(userId) {
+		return instans.get(`profile/${userId}`)
+			.then(response => response.data)
+	},
+	getMyLogin() {
+		return instans.get('auth/me')
+			.then(response => response.data)
+	}
+
+};
