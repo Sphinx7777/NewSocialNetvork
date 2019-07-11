@@ -1,11 +1,11 @@
 
 .users {
-	/*background-image: url("./../../Images/forest.jpg");
+	background-image: url("./../../Images/forest4.jpg");
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 	border-radius: 1rem;
-	outline: none;*/
+	outline: none;
 	font-weight: bold;
 	font-size: 1.3rem;
 
@@ -15,14 +15,21 @@
 		margin-bottom: 1rem;
 		color: white;
 border: 1px solid black;
-height: 10rem;
+
 		background-color: rgba(0, 0, 0, .6);
+		max-height: 100%;
 	}
 	.user:last-child {
 		margin-bottom: 0;
 	}
 	.photo {
+		display: block;
 		max-width: 8.75rem;
+		border-top-right-radius: 1rem;
+		border-top-left-radius: 1rem;
+	}
+	.friendStatus {
+
 	}
 }
 

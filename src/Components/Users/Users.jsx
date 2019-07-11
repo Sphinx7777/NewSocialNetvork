@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Users.module.scss';
-import photo from './../../Images/rulya.jpg';
+import photo from './../../Images/skull2.png';
 
 
 
@@ -11,22 +11,27 @@ export const Users = (props) => {
 <div className={s.user}>
 
 	<img className={s.photo} src={photo} alt=""/>
+	<span className={s.friendStatus}>It's my friend</span>
 </div>
 			<div className={s.user}>
 
-				dfdfdffsdgregfdgfdgdfgfdgdfgdfgdf
+				<img className={s.photo} src={photo} alt=""/>
+				<span className={s.friendStatus}>It's my friend</span>
 			</div>
 			<div className={s.user}>
 
-				dfdfdffsdgregfdgfdgdfgfdgdfgdfgdf
+				<img className={s.photo} src={photo} alt=""/>
+				<span className={s.friendStatus}>It's my friend</span>
 			</div>
 			<div className={s.user}>
 
-				dfdfdffsdgregfdgfdgdfgfdgdfgdfgdf
+				<img className={s.photo} src={photo} alt=""/>
+				<span className={s.friendStatus}>It's my friend</span>
 			</div>
 			<div className={s.user}>
 
-				dfdfdffsdgregfdgfdgdfgfdgdfgdfgdf
+				<img className={s.photo} src={photo} alt=""/>
+				<span className={s.friendStatus}>It's my friend</span>
 			</div>
 		</div>)
 
