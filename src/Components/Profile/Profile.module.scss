@@ -1,0 +1,68 @@
+.profileWrapper {
+	background-image: url("./../../Images/forest3.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 1rem;
+	outline: none;
+	font-weight: bold;
+	min-height: 89vh;
+	.profile {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid white;
+		min-height: 89vh;
+		margin: 0 0 0 50%;
+
+		.avaAndBtn {
+display: flex;
+			flex-direction: row;
+			.photo {
+				border-radius: 1rem;
+				min-width: 12rem;
+			}
+			.btnAdd, .btnDell{
+        align-self: center;
+				margin: 0 auto;
+				font-size: 1.5rem;
+				font-weight: bold;
+				padding: 1rem;
+				font-style: italic;
+				border: 3px solid black;
+				border-radius: 1rem;
+				background-color: rgba(0, 0, 0, .6);
+				outline: none;
+				cursor: pointer;
+
+			}
+			.btnAdd {
+				border: 3px solid green;
+				color: green;
+				padding: 1rem 2.2825rem;
+			}
+			.btnDell {
+				border: 3px solid red;
+				color: red;
+			}
+		}
+		.description {
+			padding-top: 1rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: flex-start;
+
+			.contacts {
+				display: flex;
+				flex-direction: column;
+				padding-left: 3rem
+			;
+			}
+		}
+	}
+}
+
+
+
+
+

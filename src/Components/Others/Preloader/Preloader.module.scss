@@ -1,0 +1,16 @@
+.preloader {
+	margin: 0 auto;
+	text-align: center;
+	.preloadText {
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		color: black;
+	}
+	.preloadImg {
+		width: 4rem;
+		border: 1px solid black;
+		border-radius: 0.5rem;
+		outline: none;
+	}
+}

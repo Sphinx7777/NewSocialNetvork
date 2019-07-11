@@ -4,8 +4,6 @@
 	float: left;
 	position: sticky;
 	top: 0;
-	left: 0;
-	bottom: 0;
 
 
 	.sideBar {
@@ -14,6 +12,9 @@
 		max-width: 100%;
 
 		.item {
+			display: block;
+			text-decoration: none;
+			color: white;
 			background-color: rgba(0, 0, 0, .6);
 			margin-top: 1rem;
 			text-align: center;
