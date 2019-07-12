@@ -14,8 +14,8 @@ let initialState = {
 
 const authReducer = (state=initialState, action) => {
 	switch (action.type) {
-		case SET_NEW_PROFILE: {
-			return {...state, profile:action.profile,loadLogin:true}
+		case SET_MY_LOGIN: {
+			return {...state,id:action.data.id,email:action.data.email,login:action.data.login,loadLogin:true}
 		}
 		default:
 			return state;
@@ -26,12 +26,12 @@ const setMylogin = (data) => ({type:SET_MY_LOGIN, data});
 
 
 
-export const authMe = (userId) => {
+export const authMe = () => {
 	return (dispatch) => {
 		profileApi.getMyLogin()
 			.then(data => {
 				if(data.resultCode === 0){
-			 dispatch(setMylogin(data))}
+			 dispatch(setMylogin(data.data))}
 			})
 
 	}

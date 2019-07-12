@@ -19,6 +19,12 @@
 		.logo {
 			font-weight: bold;
 			font-size: 1.5rem;
+
+			.loginLink {
+				text-decoration: none;
+				color: white;
+				font-weight: bold;
+			}
 		}
 
 		.login {
@@ -38,7 +44,24 @@
 				margin-top: -0.5rem;
 				font-size: 0.8rem;
 				font-weight: bold;
+				color: red;
 			}
 		}
 	}
+}
+
+@media screen and (max-width: 600px) {
+	.headerWrapper {
+		margin: 0;
+		position: sticky;
+		top: 0;
+		left: 0;
+
+	.header {
+		display: inline-block;
+		margin: 0;
+		.logo {
+			display: none;
+		}
+	}}
 }

@@ -1,4 +1,6 @@
+
 import * as axios from "axios";
+
 
 
 let instans = axios.create({
@@ -16,6 +18,22 @@ export const usersApi = {
 	}
 };
 
+export const friendsApi = {
+	getFriendStatus(userId) {
+		return instans.get(`follow/${userId}`)
+			.then(response => response.data)
+	},
+	addUsersAsFriend(userId) {
+		return instans.post(`follow/${userId}`)
+			.then(response => response.data)
+	},
+	dellUsersAsFriend(userId) {
+		return instans.delete(`follow/${userId}`)
+			.then(response => response.data)
+	},
+
+};
+
 export const profileApi = {
 	getProfile(userId) {
 		return instans.get(`profile/${userId}`)
@@ -24,6 +42,16 @@ export const profileApi = {
 	getMyLogin() {
 		return instans.get('auth/me')
 			.then(response => response.data)
-	}
+	},
+
+	getUserStatus (userId) {
+		return instans.get(`profile/status/${userId}`)
+			.then(response => response.data)
+	},
+	updateUserStatus (status) {
+		return instans.put(`profile/status`, {status})
+			.then(response => response.data)
+	},
+
 
 };

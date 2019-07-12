@@ -1,20 +1,27 @@
 import React from 'react';
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
-import {getNewProfile} from "../Redux/profileReducer";
+import {
+	addUserAsFriend, dellUserAsFriend,
+	getFriendStatus, getNewProfile, getStatus, updateStatus
+}
+	from "../Redux/profileReducer";
 import {withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
+import {compose} from "redux";
 
 
 class ProfileContainer extends React.Component {
 
 	componentDidMount() {
-		debugger;
+
 		let userId = this.props.match.params.userId;
 		if (!userId) {
 			userId = 1184
 		}
 		this.props.getNewProfile(userId);
+		this.props.getFriendStatus(userId);
+		this.props.getStatus(userId);
 	}
 
 	render() {
@@ -22,10 +29,14 @@ class ProfileContainer extends React.Component {
 			return <Preloader/>
 		}
 		return <Profile
-			profile={this.props.profile}
-			userId={this.props.match.params.userId}
+			{...this.props.profile}
 			status={this.props.status}
 			friendBtnState={this.props.friendBtnState}
+			friendStatus={this.props.friendStatus}
+			loginId={this.props.loginId}
+			addFriend={this.props.addUserAsFriend}
+			dellFriend={this.props.dellUserAsFriend}
+			updateStatus={this.props.updateStatus}
 		/>
 	}
 }
@@ -36,9 +47,15 @@ let mapStateToProps = (state) => {
 		loadProfile: state.profilePage.loadProfile,
 		status: state.profilePage.status,
 		friendBtnState: state.profilePage.friendBtnState,
-
+		friendStatus: state.profilePage.friendStatus,
+		loginId: state.auth.id,
 	}
 };
 
+export default compose(
 
-export default withRouter(connect(mapStateToProps, {getNewProfile})(ProfileContainer));
+	connect(mapStateToProps, {updateStatus,dellUserAsFriend,
+		addUserAsFriend,getNewProfile,
+		getFriendStatus,getStatus}),withRouter)(ProfileContainer);
+
+

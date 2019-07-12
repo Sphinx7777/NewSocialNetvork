@@ -7,6 +7,7 @@
 	border-radius: 1rem;
 	outline: none;
 	font-weight: bold;
+	min-height: 100vh;
 
 
 	.stringPages {
@@ -41,6 +42,7 @@
 	.user {
 
 		display: flex;
+		max-width: 100%;
 
 
 		.photoAndFriendStatus {
@@ -98,7 +100,5 @@
 	}
 
 }
-
-
 
 

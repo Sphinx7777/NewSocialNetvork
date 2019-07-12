@@ -6,6 +6,8 @@
 	border-radius: 1rem;
 	outline: none;
 	font-weight: bold;
+	font-size: 100%;
+
 
 	.profile {
 		display: flex;
@@ -14,6 +16,8 @@
 		margin: 0 0 0 50%;
 		background-color: rgba(0, 0, 0, .6);
 		min-height: 89vh;
+		max-width: 100%;
+
 
 		.avaAndBtn {
       display: flex;
@@ -32,23 +36,21 @@
 				font-style: italic;
 				border: 3px solid black;
 				border-radius: 1rem;
-
 				outline: none;
 				cursor: pointer;
-				max-width: 8.75rem;
 				display: inline-block;
 
 			}
 			.btnAdd {
 				border: 3px solid green;
 				color: green;
-				background-color: rgba(0, 128, 0, 0.1);
+				background-color: rgba(0, 128, 0, 0.2);
 
 			}
 			.btnDell {
 				border: 3px solid red;
 				color: red;
-				background-color: rgba(255, 0, 0, 0.1);
+				background-color: rgba(255, 0, 0, 0.2);
 			}
 		}
 		.description, .contacts {
@@ -61,17 +63,29 @@
 			justify-content: space-around;
 			align-items: flex-start;
 
+			.statusInput {
+        border: 1px solid red;
+				border-radius: 0.5rem;
+				outline: none;
+				padding: 0.1rem;
+				font-size: 1rem;
+				margin: 0.5rem 0 0 0.5rem;
+
+			}
+
 			.title {
        font-weight: bold;
 				font-size: 1.1rem;
 				padding: 0 0 0.5rem 0.5rem;
+				color: red;
 
 			}
 			.desc {
 				font-size: 1.2rem;
 				border-bottom: 1px solid white;
 				border-bottom-right-radius: 1rem;
-				padding: 0.1rem;
+				padding: 0.1rem 0.5rem;
+				color: white;
 
 			}
 			.contacts {
@@ -88,6 +102,24 @@
 					color: blue;
 				}
 			}
+		}
+	}
+}
+@media screen and (max-width: 992px) {
+	html {
+		font-size: 97%;
+		}
+	.profileWrapper {
+		.profile {
+			margin: 0 0 0 35%;
+		}
+	}
+}
+@media screen and (max-width: 800px) {
+	.profileWrapper {
+
+		.profile {
+			margin: 0 auto;
 		}
 	}
 }

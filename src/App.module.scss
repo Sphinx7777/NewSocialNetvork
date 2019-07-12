@@ -6,6 +6,7 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	font-size: 100%;
 }
 
 
@@ -19,6 +20,8 @@ html, body {
 	border-radius: 1rem;
 	outline: none;
 	color: white;
+	min-height: 89vh;
+
 
 	.contentWrapper {
 		display: flex;

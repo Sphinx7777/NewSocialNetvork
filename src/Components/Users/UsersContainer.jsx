@@ -3,6 +3,7 @@ import {Users} from "./Users";
 import {connect} from "react-redux";
 import {getNewUsers} from "../Redux/usersReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
+import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 
 
 
@@ -39,4 +40,4 @@ let mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {getNewUsers,})(UsersContainer);
+export default  withAuthRedirect(connect(mapStateToProps, {getNewUsers,})(UsersContainer));
