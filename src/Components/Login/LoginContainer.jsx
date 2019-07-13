@@ -1,7 +1,10 @@
 import React from 'react';
 import {Login} from "./Login";
 import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
+import {loginMe} from "../Redux/authReducer";
+
+
+
 
 
 
@@ -13,7 +16,7 @@ class LoginContainer extends React.Component {
 
 	render() {
 
-		return <Login/>
+		return <Login loginMe={this.props.loginMe}/>
 	}
 }
 
@@ -25,4 +28,4 @@ let mapStateToProps = (state) => {
 };
 
 
-export default withRouter(connect(mapStateToProps, {})(LoginContainer));
+export default connect(mapStateToProps, {loginMe})(LoginContainer);

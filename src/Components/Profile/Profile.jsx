@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Profile.module.scss';
 import photo from './../../Images/skull2.png';
 import ProfileStatus from "./ProfileStatus";
+import MyPosts from "./MyPosts/MyPosts";
 
 
 export const Profile = (props) => {
@@ -14,12 +15,12 @@ export const Profile = (props) => {
 
 					{props.loginId === props.userId ? <div className={s.btnDell}>It's my profile</div> :
 						!props.friendStatus
-							? <div className={s.btnAdd} onClick={() => {
+							? <button className={s.btnAdd} disabled={!props.friendBtnState} onClick={() => {
 								props.addFriend(props.userId)
-							}}>Add as friend</div>
-							: <div className={s.btnDell} onClick={() => {
+							}}>Add as friend</button>
+							: <button className={s.btnDell} disabled={!props.friendBtnState} onClick={() => {
 								props.dellFriend(props.userId)
-							}}>Dell from friends</div>}
+							}}>Dell from friends</button>}
 
 				</div>
 				<div className={s.description}>
@@ -43,8 +44,7 @@ export const Profile = (props) => {
 					}
 				</div>
 			</div>
+			<MyPosts />
 		</div>
 	)
-
-
 };

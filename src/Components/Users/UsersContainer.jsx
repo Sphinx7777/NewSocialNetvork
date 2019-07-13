@@ -3,7 +3,8 @@ import {Users} from "./Users";
 import {connect} from "react-redux";
 import {getNewUsers} from "../Redux/usersReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
-import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
+/*import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";*/
+import {compose} from "redux";
 
 
 
@@ -35,9 +36,11 @@ let mapStateToProps = (state) => {
 		loadedUsers: state.usersPage.loadedUsers,
 		totalNumberOfUsers: state.usersPage.totalNumberOfUsers,
 		numberUsersOnPage: state.usersPage.numberUsersOnPage,
-
+		loadLogin: state.auth.loadLogin
 	}
 };
+export default compose(
+	connect(mapStateToProps, {getNewUsers,}),
+	/*withAuthRedirect*/
+)(UsersContainer);
 
-
-export default  withAuthRedirect(connect(mapStateToProps, {getNewUsers,})(UsersContainer));

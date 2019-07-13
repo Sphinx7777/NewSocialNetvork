@@ -17,7 +17,7 @@ function App() {
 			<div className={s.contentWrapper}>
 			<Route path='/users' render = {()=> <UsersContainer />} />
 			<Route path='/profile/:userId?' render = {()=> <ProfileContainer />} />
-			<Route path='/login/:userId?' render = {()=> <LoginContainer />} />
+			<Route path='/login' render = {()=> <LoginContainer />} />
 			</div>
 		</div>
 	);

@@ -39,10 +39,7 @@ export const profileApi = {
 		return instans.get(`profile/${userId}`)
 			.then(response => response.data)
 	},
-	getMyLogin() {
-		return instans.get('auth/me')
-			.then(response => response.data)
-	},
+
 
 	getUserStatus (userId) {
 		return instans.get(`profile/status/${userId}`)
@@ -54,4 +51,15 @@ export const profileApi = {
 	},
 
 
+};
+
+export const loginApi = {
+	getMyLogin() {
+		return instans.get('auth/me')
+			.then(response => response.data)
+	},
+	doLoginMe(formData) {
+		return instans.post('auth/login', {...formData})
+			.then(response => response.data)
+	},
 };

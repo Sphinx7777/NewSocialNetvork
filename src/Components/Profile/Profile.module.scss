@@ -7,28 +7,30 @@
 	outline: none;
 	font-weight: bold;
 	font-size: 100%;
+	display: flex;
 
 
 	.profile {
 		display: flex;
 		flex-direction: column;
 		border-radius: 1rem;
-		margin: 0 0 0 50%;
 		background-color: rgba(0, 0, 0, .6);
 		min-height: 89vh;
-		max-width: 100%;
+		width: 50%;
 
 
 		.avaAndBtn {
-      display: flex;
+			display: flex;
 			flex-direction: column;
+
 			.photo {
 				border-radius: 1rem;
 				max-width: 8.75rem;
 				margin: 0 auto;
 			}
-			.btnAdd, .btnDell{
-        align-self: center;
+
+			.btnAdd, .btnDell {
+				align-self: center;
 				margin: 0 auto;
 				font-size: 1.3rem;
 				font-weight: bold;
@@ -41,18 +43,27 @@
 				display: inline-block;
 
 			}
+
+			.btnAdd:disabled, .btnDell:disabled {
+				color: darkgrey;
+				border: 3px solid darkgrey;
+				background-color: rgba(28, 24, 23, 0.1);
+			}
+
 			.btnAdd {
 				border: 3px solid green;
 				color: green;
 				background-color: rgba(0, 128, 0, 0.2);
 
 			}
+
 			.btnDell {
 				border: 3px solid red;
 				color: red;
 				background-color: rgba(255, 0, 0, 0.2);
 			}
 		}
+
 		.description, .contacts {
 			display: flex;
 			flex-direction: column;
@@ -64,7 +75,7 @@
 			align-items: flex-start;
 
 			.statusInput {
-        border: 1px solid red;
+				border: 1px solid red;
 				border-radius: 0.5rem;
 				outline: none;
 				padding: 0.1rem;
@@ -74,12 +85,13 @@
 			}
 
 			.title {
-       font-weight: bold;
+				font-weight: bold;
 				font-size: 1.1rem;
 				padding: 0 0 0.5rem 0.5rem;
 				color: red;
 
 			}
+
 			.desc {
 				font-size: 1.2rem;
 				border-bottom: 1px solid white;
@@ -88,15 +100,17 @@
 				color: white;
 
 			}
+
 			.contacts {
 				display: flex;
 				padding-left: 1rem;
 
 
 				.title {
-        display: block;
+					display: block;
 
 				}
+
 				.desc {
 					display: block;
 					color: blue;
@@ -105,22 +119,21 @@
 		}
 	}
 }
-@media screen and (max-width: 992px) {
-	html {
-		font-size: 97%;
-		}
-	.profileWrapper {
-		.profile {
-			margin: 0 0 0 35%;
-		}
-	}
-}
+
+
+
+
+
+
 @media screen and (max-width: 800px) {
 	.profileWrapper {
+		flex-direction: column;
+		font-size: 90%;
 
 		.profile {
-			margin: 0 auto;
+			width: 100%;
 		}
+
 	}
 }
 
