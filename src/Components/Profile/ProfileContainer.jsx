@@ -2,6 +2,7 @@ import React from 'react';
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
 import {
+
 	addUserAsFriend, dellUserAsFriend,
 	getFriendStatus, getNewProfile, getStatus, updateStatus
 }
@@ -9,13 +10,14 @@ import {
 import {withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
 import {compose} from "redux";
-import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
+
+
+
 
 
 class ProfileContainer extends React.Component {
 
 	componentDidMount() {
-
 		let userId = this.props.match.params.userId;
 		if (!userId) {
 			userId = 1184
@@ -38,6 +40,7 @@ class ProfileContainer extends React.Component {
 			addFriend={this.props.addUserAsFriend}
 			dellFriend={this.props.dellUserAsFriend}
 			updateStatus={this.props.updateStatus}
+
 		/>
 	}
 }
@@ -54,7 +57,6 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-withAuthRedirect,
 	connect(mapStateToProps, {updateStatus,dellUserAsFriend,
 		addUserAsFriend,getNewProfile,
 		getFriendStatus,getStatus}),withRouter)(ProfileContainer);

@@ -18,7 +18,7 @@ const authReducer = (state = initialState, action) => {
 		case SET_MY_LOGIN: {
 			return {...state, id: action.data.id, email: action.data.email, login: action.data.login, loadLogin: true}
 		}
-		case SET_MY_REGISTRATION: {debugger;
+		case SET_MY_REGISTRATION: {
 			return {...state ,loadLogin: true}
 		}
 		default:
