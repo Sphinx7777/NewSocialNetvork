@@ -7,7 +7,9 @@
 	border-radius: 1rem;
 	outline: none;
 	font-weight: bold;
-	min-height: 100vh;
+	height: 89vh;
+	overflow: auto;
+	max-width: 100%;
 
 
 	.stringPages {
@@ -101,3 +103,19 @@
 }
 
 
+@media screen and (max-width: 600px) {
+	.user {
+		font-size: 80%;
+
+		.description {
+			.userName, .userStatus {
+				font-size: 0.9rem;
+			}
+			.name, .status {
+				font-size: 1rem;
+			}
+		}
+
+	}
+
+}

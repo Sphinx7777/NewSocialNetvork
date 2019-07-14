@@ -41,6 +41,7 @@ class ProfileContainer extends React.Component {
 			dellFriend={this.props.dellUserAsFriend}
 			updateStatus={this.props.updateStatus}
 
+
 		/>
 	}
 }

@@ -20,18 +20,20 @@ html, body {
 	border-radius: 1rem;
 	outline: none;
 	color: white;
-	min-height: 89vh;
+	min-height: 100vh;
+	font-size: 100%;
 
 
 	.contentWrapper {
-		display: flex;
-		flex-direction: column;
+
 		padding: 0.5rem 0 0 0.5rem;
-		min-height: 89vh;
+		min-height: 100vh;
+
 	}
 }
 @media screen and (max-width: 600px) {
 .app {
+
 	.contentWrapper {
 		margin-left: 7rem;
 		padding: 0;

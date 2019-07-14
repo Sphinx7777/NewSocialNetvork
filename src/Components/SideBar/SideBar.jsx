@@ -17,6 +17,9 @@ export const SideBar = (props) => {
 			<NavLink className={s.item} activeClassName={s.activeItem} to='/profile'>
 				Profile
 			</NavLink>
+			<NavLink className={s.item} activeClassName={s.activeItem} to='/dialogs'>
+				Dialogs
+			</NavLink>
 			<NavLink className={s.item} activeClassName={s.activeItem} to='/news'>
 				News
 			</NavLink>

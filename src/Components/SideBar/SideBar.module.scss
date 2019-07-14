@@ -2,13 +2,13 @@
 .sideBarWrapper {
 	max-width: 6rem;
 	float: left;
-	position: sticky;
-	top: 5rem;
+
+
 
 
 	.sideBar {
 
-		padding-top: 0.5rem;
+		padding-top: 0.3rem;
 		max-width: 100%;
 
 		.item {
@@ -16,11 +16,11 @@
 			text-decoration: none;
 			color: white;
 			background-color: rgba(0, 0, 0, .6);
-			margin-top: 1rem;
+			margin-top: 0.5rem;
 			text-align: center;
 			border: 3px solid black;
 			border-radius: 0.5rem;
-			padding: 0.5rem 1rem;
+			padding: 0.3rem 0.5rem;
 			font-weight: bold;
 		}
 		.item:hover, .activeItem {
@@ -33,14 +33,19 @@
 		}
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
 	.sideBarWrapper {
 
-		position: fixed;
-		left: 0;
-		top: 5rem;
+	}}
+@media screen and (max-width: 600px) {
+	.sideBarWrapper {
+margin-top: 5rem;
+
 	}
 }
 @media screen and (max-width: 450px) {
+	.sideBarWrapper {
+		margin-top: 5rem;
+	}
 
 }

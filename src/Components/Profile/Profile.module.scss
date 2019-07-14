@@ -14,9 +14,11 @@
 		display: flex;
 		flex-direction: column;
 		border-radius: 1rem;
-		background-color: rgba(0, 0, 0, .6);
+		background-color: rgba(0, 0, 0, .5);
 		min-height: 89vh;
 		width: 50%;
+		margin-right: 0.5rem;
+		padding-left: 0.5rem;
 
 
 		.avaAndBtn {
@@ -125,18 +127,35 @@
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 920px) {
 	.profileWrapper {
 		flex-direction: column;
 		font-size: 90%;
-
+		width: 80%;
 		.profile {
 			width: 100%;
+			padding-left: 0;
+			margin-left: 0;
 		}
 
 	}
 }
+@media screen and (max-width: 600px) {
+	.profileWrapper {
+		flex-direction: column;
+		font-size: 90%;
+		width: 90%;
+		padding: 0;
+		margin: 0;
 
+		.profile {
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+
+	}
+}
 
 
 

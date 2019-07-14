@@ -22,7 +22,7 @@ let initialState = {
 	loadProfile: false,
 	friendBtnState: true,
 	friendStatus: null,
-	postsUpdate: false
+	postsUpdate: true
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -74,7 +74,6 @@ export const addNewPost = (post) => {
 	return (dispatch) => {
 		dispatch(setUpdateLoadPost(false));
 		dispatch(setNewPost(post));
-		dispatch(setUpdateLoadPost(true))
 	}
 };
 
