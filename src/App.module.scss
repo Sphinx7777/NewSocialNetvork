@@ -22,12 +22,21 @@ html, body {
 	color: white;
 	min-height: 100vh;
 	font-size: 100%;
+	position: relative;
 
 
 	.contentWrapper {
 
-		padding: 0.5rem 0 0 0.5rem;
-		min-height: 100vh;
+
+
+bottom: 0;
+
+
+		height: 100%;
+
+		margin: 0;
+		padding: 0;
+
 
 	}
 }

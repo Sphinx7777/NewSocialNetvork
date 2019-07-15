@@ -16,13 +16,13 @@ let	onSubmit = (formData)=> {
 				<div className={s.userItem}>
 				user
 			</div>
-				<div>
+				<div className={s.userItem}>
 					user
 				</div>
-				<div>
+				<div className={s.userItem}>
 					user
 				</div>
-				<div>
+				<div className={s.userItem}>
 					user
 				</div>
 			</div>
