@@ -7,7 +7,7 @@ import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import LoginContainer from "./Components/Login/LoginContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import MainContainer from "./Components/Main/MainContainer";
+/*import MainContainer from "./Components/Main/MainContainer";*/
 
 
 
@@ -18,7 +18,7 @@ function App() {
 			<SideBarContainer />
 			<div className={s.contentWrapper}>
 			<Route path='/users' render = {()=> <UsersContainer />} />
-			<Route path='/' render = {()=> <MainContainer />} />
+			{/*<Route path='/' render = {()=> <MainContainer />} />*/}
 			<Route path='/profile/:userId?' render = {()=> <ProfileContainer />} />
 			<Route path='/login' render = {()=> <LoginContainer />} />
 			<Route path='/dialogs' render = {()=> <DialogsContainer />} />

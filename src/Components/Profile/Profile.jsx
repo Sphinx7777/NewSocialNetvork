@@ -44,7 +44,7 @@ export const Profile = (props) => {
 					}
 				</div>
 			</div>
-			<MyPosts fullName={props.fullName} photos={props.photos}/>
+			<MyPosts fullName={props.fullName} photos={props.photos} userId={props.userId} loginId={props.loginId}/>
 		</div>
 	)
 };

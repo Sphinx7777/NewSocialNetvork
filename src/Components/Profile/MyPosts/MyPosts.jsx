@@ -20,12 +20,14 @@ if(values.text.length >=1) {
 	};
 
 
-	render() {debugger;
+	render() {
 	return (
 		<div className={s.myPostsWrapper}>
-			<div className={s.myPostFormWrapper}>
+			{this.props.userId === this.props.loginId ?
+				<div className={s.myPostFormWrapper}>
 				<MyPostFormRedux postsUpdate={this.props.postsUpdate} onSubmit={this.onSubmit}/>
-			</div>
+				</div> : <></>
+			}
 			<div className={s.myPosts}>
 				{this.props.posts.map((m,index) => {
 					return (
@@ -46,7 +48,7 @@ if(values.text.length >=1) {
 let mapStateToProps = (state) => {
 	return {
 		posts: state.profilePage.posts,
-		postsUpdate: state.profilePage.postsUpdate
+		postsUpdate: state.profilePage.postsUpdate,
 	}
 };
 
