@@ -11,7 +11,7 @@ import photo from './../../../Images/skull2.png';
 
 
 class MyPosts extends React.Component {
-	onSubmit = (values) => {
+	onsSubmit = (values) => {
 
 if(!values.text)return alert('Write message minimum 1 symbol..');
 if(values.text.length >=1) {
@@ -25,7 +25,7 @@ if(values.text.length >=1) {
 		<div className={s.myPostsWrapper}>
 			{this.props.userId === this.props.loginId ?
 				<div className={s.myPostFormWrapper}>
-				<MyPostFormRedux postsUpdate={this.props.postsUpdate} onSubmit={this.onSubmit}/>
+				<MyPostFormRedux postsUpdate={this.props.postsUpdate} onsSubmit={this.onsSubmit}/>
 				</div> : <></>
 			}
 			<div className={s.myPosts}>
