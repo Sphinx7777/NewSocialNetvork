@@ -67,7 +67,7 @@
 	.dialogsWrapper {
 	.dialogs {
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 
 		.user, .messages, .answers {
 			min-width: 80%;

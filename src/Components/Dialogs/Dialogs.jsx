@@ -5,8 +5,8 @@ import DialogsReduxForm from "./DialogsReduxForm";
 
 export const Dialogs = (props) => {
 
-let	onSubmit = (formData)=> {
-
+let	onSubmit = (values)=> {
+props.addNewPost(values.newTextDialog);
 };
 
 	return (
@@ -27,20 +27,23 @@ let	onSubmit = (formData)=> {
 				</div>
 			</div>
 			<div className={s.messages}>
-				<DialogsReduxForm onSubmit={onSubmit} />
+				<DialogsReduxForm onSubmit={onSubmit} postSend={props.postSend}/>
 				<div>
-					messages
+					{props.myPost.map(p=> {
+						return( <div key={p.id}>
+							{p.post}
+						</div>)
+					})}
 				</div>
-				<div>
-					messages
-				</div>
-				<div>
-					messages
-				</div>
+
 
 			</div>
 			<div className={s.answers}>
-				answers
+				{props.userAnswers.map((a,index)=> {
+					return( <div key={index}>
+						{a.answered}
+					</div>)
+				})}
 			</div>
 			</div>
 		</div>

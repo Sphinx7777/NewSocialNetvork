@@ -26,25 +26,28 @@ html, body {
 
 
 	.contentWrapper {
-
-
-
-bottom: 0;
-
-
-		height: 100%;
-
+		bottom: 0;
+float: right;
 		margin: 0;
 		padding: 0;
-
+width: 90%;
 
 	}
+}
+@media screen and (max-width: 900px) {
+	.app {
+
+		.contentWrapper {
+			margin: 0 auto;
+			width: 80%;
+			padding: 0;
+		}}
 }
 @media screen and (max-width: 600px) {
 .app {
 
 	.contentWrapper {
-		margin-left: 7rem;
+		width: 80%;
 		padding: 0;
 	}}
 }

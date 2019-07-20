@@ -12,6 +12,17 @@
 	overflow: auto;
 	max-width: 100%;
 
+	.myPostsWrapper {
+		display: flex;
+		flex-direction: column;
+		border-radius: 1rem;
+		background-color: rgba(0, 0, 0, .5);
+		min-height: 89vh;
+		width: 50%;
+		margin-right: 0.5rem;
+		padding-left: 0.5rem;
+	}
+
 
 	.profile {
 		display: flex;
@@ -131,12 +142,17 @@
 
 
 @media screen and (max-width: 920px) {
+
 	.profileWrapper {
-		display: flex;
-		flex-direction: column;
+display: block;
 		font-size: 90%;
-		width: 80%;
+		max-width: 100%;
 		.profile {
+			width: 100%;
+			padding-left: 0;
+			margin-left: 0;
+		}
+		.myPostsWrapper {
 			width: 100%;
 			padding-left: 0;
 			margin-left: 0;
@@ -145,15 +161,17 @@
 	}
 }
 @media screen and (max-width: 600px) {
-	.profileWrapper {
+	.contentWrapper {
 		display: flex;
 		flex-direction: column;
+	.profileWrapper {
+
 		font-size: 90%;
-		width: 90%;
+height: 100%;
 		padding: 0;
 		margin: 0;
 		.myPostsWrapper {
-			width: 90%;
+
 		}
 
 		.profile {
@@ -162,7 +180,7 @@
 			margin: 0;
 		}
 
-	}
+	}}
 }
 
 
