@@ -3,11 +3,19 @@
 display: flex;
 	flex-direction: column;
 	align-items: center;
-	color: red;
+	text-align: center;
+
 
 
 	.loginBtn,.log,.pass,.check {
 padding: 1rem;
+		color: black;
+		font-weight: bold;
+
+	}
+	.loginBtn {
+		padding: 0.5rem;
+
 	}
 }
 

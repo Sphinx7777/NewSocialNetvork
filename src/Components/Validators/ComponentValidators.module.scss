@@ -1,0 +1,15 @@
+.inputForms {
+	display: flex;
+	flex-direction: column;
+	.inputForm.error {
+		border: 1px solid red;
+
+
+
+	}
+	.spanForm {
+		display: block;
+		color: red;
+		font-weight: bold;
+	}
+}
