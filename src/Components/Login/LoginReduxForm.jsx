@@ -12,6 +12,7 @@ const minlength6 = minLengthCreator(6);
 const LoginForm = (props) => {
 
 	return (
+		<div>
 		<form onSubmit={props.handleSubmit(props.onSubmit)}>
 			<div className={s.log}>
 				<label>Email :</label>
@@ -24,8 +25,10 @@ const LoginForm = (props) => {
 			<div className={s.check}>
 			<Field component='input' name='rememberMe' type='checkbox'/> Remember me
 		</div>
-			<button className={s.loginBtn}>Login</button>
+			{!props.loadLogin && <button className={s.loginBtn}>Login</button>}
 		</form>
+			<button className={s.unLoginBtn} onClick={()=>{props.unIoginMe()}}>UnLogin</button>
+		</div>
 	)
 };
 let LoginReduxForm = reduxForm({form: 'login'})(LoginForm);

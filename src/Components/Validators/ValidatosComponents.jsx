@@ -11,3 +11,12 @@ export const Input = ({input, meta, ...props}) => {
 		</div>
 	)
 };
+export const Textarea = ({input, meta, ...props}) => {
+
+	return (
+		<div className={s.inputForms}>
+			<textarea className={s.inputForm + ' ' + (meta.error ? s.error : '')} {...input}{...props}/>
+			{meta.error && <span className={s.spanForm}>{meta.error}</span>}
+		</div>
+	)
+};

@@ -4,19 +4,25 @@ import photo from './../../Images/skull2.png';
 import {NavLink} from "react-router-dom";
 
 
-
 export const Users = (props) => {
 	let totalCountUsers = Math.ceil(props.totalNumberOfUsers / props.numberUsersOnPage);
 	let pages = [];
 	for (let i = 1; i <= totalCountUsers; i++) {
 		pages.push(i);
 	}
-	let stringPages = () => pages.map((n, index) => {
-		return (<span onClick={() => {
-				props.onClickNumberOfPage(n)
-			}}
-									key={index} className={props.currentPage === n ? s.selectedPage : s.numberPage}>{n}
-	</span>
+	let pagesCreator=(started,finish)=> pages.filter(p=> {
+		return (p>=started && p<=finish);
+	});
+
+	let pagesCount = pagesCreator(props.currentPage-7,props.currentPage+7);
+
+	let stringPages = () => pagesCount.map((n, index) => {
+		return (<span
+				onClick={() => {
+					props.onClickNumberOfPage(n)
+				}}
+				key={index} className={props.currentPage === n ? s.selectedPage : s.numberPage}>{n}
+	        </span>
 		)
 	});
 
@@ -24,7 +30,14 @@ export const Users = (props) => {
 	return (
 		<div className={s.users}>
 			<div className={s.stringPages}>
-				{stringPages()}
+				<span onClick={()=>{props.onClickNumberOfPage(props.currentPage>1 ? 1
+					: props.currentPage )}} className={s.goToTheTop}>Go to the top
+				</span>
+				...{stringPages()}...
+				<span onClick={()=>{props.onClickNumberOfPage(props.currentPage<totalCountUsers
+					? totalCountUsers
+					: props.currentPage )}} className={s.goToTheEnd}>Go to the end
+				</span>
 			</div>
 			{props.users.map(u => {
 
@@ -44,6 +57,11 @@ export const Users = (props) => {
 					</div>
 				</NavLink>)
 			})}
+			<div>
+				<span onClick={()=>{props.onClickNumberOfPage(props.currentPage>1 ? props.currentPage-1: props.currentPage )}} className={s.showPrevPage}>Show prev page ↩</span>
+				<span onClick={()=>{props.onClickNumberOfPage(props.currentPage<pages.length ? props.currentPage+1: props.currentPage )}} className={s.showNextPage}>↪ Show next page</span>
+
+			</div>
 
 		</div>
 	)

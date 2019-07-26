@@ -8,6 +8,7 @@ const MyPostFormRedux = (props) => {
 
 	return (
 		<form className={s.myPostForm} onSubmit={props.handleSubmit(props.onsSubmit)}>
+			<span className={s.formInputMinimum}>"Minimum 1 symbol"</span>
 			<div className={s.formInput}>
 				<Field component='textarea' placeholder={'New text minimum 1 symbol..'} type='text' name='text'/>
 			</div>

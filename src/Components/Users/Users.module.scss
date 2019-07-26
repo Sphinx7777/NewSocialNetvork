@@ -7,14 +7,33 @@
 	border-radius: 1rem;
 	outline: none;
 	font-weight: bold;
-	height: 93vh;
+	max-height: 90vh;
 	overflow: auto;
 	max-width: 100%;
+
+	.goToTheTop, .goToTheEnd {
+		cursor: pointer;
+	}
+
+	.showNextPage, .showPrevPage {
+		display: inline-block;
+		text-decoration: none;
+		color: white;
+		background-color: rgba(0, 0, 0, .6);
+		margin: 0.5rem 0.5rem;
+		text-align: center;
+		border: 3px solid white;
+		border-radius: 0.5rem;
+		padding: 0.3rem 0.5rem;
+		font-weight: bold;
+		cursor: pointer;
+	}
 
 
 	.stringPages {
    text-align: center;
 		padding: 0.3rem 0;
+		color: black;
 
 		.numberPage, .selectedPage{
 			padding: 1px;

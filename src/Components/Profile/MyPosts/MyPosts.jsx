@@ -14,10 +14,7 @@ class MyPosts extends React.Component {
 	onsSubmit = (values) => {
 
 if(!values.text)return alert('Write message minimum 1 symbol..');
-if(values.text.length >=1) {
-		this.props.addNewPost(values.text);}
-
-	};
+this.props.addNewPost(values.text)};
 
 
 	render() {

@@ -6,11 +6,12 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
 
 
+
 let initialState = {
 	users: [],
 	totalNumberOfUsers: null,
 	currentPage: 1,
-	numberUsersOnPage: 5,
+	numberUsersOnPage: 7,
 	loadedUsers: false
 };
 
@@ -35,16 +36,17 @@ const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage});
 
 
 
+
 export const getNewUsers = (currentPage, numberUsersOnPage) => {
 	return (dispatch) => {
+
 		dispatch(setCurrentPage(currentPage));
+
 		usersApi.getUsers(currentPage, numberUsersOnPage)
 			.then(data => {
 			 dispatch(setNewUsers(data.items));
 			 dispatch(setTotalNumberOfUsers(data.totalCount));
-			})
+			})}};
 
-	}
-};
 
 export default usersReducer;

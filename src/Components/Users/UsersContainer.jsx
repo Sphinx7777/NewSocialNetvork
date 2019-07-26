@@ -11,8 +11,7 @@ import {compose} from "redux";
 class UsersContainer extends React.Component {
 
 	componentDidMount() {
-		this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage)
-
+		this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage);
 	}
 
 	onClickNumberOfPage = (currentPage) => {
@@ -24,7 +23,9 @@ class UsersContainer extends React.Component {
 		if (!this.props.loadedUsers) {
 			return <Preloader/>
 		}
-		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}/>
+		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}
+
+		/>
 	}
 
 }
@@ -40,7 +41,7 @@ let mapStateToProps = (state) => {
 	}
 };
 export default compose(
-	connect(mapStateToProps, {getNewUsers,}),
+	connect(mapStateToProps, {getNewUsers}),
 	/*withAuthRedirect*/
 )(UsersContainer);
 

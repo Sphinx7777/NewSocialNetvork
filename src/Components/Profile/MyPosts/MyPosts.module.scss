@@ -64,8 +64,14 @@
 			text-align: center;
 			padding: 0.5rem;
 
+			.formInputMinimum {
+				font-size: 0.811rem;
+				align-self: flex-start;
+				margin-left: 3rem;
+			}
+
 			.formInput {
-				padding-top: 0.5rem;
+
 				padding-bottom: 0.5rem;
 
 				textarea {

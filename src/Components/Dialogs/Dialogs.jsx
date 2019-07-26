@@ -6,7 +6,7 @@ import DialogsReduxForm from "./DialogsReduxForm";
 export const Dialogs = (props) => {
 
 let	onSubmit = (values)=> {
-props.addNewPost(values.newTextDialog);
+	values.newTextDialog && props.addNewPost(values.newTextDialog);
 };
 
 	return (

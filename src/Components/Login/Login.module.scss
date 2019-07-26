@@ -7,15 +7,18 @@ display: flex;
 
 
 
-	.loginBtn,.log,.pass,.check {
+	.loginBtn, .unLoginBtn,.log,.pass,.check {
 padding: 1rem;
 		color: black;
 		font-weight: bold;
 
 	}
-	.loginBtn {
+	.loginBtn,.unLoginBtn {
 		padding: 0.5rem;
 
+	}
+	.unLoginBtn{
+		margin-top: 0.5rem;
 	}
 }
 
