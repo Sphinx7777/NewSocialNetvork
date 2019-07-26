@@ -33,7 +33,9 @@ export const Users = (props) => {
 				<span onClick={()=>{props.onClickNumberOfPage(props.currentPage>1 ? 1
 					: props.currentPage )}} className={s.goToTheTop}>Go to the top
 				</span>
+				<div className={s.string}>
 				...{stringPages()}...
+				</div>
 				<span onClick={()=>{props.onClickNumberOfPage(props.currentPage<totalCountUsers
 					? totalCountUsers
 					: props.currentPage )}} className={s.goToTheEnd}>Go to the end

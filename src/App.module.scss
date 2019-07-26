@@ -23,14 +23,17 @@ html, body {
 	min-height: 100vh;
 	font-size: 100%;
 	position: relative;
+	clear: both;
 
 
 	.contentWrapper {
 		bottom: 0;
-float: right;
-		margin: 0;
+		overflow: auto;
+		margin:0 auto;
 		padding: 0;
-width: 90%;
+max-width: 100%;
+
+
 
 	}
 }
@@ -39,7 +42,7 @@ width: 90%;
 
 		.contentWrapper {
 			margin: 0 auto;
-			width: 80%;
+
 			padding: 0;
 		}}
 }
@@ -47,7 +50,7 @@ width: 90%;
 .app {
 
 	.contentWrapper {
-		width: 80%;
+
 		padding: 0;
 	}}
 }

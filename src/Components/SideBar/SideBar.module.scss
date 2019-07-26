@@ -2,6 +2,7 @@
 .sideBarWrapper {
 	max-width: 6rem;
 	float: left;
+	margin-right: 1rem;
 
 
 
@@ -38,15 +39,47 @@
 	.sideBarWrapper {
 
 	}}
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 630px) {
 	.sideBarWrapper {
-margin-top: 5rem;
+		display: flex;
+margin: 0 auto;
+	position: sticky;
+		top:0;
+		float: none;
+		text-align: center;
+		max-width: 100%;
+		clear: both;
+
+		.sideBar {
+			margin: 0 auto;
+
+width: 100%;
+			justify-content: space-around;
+
+			.item {
+				display: inline-block;
+				font-weight: normal;
+				padding: 0.1rem;
+				margin: 0.1rem;
+			}
+
+
+
+			.item:first-child {
+				margin-top: 0.5rem;
+			}
+
+		}
 
 	}
 }
 @media screen and (max-width: 450px) {
 	.sideBarWrapper {
-		margin-top: 5rem;
+		.sideBar {
+			.item {
+
+			}
+		}
 	}
 
 }

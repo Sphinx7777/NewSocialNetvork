@@ -12,9 +12,9 @@ const minlength6 = minLengthCreator(6);
 const LoginForm = (props) => {
 
 	return (
-		<div>
+		<div className={s.log}>
 		<form onSubmit={props.handleSubmit(props.onSubmit)}>
-			<div className={s.log}>
+			<div >
 				<label>Email :</label>
        <Field placeholder='Email' component={Input} name='email' type='email' validate={[maxlength30,emptyField,]}/>
 			</div>

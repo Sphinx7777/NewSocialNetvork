@@ -31,6 +31,10 @@
 
 
 	.stringPages {
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
    text-align: center;
 		padding: 0.3rem 0;
 		color: black;
@@ -120,21 +124,46 @@
 	}
 
 }
-
+@media screen and (max-width: 750px) {
+	.users {
+		.stringPages {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
 
 @media screen and (max-width: 600px) {
+.users {
+	max-width: 100%;
 	.user {
-		font-size: 80%;
+
+
+
 
 		.description {
 			.userName, .userStatus {
-				font-size: 0.9rem;
+				font-size: 1.1rem;
 			}
 			.name, .status {
-				font-size: 1rem;
+				font-size: 1.2rem;
 			}
 		}
 
 	}
 
+}
+}
+
+@media screen and (max-width: 350px) {
+	.users {
+		.stringPages {
+			display: flex;
+			flex-direction: column;
+
+			.numberPage, .selectedPage{
+				font-size: 0.8rem;
+			}
+		}
+	}
 }
