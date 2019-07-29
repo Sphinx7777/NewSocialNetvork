@@ -36,6 +36,7 @@ const setNewPost = (text) => ({type: SET_NEW_POST, text});
 const setPostStatus = (status) => ({type: SET_POST_STATUS, status});
 
 
+
 export const addNewPost = (text) => {
 	return (dispatch) => {
 		dispatch(setPostStatus(false));

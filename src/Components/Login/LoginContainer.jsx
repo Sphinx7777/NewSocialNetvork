@@ -1,7 +1,7 @@
 import React from 'react';
 import {Login} from "./Login";
 import {connect} from "react-redux";
-import {loginMe, unIoginMe} from "../Redux/authReducer";
+import {loginMe, logOutMe} from "../Redux/authReducer";
 
 
 
@@ -17,7 +17,7 @@ class LoginContainer extends React.Component {
 	render() {
 
 		return <Login loginMe={this.props.loginMe}
-									unIoginMe={this.props.unIoginMe}
+									logOutMe={this.props.logOutMe}
 									loadLogin={this.props.loadLogin}
 		/>
 	}
@@ -31,4 +31,4 @@ let mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {loginMe,unIoginMe})(LoginContainer);
+export default connect(mapStateToProps, {loginMe,logOutMe})(LoginContainer);

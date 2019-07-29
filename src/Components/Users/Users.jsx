@@ -19,35 +19,58 @@ export const Users = (props) => {
 	let pagesCount = pagesCreator(props.currentPage - 7, props.currentPage + 7);
 
 	let stringPages = () => pagesCount.map((n, index) => {
-		return (<span
+		return (
+
+
+				<span
 				onClick={() => {
 					props.onClickNumberOfPage(n)
 				}}
 				key={index} className={props.currentPage === n ? s.selectedPage : s.numberPage}>{n}
 	        </span>
+
+
 		)
 	});
 let toTheTop = () => {
 	let scrollEl = document.querySelector('#users');
 	scrollEl.scrollTop = 0;
 };
+
+
+let addUserOnPage =(event)=>{
+	props.addUser(event.target.value<50 ? event.target.value : 50);
+
+};
+
 	return (
 		<div className={s.users} id="users">
 			<div className={s.stringPages}>
-				<span onClick={() => {
-					props.onClickNumberOfPage(props.currentPage > 1 ? 1
-						: props.currentPage)
-				}} className={s.goToTheTop}>Go to the top
-				</span>
-				<div className={s.string}>
-					...{stringPages()}...
+				<div className={props.currentPage===1 ? s.numberUsers : s.numberUsersHidden}>
+				<button disabled={props.currentPage>1} onClick={()=>{props.addCountUsers()}} className={s.numberUsersBtn}>Number users on page</button>
+				<div className={s.numbers}>
+					<span className={s.maxUsers}>Max 50 users</span>
+					<input disabled={props.currentPage>1} onChange={addUserOnPage} className={s.numberUsersInput} type="number" min="1" max="50"  value={props.countUsersOnPageLocal}/>
 				</div>
-				<span onClick={() => {
-					props.onClickNumberOfPage(props.currentPage < totalCountUsers
-						? totalCountUsers
-						: props.currentPage)
-				}} className={s.goToTheEnd}>Go to the end
+				</div>
+
+
+				<div className={s.string}>
+					<span className={s.goToTheTop} onClick={() => {
+						props.onClickNumberOfPage(props.currentPage > 1 ? 1
+							: props.currentPage)
+					}} >↩ 1 . . . . .
 				</span>
+					{stringPages()}
+					<span className={s.goToTheEnd} onClick={() => {
+						props.onClickNumberOfPage(props.currentPage < totalCountUsers
+							? totalCountUsers
+							: props.currentPage)
+					}} >. . . . . {pages.length} ↪
+				</span>
+				</div>
+
+
 			</div>
 			{props.users.map(u => {
 
@@ -70,30 +93,12 @@ let toTheTop = () => {
 			<div className={s.showPages}>
 				<button onClick={() => {
 					props.onClickNumberOfPage(props.currentPage > 1 ? props.currentPage - 1 : props.currentPage);
+					toTheTop();
 				}} className={s.showPrevPage} disabled={props.currentPage ===1}>Show prev page ↩</button>
-
-
-
-
-				<div>
-					<button className={s.showLess} onClick={() => {
-						props.SetNumberUsersOnPageAC(props.numberUsersOnPage>7 ? props.numberUsersOnPage-7 :props.numberUsersOnPage-(props.numberUsersOnPage-props.numberUsersOnPage-1))
-					}} disabled={props.numberUsersOnPage <=7}>Show less</button>
-					<button className={s.toTheTop} onClick={()=>{toTheTop()}}>To the top</button>
-					<button onClick={() => {
-					props.SetNumberUsersOnPageAC(props.numberUsersOnPage+5)
-				}} className={s.showMore} disabled={props.numberUsersOnPage >= 35
-					|| props.currentPage*props.numberUsersOnPage>= props.totalNumberOfUsers-props.numberUsersOnPage}
-				>Show more</button>
-
-				</div>
-
-
-
-
-
+				<button className={s.toTheTop} onClick={()=>{toTheTop()}}>To the top</button>
 				<button onClick={() => {
-					props.onClickNumberOfPage(props.currentPage < pages.length ? props.currentPage + 1 : props.currentPage)
+					props.onClickNumberOfPage(props.currentPage < pages.length ? props.currentPage + 1 : props.currentPage);
+					toTheTop();
 				}} className={s.showNextPage} disabled={props.currentPage ===pages.length}>↪ Show next page</button>
 			</div>
 		</div>

@@ -27,8 +27,8 @@ const LoginForm = (props) => {
 		</div>
 			{!props.loadLogin && <button className={s.loginBtn}>Login</button>}
 		</form>
-			<button className={s.unLoginBtn} onClick={()=>{props.unIoginMe()}}>UnLogin</button>
-		</div>
+			<button className={s.logOutBtn} onClick={()=>{props.logOutMe()}}>UnLogin</button>
+</div>
 	)
 };
 let LoginReduxForm = reduxForm({form: 'login'})(LoginForm);

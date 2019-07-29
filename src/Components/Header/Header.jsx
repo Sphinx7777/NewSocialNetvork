@@ -10,10 +10,10 @@ export const Header = (props) => {
 			<div className={s.header}>
 				<div className={s.logo}>Все там будем...</div>
 				{!props.loadLogin ? <NavLink to='/login' className={s.loginLink}>Go login</NavLink> :
-					<div className={s.login}>
+					<NavLink className={s.login} to='/login'>
 						<img className={s.loginPhoto} src={loginImg} alt=""/>
 						<span className={s.loginName}>{props.login}</span>
-					</div>}
+					</NavLink>}
 			</div>
 		</div>)
 

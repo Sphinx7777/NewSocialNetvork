@@ -9,25 +9,20 @@
 		 flex-direction: column;
 		 align-items: center;
 		 max-height: 100%;
-
-
-
 	 }
 
-
-
-
-	.loginBtn, .unLoginBtn,.log,.pass,.check {
+	.loginBtn, .logOutBtn,.log,.pass,.check {
      padding: 1rem;
 		color: black;
 		font-weight: bold;
 
 	}
-	.loginBtn,.unLoginBtn {
+	.loginBtn,.logOutBtn {
 		padding: 0.5rem;
+		cursor: pointer;
 
 	}
-	.unLoginBtn{
+	.logOutBtn{
 		margin-top: 0.5rem;
 	}
 }

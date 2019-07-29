@@ -12,7 +12,7 @@ let	onSubmit = (formData)=> {
 	return (
 		<div className={s.login}>
 			<h1>Login</h1>
-		<LoginReduxForm onSubmit={onSubmit} unIoginMe={props.unIoginMe} loadLogin={props.loadLogin}/>
+		<LoginReduxForm onSubmit={onSubmit} logOutMe={props.logOutMe} loadLogin={props.loadLogin}/>
 		</div>
 	)
 };

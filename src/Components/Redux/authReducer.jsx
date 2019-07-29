@@ -46,9 +46,9 @@ export const loginMe = (formData) => {
 					dispatch(setMyRegistration(true))
 				}})}};
 
-export const unIoginMe = () => {
+export const logOutMe = () => {
 	return (dispatch) => {
-		loginApi.unLoginMe()
+		loginApi.logOutMe()
 			.then(data => {
 				if (data.resultCode === 0) {
 					dispatch(setMyRegistration(false))

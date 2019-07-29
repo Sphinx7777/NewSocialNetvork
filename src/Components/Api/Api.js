@@ -62,7 +62,7 @@ export const loginApi = {
 		return instans.post('auth/login', {...formData})
 			.then(response => response.data)
 	},
-	unLoginMe() {
+	logOutMe() {
 		return instans.delete('auth/login')
 			.then(response => response.data)
 	},

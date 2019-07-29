@@ -13,14 +13,25 @@
 
 	.goToTheTop, .goToTheEnd {
 		cursor: pointer;
+		color: white;
+		outline: none;
+		font-weight: bold;
+		text-align: center;
 	}
+	.goToTheTop {
+margin-right: 1rem;
+	}
+	.goToTheEnd {
+		margin-left: 1rem;
+	}
+
 .showPages {
 	display: flex;
 	justify-content: space-between;
 
-	.showNextPage, .showPrevPage, .showMore, .maxShow , .showLess, .toTheTop{
+	.showNextPage, .showPrevPage, .toTheTop{
 		display: inline-block;
-		text-decoration: none;
+
 		color: white;
 		background-color: rgba(0, 0, 0, .6);
 		margin: 0.5rem 0.5rem;
@@ -32,29 +43,80 @@
 		font-weight: bold;
 		cursor: pointer;
 	}
-	.showMore:disabled,.showLess:disabled ,.showNextPage:disabled, .showPrevPage:disabled{
+	.showNextPage:disabled, .showPrevPage:disabled {
 		border: 3px solid darkgrey;
 		background-color: white;
 		color: darkgrey;
 		cursor: auto;
-	}
-	.maxShow {
-		border: 3px solid red;
-		color: red;
 	}
 	.toTheTop {
 		border: 3px solid greenyellow;
 		color: greenyellow;
 	}
 }
-
-
-
 	.stringPages {
-		display: flex;
+		background-color: rgba(0, 0, 0, .6);
 
+		border-radius: 0.5rem;
+.string {
+	color: white;
+	margin: 0 auto;
+
+}
+    .numberUsers {
+			color: white;
+
+
+			border-radius: 0.5rem;
+			outline: none;
+			padding: 0.3rem 0.5rem;
+      display: flex;
+			.numbers {
+				display: flex;
+				flex-direction: column;
+				.numberUsersInput {
+					display: inline-block;
+					border-radius: 0.2rem;
+					outline: none;
+					text-align: center;
+				}
+				.maxUsers {
+					display: inline-block;
+					font-size: 0.8rem;
+					font-weight: normal;
+
+				}
+			}
+
+			.numberUsersBtn {
+
+				color: white;
+				background-color: rgba(0, 0, 0, .6);
+				margin: 0.5rem 0.5rem;
+				text-align: center;
+				border: 3px solid white;
+				border-radius: 0.5rem;
+				outline: none;
+				padding: 0.3rem 0.5rem;
+				font-weight: bold;
+				cursor: pointer;
+
+			}
+			.numberUsersBtn:disabled {
+				border: 3px solid darkgrey;
+				background-color: white;
+				color: darkgrey;
+				cursor: auto;
+			}
+
+		}
+		.numberUsersHidden {
+			display: none;
+		}
+
+		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-around;
    text-align: center;
 		padding: 0.3rem 0;
 		color: black;
@@ -64,6 +126,7 @@
 			display: inline-block;
 			font-weight: normal;
 			cursor: pointer;
+			color: white;
 		}
 		.selectedPage {
       font-weight: bold;

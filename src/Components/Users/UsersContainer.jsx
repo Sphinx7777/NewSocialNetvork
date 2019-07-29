@@ -9,6 +9,18 @@ import {compose} from "redux";
 
 
 class UsersContainer extends React.Component {
+	state={
+		countUsersOnPage:this.props.numberUsersOnPage
+	};
+	addUser =(count)=>{
+    this.setState({
+			countUsersOnPage:count
+		})
+	};
+
+addCountUsers = ()=>{
+	this.props.SetNumberUsersOnPageAC(this.state.countUsersOnPage)
+};
 
 	componentDidMount() {
 		this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage);
@@ -29,7 +41,10 @@ class UsersContainer extends React.Component {
 		}
 
 		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}
-									                SetNumberUsersOnPageAC={this.props.SetNumberUsersOnPageAC}
+									                addUser={this.addUser}
+									addCountUsers={this.addCountUsers}
+									countUsersOnPageLocal={this.state.countUsersOnPage}
+
 		/>
 	}
 
