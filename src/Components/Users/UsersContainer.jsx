@@ -1,7 +1,7 @@
 import React from 'react';
 import {Users} from "./Users";
 import {connect} from "react-redux";
-import {getNewUsers} from "../Redux/usersReducer";
+import {getNewUsers, SetNumberUsersOnPageAC} from "../Redux/usersReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
 /*import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";*/
 import {compose} from "redux";
@@ -12,19 +12,24 @@ class UsersContainer extends React.Component {
 
 	componentDidMount() {
 		this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage);
+
+	}
+	componentDidUpdate(prevProps) {
+		if(prevProps.numberUsersOnPage !== this.props.numberUsersOnPage) this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage);
+
 	}
 
 	onClickNumberOfPage = (currentPage) => {
 		this.props.getNewUsers(currentPage, this.props.numberUsersOnPage)
 	};
 
-
 	render() {
 		if (!this.props.loadedUsers) {
 			return <Preloader/>
 		}
-		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}
 
+		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}
+									                SetNumberUsersOnPageAC={this.props.SetNumberUsersOnPageAC}
 		/>
 	}
 
@@ -41,7 +46,7 @@ let mapStateToProps = (state) => {
 	}
 };
 export default compose(
-	connect(mapStateToProps, {getNewUsers}),
+	connect(mapStateToProps, {getNewUsers,SetNumberUsersOnPageAC}),
 	/*withAuthRedirect*/
 )(UsersContainer);
 

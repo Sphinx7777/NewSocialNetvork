@@ -14,8 +14,11 @@
 	.goToTheTop, .goToTheEnd {
 		cursor: pointer;
 	}
+.showPages {
+	display: flex;
+	justify-content: space-between;
 
-	.showNextPage, .showPrevPage {
+	.showNextPage, .showPrevPage, .showMore, .maxShow , .showLess{
 		display: inline-block;
 		text-decoration: none;
 		color: white;
@@ -24,10 +27,23 @@
 		text-align: center;
 		border: 3px solid white;
 		border-radius: 0.5rem;
+		outline: none;
 		padding: 0.3rem 0.5rem;
 		font-weight: bold;
 		cursor: pointer;
 	}
+	.showMore:disabled,.showLess:disabled {
+		border: 3px solid darkgrey;
+		background-color: white;
+		color: darkgrey;
+		cursor: auto;
+	}
+	.maxShow {
+		border: 3px solid red;
+		color: red;
+	}
+}
+
 
 
 	.stringPages {

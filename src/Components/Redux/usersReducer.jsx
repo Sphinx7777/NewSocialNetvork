@@ -3,6 +3,7 @@ import {usersApi} from "../Api/Api";
 const SET_NEW_USERS = 'SET_NEW_USERS';
 const SET_TOTAL_NUMBERS_OF_USERS = 'SET_TOTAL_NUMBERS_OF_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_NUMBER_USERS_ON_PAGE = 'SET_NUMBER_USERS_ON_PAGE';
 
 
 
@@ -26,26 +27,28 @@ const usersReducer = (state=initialState, action) => {
 		case SET_CURRENT_PAGE: {
 			return {...state, currentPage:action.currentPage}
 		}
+		case SET_NUMBER_USERS_ON_PAGE: {
+			return {...state, numberUsersOnPage:action.numberUsersOnPage}
+		}
 		default:
 			return state;
 	}};
 
-const setNewUsers = (users) => ({type:SET_NEW_USERS, users});
-const setTotalNumberOfUsers = (totalCount) => ({type:SET_TOTAL_NUMBERS_OF_USERS, totalCount});
-const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage});
+const setNewUsersAC = (users) => ({type:SET_NEW_USERS, users});
+const setTotalNumberOfUsersAC = (totalCount) => ({type:SET_TOTAL_NUMBERS_OF_USERS, totalCount});
+const setCurrentPageAC = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage});
+export const SetNumberUsersOnPageAC = (numberUsersOnPage) => ({type:SET_NUMBER_USERS_ON_PAGE, numberUsersOnPage});
 
 
 
 
 export const getNewUsers = (currentPage, numberUsersOnPage) => {
 	return (dispatch) => {
-
-		dispatch(setCurrentPage(currentPage));
-
+		dispatch(setCurrentPageAC(currentPage));
 		usersApi.getUsers(currentPage, numberUsersOnPage)
 			.then(data => {
-			 dispatch(setNewUsers(data.items));
-			 dispatch(setTotalNumberOfUsers(data.totalCount));
+			 dispatch(setNewUsersAC(data.items));
+			 dispatch(setTotalNumberOfUsersAC(data.totalCount));
 			})}};
 
 
