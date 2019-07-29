@@ -18,7 +18,7 @@
 	display: flex;
 	justify-content: space-between;
 
-	.showNextPage, .showPrevPage, .showMore, .maxShow , .showLess{
+	.showNextPage, .showPrevPage, .showMore, .maxShow , .showLess, .toTheTop{
 		display: inline-block;
 		text-decoration: none;
 		color: white;
@@ -32,7 +32,7 @@
 		font-weight: bold;
 		cursor: pointer;
 	}
-	.showMore:disabled,.showLess:disabled {
+	.showMore:disabled,.showLess:disabled ,.showNextPage:disabled, .showPrevPage:disabled{
 		border: 3px solid darkgrey;
 		background-color: white;
 		color: darkgrey;
@@ -41,6 +41,10 @@
 	.maxShow {
 		border: 3px solid red;
 		color: red;
+	}
+	.toTheTop {
+		border: 3px solid greenyellow;
+		color: greenyellow;
 	}
 }
 

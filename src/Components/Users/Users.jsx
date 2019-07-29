@@ -27,9 +27,12 @@ export const Users = (props) => {
 	        </span>
 		)
 	});
-
+let toTheTop = () => {
+	let scrollEl = document.querySelector('#users');
+	scrollEl.scrollTop = 0;
+};
 	return (
-		<div className={s.users}>
+		<div className={s.users} id="users">
 			<div className={s.stringPages}>
 				<span onClick={() => {
 					props.onClickNumberOfPage(props.currentPage > 1 ? 1
@@ -65,9 +68,9 @@ export const Users = (props) => {
 				</NavLink>)
 			})}
 			<div className={s.showPages}>
-				<span onClick={() => {
+				<button onClick={() => {
 					props.onClickNumberOfPage(props.currentPage > 1 ? props.currentPage - 1 : props.currentPage);
-				}} className={s.showPrevPage}>Show prev page ↩</span>
+				}} className={s.showPrevPage} disabled={props.currentPage ===1}>Show prev page ↩</button>
 
 
 
@@ -75,10 +78,12 @@ export const Users = (props) => {
 				<div>
 					<button className={s.showLess} onClick={() => {
 						props.SetNumberUsersOnPageAC(props.numberUsersOnPage>7 ? props.numberUsersOnPage-7 :props.numberUsersOnPage-(props.numberUsersOnPage-props.numberUsersOnPage-1))
-					}} disabled={props.numberUsersOnPage <= 7}>Show less</button>
+					}} disabled={props.numberUsersOnPage <=7}>Show less</button>
+					<button className={s.toTheTop} onClick={()=>{toTheTop()}}>To the top</button>
 					<button onClick={() => {
-					props.SetNumberUsersOnPageAC(props.numberUsersOnPage+7)
-				}} className={s.showMore} disabled={props.numberUsersOnPage >= 35}
+					props.SetNumberUsersOnPageAC(props.numberUsersOnPage+5)
+				}} className={s.showMore} disabled={props.numberUsersOnPage >= 35
+					|| props.currentPage*props.numberUsersOnPage>= props.totalNumberOfUsers-props.numberUsersOnPage}
 				>Show more</button>
 
 				</div>
@@ -87,9 +92,9 @@ export const Users = (props) => {
 
 
 
-				<span onClick={() => {
+				<button onClick={() => {
 					props.onClickNumberOfPage(props.currentPage < pages.length ? props.currentPage + 1 : props.currentPage)
-				}} className={s.showNextPage}>↪ Show next page</span>
+				}} className={s.showNextPage} disabled={props.currentPage ===pages.length}>↪ Show next page</button>
 			</div>
 		</div>
 
