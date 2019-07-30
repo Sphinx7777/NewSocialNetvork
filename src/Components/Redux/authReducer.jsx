@@ -16,7 +16,7 @@ let initialState = {
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_MY_LOGIN: {
-			return {...state, id: action.data.id, email: action.data.email, login: action.data.login, loadLogin: true}
+			return {...state, ...action.data, loadLogin: true}
 		}
 		case SET_MY_REGISTRATION: {
 			return {...state, loadLogin: action.data}
@@ -34,16 +34,17 @@ export const authMe = () => {
 	return (dispatch) => {
 		loginApi.getMyLogin()
 			.then(data => {
+
 				if (data.resultCode === 0) {
 					dispatch(setMylogin(data.data))
 				}})}};
 
-export const loginMe = (formData) => {
+export const loginMe = (data) => {
 	return (dispatch) => {
-		loginApi.doLoginMe(formData)
+		loginApi.loginMe(data)
 			.then(data => {
 				if (data.resultCode === 0) {
-					dispatch(setMyRegistration(true))
+					dispatch(authMe());
 				}})}};
 
 export const logOutMe = () => {
@@ -51,6 +52,8 @@ export const logOutMe = () => {
 		loginApi.logOutMe()
 			.then(data => {
 				if (data.resultCode === 0) {
+					data={id:null,email:null,login:null};
+					dispatch(setMylogin(data));
 					dispatch(setMyRegistration(false))
 				}})}};
 

@@ -27,7 +27,7 @@ const LoginForm = (props) => {
 		</div>
 			{!props.loadLogin && <button className={s.loginBtn}>Login</button>}
 		</form>
-			<button className={s.logOutBtn} onClick={()=>{props.logOutMe()}}>UnLogin</button>
+			<button className={s.logOutBtn} onClick={()=>{props.logOutMe()}}>Out login</button>
 </div>
 	)
 };

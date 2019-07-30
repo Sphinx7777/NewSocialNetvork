@@ -58,7 +58,7 @@ export const loginApi = {
 		return instans.get('auth/me')
 			.then(response => response.data)
 	},
-	doLoginMe(formData) {
+	loginMe(formData) {
 		return instans.post('auth/login', {...formData})
 			.then(response => response.data)
 	},

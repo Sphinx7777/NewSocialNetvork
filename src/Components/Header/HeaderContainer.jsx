@@ -10,12 +10,12 @@ class HeaderContainer extends React.Component  {
 	componentDidMount() {
 		this.props.authMe()
 	}
-	componentDidUpdate(prevProps) {
+	/*componentDidUpdate(prevProps) {
 
 		if (this.props.loadLogin !== prevProps.loadLogin) {
 			this.props.authMe()
 		}
-	}
+	}*/
 
 	render() {
 	return <Header loadLogin={this.props.loadLogin} login={this.props.login}/>
