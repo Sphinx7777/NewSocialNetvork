@@ -1,14 +1,16 @@
 
 
 export const emptyField =(values) => {
-	if(values && values) return undefined;
-	return 'Обязательное поле';
+	if(values) return undefined;
+	return 'Required field';
 };
+
 export const maxLengthCreator=(maxLength) =>(values) => {
-	if(values && values.length>maxLength) return `Максимум ${maxLength} символов`;
+	if(values && values.length>maxLength) return `Max ${maxLength} symbols`;
 	return undefined;
 };
+
 export const minLengthCreator=(minLength) =>(values) => {
-	if(values && values.length<minLength) return `Минимум ${minLength} символов`;
+	if(values && values.length<minLength) return `Minimum ${minLength} symbols`;
 	return undefined;
 };

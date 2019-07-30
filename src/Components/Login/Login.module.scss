@@ -4,14 +4,15 @@
 	padding: 1rem;
 	text-align: center;
 	align-items: center;
-	 .log {
+	 .log, .pass, .logs {
 		 display: flex;
 		 flex-direction: column;
 		 align-items: center;
 		 max-height: 100%;
 	 }
 
-	.loginBtn, .logOutBtn,.log,.pass,.check {
+
+	.loginBtn, .logOutBtn,.log,.pass, .logs,.check {
      padding: 1rem;
 		color: black;
 		font-weight: bold;
@@ -20,6 +21,8 @@
 	.loginBtn,.logOutBtn {
 		padding: 0.5rem;
 		cursor: pointer;
+		border-radius: 0.5rem;
+		outline: none;
 
 	}
 	.logOutBtn{

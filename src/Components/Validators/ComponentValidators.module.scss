@@ -1,15 +1,30 @@
 .inputForms {
 	display: flex;
 	flex-direction: column;
+	margin: 0 auto;
+	.inputForm {
+		margin: 0.5rem auto;
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+		outline: none;
+		font-weight: bold;
+	}
+
 	.inputForm.error {
 		border: 1px solid red;
 
 
 
+
 	}
 	.spanForm {
-		display: block;
-		color: red;
+		border: 1px solid white;
+
+		color: white;
 		font-weight: bold;
+		background-color: rgba(255,35,35,.5);
+		margin-top: 0.5rem;
+		border-radius: 0.5rem;
+		outline: none;
 	}
 }

@@ -14,20 +14,21 @@ const LoginForm = (props) => {
 	return (
 		<div className={s.log}>
 		<form onSubmit={props.handleSubmit(props.onSubmit)}>
-			<div >
+			<div className={s.logs}>
 				<label>Email :</label>
-       <Field placeholder='Email' component={Input} name='email' type='email' validate={[maxlength30,emptyField,]}/>
+       <Field placeholder='Email'  component={Input} name='email' type='email' validate={[maxlength30,emptyField,]}/>
 			</div>
 			<div className={s.pass}>
 				<label>Password :</label>
-				<Field placeholder='Минимум 6 символов' component={Input} name='password' type='text' validate={[minlength6,maxlength15,emptyField]}/>
+				<Field placeholder='Минимум 6 символов'   component={Input} name='password' type='password' validate={[minlength6,maxlength15,emptyField]}/>
 			</div>
 			<div className={s.check}>
 			<Field component='input' name='rememberMe' type='checkbox'/> Remember me
 		</div>
 			{!props.loadLogin && <button className={s.loginBtn}>Login</button>}
 		</form>
-			<button className={s.logOutBtn} onClick={()=>{props.logOutMe()}}>Out login</button>
+			{props.loadLogin
+			&& <button className={s.logOutBtn} onClick={()=>{props.logOutMe()}}>Out login</button>}
 </div>
 	)
 };

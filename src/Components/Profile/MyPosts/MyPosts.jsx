@@ -11,10 +11,11 @@ import photo from './../../../Images/skull2.png';
 
 
 class MyPosts extends React.Component {
-	onsSubmit = (values) => {
+	onSubmit = (formData) => {
 
-if(!values.text)return alert('Write message minimum 1 symbol..');
-this.props.addNewPost(values.text)};
+if(!formData.text)return alert('Write message minimum 3 symbols please..');
+this.props.addNewPost(formData.text)
+	};
 
 
 	render() {
@@ -22,7 +23,7 @@ this.props.addNewPost(values.text)};
 		<div className={s.myPostsWrapper}>
 			{this.props.userId === this.props.loginId ?
 				<div className={s.myPostFormWrapper}>
-				<MyPostFormRedux postsUpdate={this.props.postsUpdate} onsSubmit={this.onsSubmit}/>
+				<MyPostFormRedux postsUpdate={this.props.postsUpdate} onSubmit={this.onSubmit}/>
 				</div> : <></>
 			}
 			<div className={s.myPosts}>

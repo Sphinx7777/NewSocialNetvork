@@ -16,7 +16,7 @@ export const Users = (props) => {
 		return (p >= started && p <= finish);
 	});
 
-	let pagesCount = pagesCreator(props.currentPage - 7, props.currentPage + 7);
+	let pagesCount = pagesCreator(props.currentPage - 5, props.currentPage + 5);
 
 	let stringPages = () => pagesCount.map((n, index) => {
 		return (
@@ -47,7 +47,7 @@ let addUserOnPage =(event)=>{
 		<div className={s.users} id="users">
 			<div className={s.stringPages}>
 				<div className={props.currentPage===1 ? s.numberUsers : s.numberUsersHidden}>
-				<button disabled={props.currentPage>1} onClick={()=>{props.addCountUsers()}} className={s.numberUsersBtn}>Number users on page</button>
+				<button disabled={props.currentPage>1} onClick={()=>{props.addCountUsers()}} className={s.numberUsersBtn}>Number users on page &#10148;</button>
 				<div className={s.numbers}>
 					<span className={s.maxUsers}>Max 50 users</span>
 					<input disabled={props.currentPage>1} onChange={addUserOnPage} className={s.numberUsersInput} type="number" min="1" max="50"  value={props.countUsersOnPageLocal}/>

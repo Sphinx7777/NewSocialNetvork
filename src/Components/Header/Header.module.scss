@@ -30,22 +30,23 @@
 		.login {
 			text-align: center;
 			display: block;
-
+			text-decoration: none;
 			.loginPhoto {
 				display: inline-block;
 				max-width: 2rem;
-				border: 1px solid black;
+				border: 1px solid white;
 				border-top-left-radius: 0.5rem;
 				border-top-right-radius: 0.5rem;
 			}
 			.loginName {
            display: block;
 				max-width: 3rem;
-				border: 1px solid black;
-				margin-top: -0.5rem;
-				font-size: 0.8rem;
+
+
+				font-size: 0.9rem;
 				font-weight: bold;
 				color: red;
+				outline: none;
 			}
 		}
 	}
