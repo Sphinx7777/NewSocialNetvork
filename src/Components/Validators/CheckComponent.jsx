@@ -1,8 +1,11 @@
 
 
-export const emptyField =(values) => {
-	if(values) return undefined;
-	return 'Required field';
+export const required = value =>
+	(value || typeof value === 'number' ? undefined : 'Required');
+
+export const emptyField =(value) => {
+	if(value) return undefined;
+	return 'Required field'
 };
 
 export const maxLengthCreator=(maxLength) =>(values) => {

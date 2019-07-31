@@ -7,6 +7,7 @@ export const Login = (props) => {
 
 let	onSubmit = (formData)=> {
 	props.loginMe(formData);
+	console.log(formData);
 };
 
 	return (

@@ -1,30 +1,22 @@
-.inputForms {
-	display: flex;
+.formComponent {
+display: flex;
 	flex-direction: column;
-	margin: 0 auto;
-	.inputForm {
+	text-align: center;
+
+	.formComponentField {
+		font-weight: bold;
+		padding: 0.2rem;
+		border-radius: 0.5rem;
+		outline: none;
 		margin: 0.5rem auto;
+	}
+	.formComponentError {
 		border-radius: 0.5rem;
-		padding: 0.5rem;
 		outline: none;
-		font-weight: bold;
-	}
-
-	.inputForm.error {
-		border: 1px solid red;
-
-
-
-
-	}
-	.spanForm {
-		border: 1px solid white;
-
 		color: white;
-		font-weight: bold;
-		background-color: rgba(255,35,35,.5);
-		margin-top: 0.5rem;
-		border-radius: 0.5rem;
-		outline: none;
+		padding: 0.1rem;
+		background-color: rgba(255,0,0,.5);
 	}
+
+
 }

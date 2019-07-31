@@ -1,40 +1,68 @@
 import React from 'react';
 import s from './Login.module.scss';
-import {Field,reduxForm} from "redux-form";
+import {Field, reduxForm} from "redux-form";
 import {emptyField, maxLengthCreator, minLengthCreator} from "../Validators/CheckComponent";
-import {Input} from "../Validators/ValidatosComponents";
+import {formComponent} from "../Validators/ValidatosComponents";
 
 const maxlength15 = maxLengthCreator(15);
 const maxlength30 = maxLengthCreator(30);
 const minlength6 = minLengthCreator(6);
 
 
-const LoginForm = (props) => {
-
+const LoginReduxForm = props => {
+	const {handleSubmit, pristine, reset, submitting} = props;
 	return (
-		<div className={s.log}>
-		<form onSubmit={props.handleSubmit(props.onSubmit)}>
-			<div className={s.logs}>
-				<label>Email :</label>
-       <Field placeholder='Email'  component={Input} name='email' type='email' validate={[maxlength30,emptyField,]}/>
+		<div className={s.login}>
+			<form onSubmit={handleSubmit(props.onSubmit)}>
+				<div className={s.loginEmail}>
+					<Field
+						name="email"
+						type="email"
+						component={formComponent}
+						label="Email"
+						validate={[emptyField, maxlength30]}
+					/>
+				</div>
+				<div className={s.loginPass}>
+					<Field
+						name="password"
+						type="password"
+						component={formComponent}
+						label="Password"
+						validate={[emptyField, minlength6, maxlength15]}
+
+					/>
+				</div>
+				<div className={s.loginCheck}>
+					<Field
+						name="rememberMe"
+						type="checkbox"
+						component={formComponent}
+						label="RememberMe"
+						validate={[]}
+
+					/>
+				</div>
+				<div className={s.loginBtns}>
+					{!props.loadLogin && <button className={s.loginBtn} type="submit" disabled={submitting}>Login</button>}
+					<button className={s.clearBtn} type="button" disabled={pristine || submitting} onClick={reset}>
+						Clear Values
+					</button>
+				</div>
+			</form>
+			<div className={s.logOutBtns}>
+				{props.loadLogin && <button className={s.logOutBtn} onClick={() => {
+					props.logOutMe()
+				}}>Out login</button>}
 			</div>
-			<div className={s.pass}>
-				<label>Password :</label>
-				<Field placeholder='Минимум 6 символов'   component={Input} name='password' type='password' validate={[minlength6,maxlength15,emptyField]}/>
-			</div>
-			<div className={s.check}>
-			<Field component='input' name='rememberMe' type='checkbox'/> Remember me
 		</div>
-			{!props.loadLogin && <button className={s.loginBtn}>Login</button>}
-		</form>
-			{props.loadLogin
-			&& <button className={s.logOutBtn} onClick={()=>{props.logOutMe()}}>Out login</button>}
-</div>
+
 	)
 };
-let LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 
-export default LoginReduxForm;
+export default reduxForm({
+	form: 'loginForm'
+})(LoginReduxForm)
 
 
 

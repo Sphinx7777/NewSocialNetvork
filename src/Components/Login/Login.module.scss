@@ -4,30 +4,55 @@
 	padding: 1rem;
 	text-align: center;
 	align-items: center;
-	 .log, .pass, .logs {
+	 .loginEmail, .loginPass, .loginCheck{
 		 display: flex;
 		 flex-direction: column;
 		 align-items: center;
 		 max-height: 100%;
+		 padding: 0.5rem;
+		 color: black;
+		 font-weight: bold;
+
 	 }
 
+	.loginCheck {
 
-	.loginBtn, .logOutBtn,.log,.pass, .logs,.check {
-     padding: 1rem;
-		color: black;
-		font-weight: bold;
 
 	}
-	.loginBtn,.logOutBtn {
-		padding: 0.5rem;
+
+.loginBtns,.logOutBtns {
+	display: flex;
+	flex-direction: column;
+
+
+	.loginBtn, .clearBtn {
+		padding: 0.1rem;
+		color: black;
+		font-weight: bold;
 		cursor: pointer;
 		border-radius: 0.5rem;
 		outline: none;
+		margin: 0 4rem;
+	}
+	.loginBtn {
+   margin-bottom: 1rem;
+
 
 	}
-	.logOutBtn{
-		margin-top: 0.5rem;
+}
+	.logOutBtns {
+		width: 100%;
+		.logOutBtn{
+			padding: 0.1rem;
+			color: black;
+			font-weight: bold;
+			cursor: pointer;
+			border-radius: 0.5rem;
+			outline: none;
+			margin: 1rem 4rem;
+		}
 	}
+
 }
 
 
