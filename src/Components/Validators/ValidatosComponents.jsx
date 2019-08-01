@@ -2,25 +2,16 @@ import React from "react";
 import s from './ComponentValidators.module.scss';
 
 
-
-export const Textarea = ({input, meta, ...props}) => {
-	return (
-		<div className={s.inputForms}>
-			<textarea className={s.inputForm + ' ' + (meta.error ? s.error : '')} {...input}{...props}/>
-			{meta.error ? <span className={s.spanForm}>{meta.error}</span> : ''}
-		</div>
-	)
-};
 export const InputComponent = (
-	{input, label, type, meta}) => {
+	{input, label, type, meta:{error,warning,touched}}) => {
 	return (
 		<div className={s.formComponentWrapper}>
 			<label className={s.formComponentLabel}>{label}</label>
 			<div className={s.formComponent}>
-				<input className={s.formComponentField + ' ' + (meta.touched && meta.error ? s.errorField : '')} {...input} placeholder={label} size='25' type={type} />
-				{meta.touched &&
-				((meta.error && <span className={s.formComponentError}>{meta.error}</span>) ||
-					(meta.warning && <span className={s.formComponentWarning}>{meta.warning}</span>))}
+				<input className={s.formComponentField + ' ' + (touched && error ? s.errorField : '')} {...input} placeholder={label} size='25' type={type} />
+				{touched &&
+				((error && <span className={s.formComponentError}>{error}</span>) ||
+					(warning && <span className={s.formComponentWarning}>{warning}</span>))}
 			</div>
 		</div>
 	)
