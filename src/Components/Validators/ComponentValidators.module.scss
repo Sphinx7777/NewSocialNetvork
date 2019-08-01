@@ -1,21 +1,38 @@
+
 .formComponent {
-display: flex;
+	display: flex;
 	flex-direction: column;
 	text-align: center;
 
-	.formComponentField {
-		font-weight: bold;
-		padding: 0.2rem;
+
+	.formComponentField.errorField {
+		border: 2px solid red;
+	}
+
+	.formComponentField, .formComponentError {
 		border-radius: 0.5rem;
 		outline: none;
+
+	}
+
+	.formComponentField {
+		padding: 0.2rem;
 		margin: 0.5rem auto;
 	}
+
+
+	.formComponentField[type=checkbox] {
+		transform: scale(2);
+		padding: 0.5rem;
+		display: inline-block;
+		cursor: pointer;
+
+	}
+
 	.formComponentError {
-		border-radius: 0.5rem;
-		outline: none;
 		color: white;
 		padding: 0.1rem;
-		background-color: rgba(255,0,0,.5);
+		background-color: rgba(255, 0, 0, .5);
 	}
 
 

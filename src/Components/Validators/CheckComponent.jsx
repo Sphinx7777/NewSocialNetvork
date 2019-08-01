@@ -1,8 +1,5 @@
 
 
-export const required = value =>
-	(value || typeof value === 'number' ? undefined : 'Required');
-
 export const emptyField =(value) => {
 	if(value) return undefined;
 	return 'Required field'

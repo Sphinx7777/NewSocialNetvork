@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Login.module.scss';
 import {Field, reduxForm} from "redux-form";
 import {emptyField, maxLengthCreator, minLengthCreator} from "../Validators/CheckComponent";
-import {formComponent} from "../Validators/ValidatosComponents";
+import {InputComponent} from "../Validators/ValidatosComponents";
 
 const maxlength15 = maxLengthCreator(15);
 const maxlength30 = maxLengthCreator(30);
@@ -10,6 +10,7 @@ const minlength6 = minLengthCreator(6);
 
 
 const LoginReduxForm = props => {
+
 	const {handleSubmit, pristine, reset, submitting} = props;
 	return (
 		<div className={s.login}>
@@ -18,7 +19,7 @@ const LoginReduxForm = props => {
 					<Field
 						name="email"
 						type="email"
-						component={formComponent}
+						component={InputComponent}
 						label="Email"
 						validate={[emptyField, maxlength30]}
 					/>
@@ -27,7 +28,7 @@ const LoginReduxForm = props => {
 					<Field
 						name="password"
 						type="password"
-						component={formComponent}
+						component={InputComponent}
 						label="Password"
 						validate={[emptyField, minlength6, maxlength15]}
 
@@ -37,10 +38,8 @@ const LoginReduxForm = props => {
 					<Field
 						name="rememberMe"
 						type="checkbox"
-						component={formComponent}
+						component={InputComponent}
 						label="RememberMe"
-						validate={[]}
-
 					/>
 				</div>
 				<div className={s.loginBtns}>
@@ -61,7 +60,7 @@ const LoginReduxForm = props => {
 };
 
 export default reduxForm({
-	form: 'loginForm'
+	form: 'loginForm',
 })(LoginReduxForm)
 
 

@@ -7,12 +7,14 @@ export const Login = (props) => {
 
 let	onSubmit = (formData)=> {
 	props.loginMe(formData);
-	console.log(formData);
+
 };
 
 	return (
 		<div className={s.login}>
-			<h1>Login</h1>
+			{props.loadLogin ? <h1>Logged in</h1> : <h1>Log in</h1>}
+
+
 		<LoginReduxForm onSubmit={onSubmit} logOutMe={props.logOutMe} loadLogin={props.loadLogin}/>
 		</div>
 	)
