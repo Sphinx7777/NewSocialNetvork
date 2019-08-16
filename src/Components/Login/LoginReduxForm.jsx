@@ -42,6 +42,7 @@ const LoginReduxForm = props => {
 						label="RememberMe"
 					/>
 				</div>
+				{props.error && <span className={s.loginFormError}>{props.error}</span>}
 				<div className={s.loginBtns}>
 					{!props.loadLogin && <button className={s.loginBtn} type="submit" disabled={submitting}>Login</button>}
 					<button className={s.clearBtn} type="button" disabled={pristine || submitting} onClick={reset}>

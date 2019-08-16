@@ -4,6 +4,15 @@
 	padding: 1rem;
 	text-align: center;
 	align-items: center;
+
+	.loginFormError {
+		color: white;
+		padding: 0.1rem 0.3rem;
+		background-color: rgba(255, 0, 0, .5);
+		margin: 0 auto;
+		border-radius: 0.5rem;
+		outline: none;
+	}
 	 .loginEmail, .loginPass, .loginCheck{
 		 display: flex;
 		 flex-direction: column;
@@ -12,7 +21,6 @@
 		 padding: 0.5rem;
 		 color: black;
 		 font-weight: bold;
-
 	 }
 
 	.loginCheck {
@@ -32,12 +40,10 @@
 		cursor: pointer;
 		border-radius: 0.5rem;
 		outline: none;
-		margin: 0 4rem;
+		margin: 1rem 4rem 0 4rem;
 	}
 	.loginBtn {
    margin-bottom: 1rem;
-
-
 	}
 }
 	.logOutBtns {

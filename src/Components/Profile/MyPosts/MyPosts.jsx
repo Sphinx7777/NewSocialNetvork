@@ -6,14 +6,10 @@ import {addNewPost} from "../../Redux/profileReducer";
 import photo from './../../../Images/skull2.png';
 
 
-
-
-
-
 class MyPosts extends React.Component {
 	onSubmit = (formData) => {
 
-if(!formData.text)return alert('Write message minimum 3 symbols please..');
+/*if(!formData.text)return alert('Write message minimum 3 symbols please..');*/
 this.props.addNewPost(formData.text)
 	};
 

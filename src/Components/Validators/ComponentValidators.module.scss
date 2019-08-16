@@ -17,7 +17,8 @@
 
 	.formComponentField {
 		padding: 0.2rem;
-		margin: 0.5rem auto;
+		margin: 0.5rem;
+		max-width: 100%;
 	}
 
 
@@ -31,8 +32,9 @@
 
 	.formComponentError {
 		color: white;
-		padding: 0.1rem;
+		padding: 0.1rem 0.3rem;
 		background-color: rgba(255, 0, 0, .5);
+		margin: 0 auto;
 	}
 
 

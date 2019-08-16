@@ -15,10 +15,10 @@ export const Profile = (props) => {
 
 					{props.loginId === props.userId ? <div className={s.btnDell}>It's my profile</div> :
 						!props.friendStatus
-							? <button className={s.btnAdd} disabled={!props.friendBtnState} onClick={() => {
+							? <button className={s.btnAdd} disabled={!props.loadLogin || !props.friendBtnState} onClick={() => {
 								props.addFriend(props.userId)
-							}}>Add as friend</button>
-							: <button className={s.btnDell} disabled={!props.friendBtnState} onClick={() => {
+							}}>{props.loadLogin ? 'Add as friend' : 'Status unavailable'}</button>
+							: <button className={s.btnDell} disabled={!props.loadLogin || !props.friendBtnState} onClick={() => {
 								props.dellFriend(props.userId)
 							}}>Dell from friends</button>}
 

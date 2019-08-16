@@ -9,6 +9,7 @@ const SET_DELL_USER_FROM_FRIENDS = 'SET_DELL_USER_FROM_FRIENDS';
 const SET_UPDATE_STATUS = 'SET_UPDATE_STATUS';
 const SET_NEW_POST = 'SET_NEW_POST';
 const SET_UPDATE_LOAD_POST = 'SET_UPDATE_LOAD_POST';
+const SET_STATUS_LOAD_PROFILE = 'SET_STATUS_LOAD_PROFILE';
 
 
 let initialState = {
@@ -28,7 +29,10 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_NEW_PROFILE: {
-			return {...state, profile: action.profile, loadProfile: true}
+			return {...state, profile: action.profile}
+		}
+		case SET_STATUS_LOAD_PROFILE: {
+			return {...state, loadProfile: true}
 		}
 		case SET_FRIEND_STATUS: {
 			return {...state, friendStatus: action.friendStatus}
@@ -68,6 +72,7 @@ const setDellUserFromFriends = (data) => ({type: SET_DELL_USER_FROM_FRIENDS, dat
 const setUpdateStatus = (status) => ({type: SET_UPDATE_STATUS, status});
 const setNewPost = (post) => ({type: SET_NEW_POST, post});
 const setUpdateLoadPost = (data) => ({type:SET_UPDATE_LOAD_POST,data});
+const setStatusLoadProfile = () => ({type:SET_STATUS_LOAD_PROFILE});
 
 
 export const addNewPost = (post) => {
@@ -82,6 +87,7 @@ export const getNewProfile = (userId) => {
 		profileApi.getProfile(userId)
 			.then(data => {
 				dispatch(setNewProfile(data));
+				dispatch(setStatusLoadProfile());
 			})}
 };
 

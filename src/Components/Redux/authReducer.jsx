@@ -1,4 +1,5 @@
 import {loginApi} from "../Api/Api";
+import {stopSubmit} from "redux-form";
 
 
 const SET_MY_LOGIN = 'SET_MY_LOGIN';
@@ -45,7 +46,11 @@ export const loginMe = (data) => {
 			.then(data => {
 				if (data.resultCode === 0) {
 					dispatch(authMe());
-				}})}};
+				}else {
+					dispatch(stopSubmit('loginForm',{_error:data.messages[0]}))
+				}
+
+			})}};
 
 export const logOutMe = () => {
 	return (dispatch) => {

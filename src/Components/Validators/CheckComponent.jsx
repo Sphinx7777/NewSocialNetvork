@@ -1,7 +1,7 @@
 
 
 export const emptyField =(value) => {
-	if(value) return undefined;
+	if(value && value.length>=1) return undefined;
 	return 'Required field'
 };
 

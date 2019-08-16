@@ -3,12 +3,13 @@ import s from './ComponentValidators.module.scss';
 
 
 export const InputComponent = (
-	{input, label, type, meta:{error,warning,touched}}) => {
+	{typeComponent,cols,input, label,rows, type, meta:{error,warning,touched}}) => {
 	return (
 		<div className={s.formComponentWrapper}>
 			<label className={s.formComponentLabel}>{label}</label>
 			<div className={s.formComponent}>
-				<input className={s.formComponentField + ' ' + (touched && error ? s.errorField : '')} {...input} placeholder={label} size='25' type={type} />
+				{typeComponent==='textarea' ?<textarea className={s.formComponentField + ' ' + (touched && error ? s.errorField : '')} cols={cols} rows={rows} {...input} placeholder={label}/>
+				:<input className={s.formComponentField + ' ' + (touched && error ? s.errorField : '')} {...input} placeholder={label} size='25' type={type} />}
 				{touched &&
 				((error && <span className={s.formComponentError}>{error}</span>) ||
 					(warning && <span className={s.formComponentWarning}>{warning}</span>))}

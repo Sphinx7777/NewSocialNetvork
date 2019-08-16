@@ -78,7 +78,7 @@ let addUserOnPage =(event)=>{
 					<div className={s.user}>
 						<div className={s.photoAndFriendStatus}>
 							<img className={s.photo} src={!u.photos.large ? photo : u.photos.large} alt=""/>
-							{!u.followed ? <span className={s.notFriendStatus}>It's my enemy</span>
+							{!u.followed ? <span className={s.notFriendStatus}>{props.loadLogin ? 'It\'s my enemy' : 'Status unavailable'}</span>
 								: <span className={s.friendStatus}>It's my friend</span>}
 						</div>
 						<div className={s.description}>

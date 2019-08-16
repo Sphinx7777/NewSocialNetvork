@@ -4,6 +4,7 @@
 	.newDialogForm {
 		display: flex;
 		max-width: 100%;
+		justify-content: flex-start;
 
 
 		.newDialogText {
@@ -18,10 +19,15 @@
 		}
 
 		.newDialogBtn {
-			padding: 0.3rem 0.5rem;
-			border-radius: 0.5rem;
-			outline: none;
-			font-weight: bold;
+margin: auto 0.5rem;
+			padding: 0.2rem;
+			.Btn {
+				padding: 0.3rem 0.5rem;
+				border-radius: 0.5rem;
+				outline: none;
+				font-weight: bold;
+			}
+
 
 		}
 	}

@@ -1,13 +1,10 @@
 import React from 'react';
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
-import {
-
-	addUserAsFriend, dellUserAsFriend,
-	getFriendStatus, getNewProfile, getStatus, updateStatus
-}
-	from "../Redux/profileReducer";
-import {withRouter} from "react-router-dom";
+import {addUserAsFriend, dellUserAsFriend,
+	getFriendStatus, getNewProfile,
+	getStatus, updateStatus} from "../Redux/profileReducer";
+import {Redirect, withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
 import {compose} from "redux";
 
@@ -20,17 +17,29 @@ class ProfileContainer extends React.Component {
 	componentDidMount() {
 		let userId = this.props.match.params.userId;
 		if (!userId) {
-			userId = 1184
+			userId=this.props.loginId ? this.props.loginId : 2
 		}
+
 		this.props.getNewProfile(userId);
-		this.props.getFriendStatus(userId);
 		this.props.getStatus(userId);
+		if(this.props.loginId){
+		this.props.getFriendStatus(userId);}
+	}
+	componentDidUpdate(prevProps) {
+		if(this.props.match.params.userId!==prevProps.match.params.userId){
+			this.componentDidMount()
+		}
+
 	}
 
+
 	render() {
-		if (!this.props.loadProfile) {
-			return <Preloader/>
+		if(!this.props.loadProfile)return <Preloader/>;
+		if(!this.props.match.params.userId){
+			return <Redirect to={this.props.loginId ? `/profile/${this.props.loginId}`: `/login`}/>
 		}
+
+
 		return <Profile
 			{...this.props.profile}
 			status={this.props.status}
@@ -40,6 +49,8 @@ class ProfileContainer extends React.Component {
 			addFriend={this.props.addUserAsFriend}
 			dellFriend={this.props.dellUserAsFriend}
 			updateStatus={this.props.updateStatus}
+			loadLogin={this.props.loadLogin}
+
 
 
 		/>
@@ -54,6 +65,7 @@ let mapStateToProps = (state) => {
 		friendBtnState: state.profilePage.friendBtnState,
 		friendStatus: state.profilePage.friendStatus,
 		loginId: state.auth.id,
+		loadLogin: state.auth.loadLogin
 	}
 };
 
