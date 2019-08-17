@@ -1,6 +1,7 @@
 import React from 'react';
 import {Header} from "./Header";
 import {connect} from "react-redux";
+import {getloadLogin} from "../Redux/selectors";
 
 
 
@@ -17,7 +18,7 @@ class HeaderContainer extends React.Component  {
 
 let mapStateToProps = (state) => {
 	return {
-		loadLogin: state.auth.loadLogin,
+		loadLogin: getloadLogin(state),
 		login: state.auth.login,
 
 	}

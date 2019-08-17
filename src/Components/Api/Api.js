@@ -68,4 +68,10 @@ export const loginApi = {
 	},
 };
 
+export const SettingsApi = {
+	sendFormSettings(formData) {
+		return instans.put('profile', {...formData})
+			.then(response => response.data)
+	},
+};
 

@@ -13,6 +13,7 @@ import {connect} from "react-redux";
 import {Preloader} from "./Components/Others/Preloader/Preloader";
 import {compose} from "redux";
 import {initializationApp} from "./Components/Redux/initialsReducer";
+import SettingsContainer from "./Components/Settings/SettingsContainer";
 
 
 
@@ -36,6 +37,7 @@ class App extends React.Component {
 					<Route path='/profile/:userId?' render = {()=> <ProfileContainer />} />
 					<Route path='/login' render = {()=> <LoginContainer />} />
 					<Route path='/dialogs' render = {()=> <DialogsContainer />} />
+					<Route path='/settings' render = {()=> <SettingsContainer />} />
 				</div>
 			</div>
 		);

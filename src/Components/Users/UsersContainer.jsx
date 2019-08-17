@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {getNewUsers, SetNumberUsersOnPageAC} from "../Redux/usersReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
 import {compose} from "redux";
+import {getloadLogin, getUsers} from "../Redux/selectors";
 
 
 
@@ -46,17 +47,16 @@ addCountUsers = ()=>{
 
 		/>
 	}
-
 }
 
 let mapStateToProps = (state) => {
 	return {
-		users: state.usersPage.users,
+		users: getUsers(state),
 		currentPage: state.usersPage.currentPage,
 		loadedUsers: state.usersPage.loadedUsers,
 		totalNumberOfUsers: state.usersPage.totalNumberOfUsers,
 		numberUsersOnPage: state.usersPage.numberUsersOnPage,
-		loadLogin: state.auth.loadLogin
+		loadLogin: getloadLogin(state)
 	}
 };
 export default compose(

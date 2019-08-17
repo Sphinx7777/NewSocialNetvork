@@ -9,6 +9,7 @@ import {
 import {Redirect, withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
 import {compose} from "redux";
+import {getloadLogin} from "../Redux/selectors";
 
 
 class ProfileContainer extends React.Component {
@@ -59,7 +60,7 @@ let mapStateToProps = (state) => {
 		friendBtnState: state.profilePage.friendBtnState,
 		friendStatus: state.profilePage.friendStatus,
 		loginId: state.auth.id,
-		loadLogin: state.auth.loadLogin
+		loadLogin: getloadLogin(state)
 	}
 };
 

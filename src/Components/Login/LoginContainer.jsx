@@ -2,6 +2,7 @@ import React from 'react';
 import {Login} from "./Login";
 import {connect} from "react-redux";
 import {loginMe, logOutMe} from "../Redux/authReducer";
+import {getloadLogin} from "../Redux/selectors";
 
 
 
@@ -25,7 +26,7 @@ class LoginContainer extends React.Component {
 
 let mapStateToProps = (state) => {
 	return {
-		loadLogin: state.auth.loadLogin
+		loadLogin: getloadLogin(state)
 
 	}
 };

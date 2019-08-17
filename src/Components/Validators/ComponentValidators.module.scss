@@ -1,4 +1,7 @@
-
+.formComponentLabel {
+	display: block;
+	margin-bottom: 1rem;
+}
 .formComponent {
 	display: flex;
 	flex-direction: column;
@@ -27,6 +30,7 @@
 		padding: 0.5rem;
 		display: inline-block;
 		cursor: pointer;
+		margin: 0 auto;
 
 	}
 

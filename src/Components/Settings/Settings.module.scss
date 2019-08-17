@@ -1,0 +1,65 @@
+.settingsFormWrapper {
+	max-width: 40%;
+	display: flex;
+
+	.settingsErrorForm {
+		color: white;
+		background-color: rgba(250, 0, 0, .5);
+    margin-top: 0.5rem;
+		text-align: center;
+		border-radius: 0.5rem;
+		outline: none;
+		padding: 0.5rem;
+
+
+		.errorForm {
+font-size: 1.1rem;
+			font-weight: bold;
+		}
+	}
+
+
+.settingsForm {
+	text-align: center;
+	color: white;
+	display: flex;
+	border-radius: 0.5rem;
+	outline: none;
+
+	margin-top: 0.3rem;
+	padding: 0.3rem;
+	background-color: rgba(0, 0, 0, .6);
+
+	.description {
+display: flex;
+		flex-direction: column;
+
+		.titleAboutMe {
+			font-size: 1.2rem;
+			font-weight: bold;
+			color: green;
+		}
+		.lookingForAJob {
+			margin: 0 auto;
+		}
+
+		.sendBtn {
+			padding: 0.25rem 1rem;
+			margin: 1rem auto;
+			border-radius: 0.5rem;
+			outline: none;
+		}
+
+	}
+}
+.contacts {
+
+	.titleAboutMe {
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: green;
+	}
+}
+}
+
+
