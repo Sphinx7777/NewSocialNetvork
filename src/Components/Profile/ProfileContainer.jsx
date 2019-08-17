@@ -1,15 +1,14 @@
 import React from 'react';
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
-import {addUserAsFriend, dellUserAsFriend,
+import {
+	addUserAsFriend, dellUserAsFriend,
 	getFriendStatus, getNewProfile,
-	getStatus, updateStatus} from "../Redux/profileReducer";
+	getStatus, updateStatus
+} from "../Redux/profileReducer";
 import {Redirect, withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
 import {compose} from "redux";
-
-
-
 
 
 class ProfileContainer extends React.Component {
@@ -17,29 +16,27 @@ class ProfileContainer extends React.Component {
 	componentDidMount() {
 		let userId = this.props.match.params.userId;
 		if (!userId) {
-			userId=this.props.loginId ? this.props.loginId : 2
+			userId = this.props.loginId
 		}
 
 		this.props.getNewProfile(userId);
 		this.props.getStatus(userId);
-		if(this.props.loginId){
-		this.props.getFriendStatus(userId);}
+		if (this.props.loginId) {
+			this.props.getFriendStatus(userId);
+		}
+
 	}
 	componentDidUpdate(prevProps) {
-		if(this.props.match.params.userId!==prevProps.match.params.userId){
+		if (this.props.match.params.userId !== prevProps.match.params.userId) {
 			this.componentDidMount()
 		}
 
 	}
-
-
 	render() {
-		if(!this.props.loadProfile)return <Preloader/>;
-		if(!this.props.match.params.userId){
-			return <Redirect to={this.props.loginId ? `/profile/${this.props.loginId}`: `/login`}/>
+		if (!this.props.loadProfile) return <Preloader/>;
+		if (!this.props.match.params.userId) {
+			return <Redirect to={this.props.loginId ? `/profile/${this.props.loginId}` : `/login`}/>
 		}
-
-
 		return <Profile
 			{...this.props.profile}
 			status={this.props.status}
@@ -50,9 +47,6 @@ class ProfileContainer extends React.Component {
 			dellFriend={this.props.dellUserAsFriend}
 			updateStatus={this.props.updateStatus}
 			loadLogin={this.props.loadLogin}
-
-
-
 		/>
 	}
 }
@@ -70,8 +64,11 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(
-	connect(mapStateToProps, {updateStatus,dellUserAsFriend,
-		addUserAsFriend,getNewProfile,
-		getFriendStatus,getStatus}),withRouter)(ProfileContainer);
+	connect(mapStateToProps, {
+		updateStatus, dellUserAsFriend,
+		addUserAsFriend, getNewProfile,
+		getFriendStatus, getStatus
+	}),
+	withRouter)(ProfileContainer);
 
 

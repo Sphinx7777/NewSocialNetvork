@@ -37,6 +37,7 @@ class ProfileStatus extends React.Component {
 	render() {
 		return (
 			<div>
+				<span className={s.titleDesc}>Double click to change</span>
 				{!this.state.editMode
 					? <div className={s.title}>Status :
 						<label onDoubleClick={this.activateEditMode}

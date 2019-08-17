@@ -104,6 +104,4 @@ let addUserOnPage =(event)=>{
 		</div>
 
 	);
-
-
 };

@@ -33,7 +33,7 @@ const setMyRegistration = (data) => ({type: SET_MY_REGISTRATION, data});
 
 export const authMe = () => {
 	return (dispatch) => {
-		loginApi.getMyLogin()
+		return loginApi.getMyLogin()
 			.then(data => {
 
 				if (data.resultCode === 0) {

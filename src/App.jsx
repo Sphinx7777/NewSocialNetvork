@@ -2,25 +2,30 @@ import React from 'react';
 import s from './App.module.scss';
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import SideBarContainer from "./Components/SideBar/SideBarContainer";
-import {Route, withRouter} from "react-router-dom";
+import {Redirect, Route, withRouter} from "react-router-dom";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import LoginContainer from "./Components/Login/LoginContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import MainContainer from "./Components/Main/MainContainer";
 import {connect} from "react-redux";
-import {authMe} from "./Components/Redux/authReducer";
-/*import {Preloader} from "./Components/Others/Preloader/Preloader";*/
+
+import {Preloader} from "./Components/Others/Preloader/Preloader";
 import {compose} from "redux";
+import {initializationApp} from "./Components/Redux/initialsReducer";
 
 
 
 class App extends React.Component {
+
 	componentDidMount() {
-		this.props.authMe()
+		this.props.initializationApp()
 	}
+
 	render() {
-		/*if(!this.props.loadLogin) return <Preloader />;*/
+		if(!this.props.initialisation) return <Preloader />;
+		if(this.props.location.pathname=== "/") return <Redirect to='/main'/>;
+
 		return (
 			<div className={s.app}>
 				<HeaderContainer />
@@ -40,10 +45,10 @@ class App extends React.Component {
 let mapStateToProps = (state) => {
 	return {
 		loadLogin: state.auth.loadLogin,
+		initialisation: state.initial.initialisation
 	}
 };
 export default compose(
 	withRouter,
-	connect(mapStateToProps,{authMe})
-)(App) ;
+	connect(mapStateToProps,{initializationApp}))(App);
 

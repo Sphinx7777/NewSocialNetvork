@@ -87,9 +87,10 @@ export const getNewProfile = (userId) => {
 		profileApi.getProfile(userId)
 			.then(data => {
 				dispatch(setNewProfile(data));
-				dispatch(setStatusLoadProfile());
+				dispatch(setStatusLoadProfile())
 			})}
 };
+
 
 export const getFriendStatus = (userId) => {
 	return (dispatch) => {

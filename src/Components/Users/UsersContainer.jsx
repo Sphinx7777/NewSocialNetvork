@@ -3,7 +3,6 @@ import {Users} from "./Users";
 import {connect} from "react-redux";
 import {getNewUsers, SetNumberUsersOnPageAC} from "../Redux/usersReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
-/*import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";*/
 import {compose} from "redux";
 
 
@@ -61,7 +60,5 @@ let mapStateToProps = (state) => {
 	}
 };
 export default compose(
-	connect(mapStateToProps, {getNewUsers,SetNumberUsersOnPageAC}),
-	/*withAuthRedirect*/
-)(UsersContainer);
+	connect(mapStateToProps, {getNewUsers,SetNumberUsersOnPageAC}))(UsersContainer);
 
