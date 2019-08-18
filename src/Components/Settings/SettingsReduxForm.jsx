@@ -22,7 +22,7 @@ const SettingsReduxForm = (props) => {
 	return (
 		<div className={s.settingsFormWrapper}>
 			<form  onSubmit={handleSubmit}>
-				<div className={s.settingsForm}>
+				<div className={props.submitFinished ? s.settingsForm + ' ' + s.active : s.settingsForm}>
 					<div className={s.description}>
 						<span className={s.titleAboutMe}>About me</span>
 						<div className={s.fullName}>

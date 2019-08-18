@@ -36,10 +36,11 @@ font-size: 1.1rem;
 	display: flex;
 	border-radius: 0.5rem;
 	outline: none;
-
 	margin-top: 0.3rem;
 	padding: 0.3rem;
 	background-color: rgba(0, 0, 0, .6);
+
+
 
 	.description {
 display: flex;
@@ -63,6 +64,11 @@ display: flex;
 
 	}
 }
+
+	.settingsForm.active {
+		background-color: rgba(0, 128, 0, .6);
+	}
+
 .contacts {
 
 	.titleAboutMe {
