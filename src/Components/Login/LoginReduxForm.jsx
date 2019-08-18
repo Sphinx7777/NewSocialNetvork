@@ -12,6 +12,7 @@ const minlength6 = minLengthCreator(6);
 const LoginReduxForm = props => {
 
 	const {handleSubmit, pristine, reset, submitting} = props;
+
 	return (
 		<div className={s.login}>
 			<form onSubmit={handleSubmit(props.onSubmit)}>

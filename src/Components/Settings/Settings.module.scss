@@ -2,6 +2,16 @@
 	max-width: 40%;
 	display: flex;
 
+	.submitFinished {
+		color: white;
+		background-color: rgba(0, 250, 0, .5);
+		margin-top: 0.5rem;
+		text-align: center;
+		border-radius: 0.5rem;
+		outline: none;
+		padding: 0.5rem;
+	}
+
 	.settingsErrorForm {
 		color: white;
 		background-color: rgba(250, 0, 0, .5);
@@ -10,6 +20,7 @@
 		border-radius: 0.5rem;
 		outline: none;
 		padding: 0.5rem;
+
 
 
 		.errorForm {

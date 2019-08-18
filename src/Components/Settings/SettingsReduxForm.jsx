@@ -5,10 +5,23 @@ import {InputComponent} from "../Validators/ValidatosComponents";
 
 
 const SettingsReduxForm = (props) => {
-	const {handleSubmit, pristine, reset, submitting} = props;
+
+	const {handleSubmit, pristine, reset, submitting, submitFinished} = props;
+
+	let stop=()=>{
+		props.setSubmitFinished()
+	};
+
+	if(submitFinished){
+		setTimeout(stop,10000)
+	}
+
+
+
+
 	return (
 		<div className={s.settingsFormWrapper}>
-			<form  onSubmit={handleSubmit(props.onSubmit)}>
+			<form  onSubmit={handleSubmit}>
 				<div className={s.settingsForm}>
 					<div className={s.description}>
 						<span className={s.titleAboutMe}>About me</span>
@@ -48,8 +61,8 @@ const SettingsReduxForm = (props) => {
 								validate={[]}
 							/>
 						</div>
-						<button className={s.sendBtn} type="submit" disabled={submitting}>Send</button>
-						<button className={s.sendBtn} disabled={pristine || submitting} onClick={reset}>Clear fields</button>
+						<button className={s.sendBtn} type="submit" disabled={pristine || submitting}>To send</button>
+						<button className={s.sendBtn} disabled={pristine} onClick={reset}>Clear fields</button>
 					</div>
 					<div className={s.contacts}>
 						<span className={s.titleAboutMe}>Contacts</span>
@@ -92,6 +105,7 @@ const SettingsReduxForm = (props) => {
 					</div>
 				</div>
 				{props.error && <div className={s.settingsErrorForm}><span className={s.errorForm}>{props.error}</span></div>}
+				{props.submitFinished && <div className={s.submitFinished}><span className={s.errorForm}>Данные успешно обновлены</span></div>}
 			</form>
 		</div>
 	)
