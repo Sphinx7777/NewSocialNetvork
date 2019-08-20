@@ -8,6 +8,7 @@ const minlength3 = minLengthCreator(3);
 
 const MyPostFormRedux = (props) => {
 
+
 	return (
 		<form className={s.myPostForm} onSubmit={props.handleSubmit(props.onSubmit)}>
 			<div className={s.formInput}>

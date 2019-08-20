@@ -6,7 +6,6 @@ import {sendSettingsForm, setSubmitFinished} from "../Redux/settingsReducer";
 
 class SettingsContainer extends React.Component {
 	onSubmit = (formData) => {
-
 		let data = {
 			aboutMe: formData.aboutMe,
 			lookingForAJob: formData.lookingForAJob,
@@ -23,8 +22,8 @@ class SettingsContainer extends React.Component {
 		this.props.sendSettingsForm(data);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
 		return disableBtnSend(10000).then(() => {
-				return true;
-			})
+			return true;
+		})
 
 
 	};
@@ -36,10 +35,10 @@ class SettingsContainer extends React.Component {
 	}
 }
 
-let mapStateToProps  = (state)=> {
+let mapStateToProps = (state) => {
 	return {
 		submitFinished: state.settings.submitFinished
 	}
 };
 
-export default connect(mapStateToProps, {sendSettingsForm,setSubmitFinished: setSubmitFinished})(SettingsContainer);
+export default connect(mapStateToProps, {sendSettingsForm,setSubmitFinished})(SettingsContainer);
