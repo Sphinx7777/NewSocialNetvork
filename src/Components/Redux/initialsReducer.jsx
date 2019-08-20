@@ -25,10 +25,8 @@ const setInitialization = () => ({type: SET_INITIALS_FINISHED});
 export const initializationApp = () => {
 	return (dispatch) => {
   let promise = dispatch(authMe());
-		promise.then(
-			dispatch(setInitialization())
-		)
-	};
-};
+		Promise.all([promise]).then(()=>{
+				dispatch(setInitialization());
+		})}};
 
 export default initialsReducer;

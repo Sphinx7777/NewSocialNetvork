@@ -31,18 +31,16 @@ const setMylogin = (data) => ({type: SET_MY_LOGIN, data});
 const setMyRegistration = (data) => ({type: SET_MY_REGISTRATION, data});
 
 
-export const authMe = () => {
-	return (dispatch) => {
-		return loginApi.getMyLogin()
+export const authMe = () => (dispatch) => {
+	return loginApi.getMyLogin()
 			.then(data => {
-
 				if (data.resultCode === 0) {
-					dispatch(setMylogin(data.data))
-				}})}};
+				dispatch(setMylogin(data.data));
+				}})};
 
 export const loginMe = (data) => {
 	return (dispatch) => {
-		loginApi.loginMe(data)
+		return loginApi.loginMe(data)
 			.then(data => {
 				if (data.resultCode === 0) {
 					dispatch(authMe());

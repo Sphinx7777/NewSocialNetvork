@@ -19,9 +19,9 @@ class ProfileContainer extends React.Component {
 		if (!userId) {
 			userId = this.props.loginId
 		}
-
+if(this.props.match.params.userId || this.props.loginId){
 		this.props.getNewProfile(userId);
-		this.props.getStatus(userId);
+		this.props.getStatus(userId);}
 		if (this.props.loginId) {
 			this.props.getFriendStatus(userId);
 		}
@@ -34,10 +34,11 @@ class ProfileContainer extends React.Component {
 
 	}
 	render() {
-		if (!this.props.loadProfile) return <Preloader/>;
 		if (!this.props.match.params.userId) {
 			return <Redirect to={this.props.loginId ? `/profile/${this.props.loginId}` : `/login`}/>
 		}
+	if (!this.props.loadProfile) return <Preloader/>;
+
 		return <Profile
 			{...this.props.profile}
 			status={this.props.status}

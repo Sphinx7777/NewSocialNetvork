@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './Profile.module.scss';
 import photo from './../../Images/skull2.png';
-import ProfileStatus from "./ProfileStatus";
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileStatusWithHook from "./ProfileStatusWithHook";
 
 
 export const Profile = (props) => {
@@ -38,7 +38,7 @@ export const Profile = (props) => {
 						</div>
 					</div>
 					{props.loginId === props.userId
-						? <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+						? <ProfileStatusWithHook status={props.status} updateStatus={props.updateStatus}/>
 						: <div className={s.title}>Status :<label
 							className={s.desc}>"{!props.status ? `Я лентяй и статус не вбил` : props.status}"</label></div>
 					}

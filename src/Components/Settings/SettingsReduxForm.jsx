@@ -13,7 +13,7 @@ const SettingsReduxForm = (props) => {
 	};
 
 	if(submitFinished){
-		setTimeout(stop,10000)
+		setTimeout(stop,5000)
 	}
 
 

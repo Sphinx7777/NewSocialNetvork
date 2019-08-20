@@ -2,6 +2,8 @@ import React from 'react';
 import {Settings} from "./Settings";
 import {connect} from "react-redux";
 import {sendSettingsForm, setSubmitFinished} from "../Redux/settingsReducer";
+import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
+import {compose} from "redux";
 
 
 class SettingsContainer extends React.Component {
@@ -21,7 +23,7 @@ class SettingsContainer extends React.Component {
 		};
 		this.props.sendSettingsForm(data);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
-		return disableBtnSend(10000).then(() => {
+		return disableBtnSend(5000).then(() => {
 			return true;
 		})
 
@@ -41,4 +43,5 @@ let mapStateToProps = (state) => {
 	}
 };
 
-export default connect(mapStateToProps, {sendSettingsForm,setSubmitFinished})(SettingsContainer);
+export default compose(withAuthRedirect,
+	connect(mapStateToProps, {sendSettingsForm,setSubmitFinished}))(SettingsContainer);

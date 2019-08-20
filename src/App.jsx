@@ -9,7 +9,6 @@ import LoginContainer from "./Components/Login/LoginContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import MainContainer from "./Components/Main/MainContainer";
 import {connect} from "react-redux";
-
 import {Preloader} from "./Components/Others/Preloader/Preloader";
 import {compose} from "redux";
 import {initializationApp} from "./Components/Redux/initialsReducer";
@@ -46,7 +45,6 @@ class App extends React.Component {
 }
 let mapStateToProps = (state) => {
 	return {
-		loadLogin: state.auth.loadLogin,
 		initialisation: state.initial.initialisation
 	}
 };
