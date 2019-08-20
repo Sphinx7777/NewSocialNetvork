@@ -4,17 +4,23 @@
 
 	.submitFinished {
 		color: white;
-		background-color: rgba(0, 250, 0, .5);
+		background-color: rgba(0, 250, 0, .6);
 		margin-top: 0.5rem;
 		text-align: center;
 		border-radius: 0.5rem;
 		outline: none;
 		padding: 0.5rem;
+
+		.finishedForm {
+			font-size: 1.1rem;
+			font-weight: bold;
+		}
+
 	}
 
 	.settingsErrorForm {
 		color: white;
-		background-color: rgba(250, 0, 0, .5);
+		background-color: rgba(250, 0, 0, .6);
     margin-top: 0.5rem;
 		text-align: center;
 		border-radius: 0.5rem;
@@ -24,7 +30,7 @@
 
 
 		.errorForm {
-font-size: 1.1rem;
+     font-size: 1.1rem;
 			font-weight: bold;
 		}
 	}
@@ -49,7 +55,7 @@ display: flex;
 		.titleAboutMe {
 			font-size: 1.2rem;
 			font-weight: bold;
-			color: green;
+			color: white;
 		}
 		.lookingForAJob {
 			margin: 0 auto;
@@ -66,7 +72,7 @@ display: flex;
 }
 
 	.settingsForm.active {
-		background-color: rgba(0, 128, 0, .6);
+		background-color: rgba(0, 128, 0, .2);
 	}
 
 .contacts {
@@ -74,7 +80,7 @@ display: flex;
 	.titleAboutMe {
 		font-size: 1.2rem;
 		font-weight: bold;
-		color: green;
+		color: white;
 	}
 }
 }

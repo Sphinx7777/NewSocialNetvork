@@ -6,7 +6,7 @@ import {sendSettingsForm, setSubmitFinished} from "../Redux/settingsReducer";
 
 class SettingsContainer extends React.Component {
 	onSubmit = (formData) => {
-		console.log(formData);
+
 		let data = {
 			aboutMe: formData.aboutMe,
 			lookingForAJob: formData.lookingForAJob,

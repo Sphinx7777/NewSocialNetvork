@@ -11,11 +11,12 @@ const MyPostFormRedux = (props) => {
 	return (
 		<form className={s.myPostForm} onSubmit={props.handleSubmit(props.onSubmit)}>
 			<div className={s.formInput}>
-				<Field component={InputComponent} typeComponent='textarea' label='New text minimum 3 symbols...'
+				<Field component={InputComponent} typeComponent='textarea' label='At least 3 characters every 10 seconds'
 							 type='text' name='text' validate={[minlength3,emptyField]}/>
 			</div>
 			<div>
-				<button disabled={!props.postsUpdate} className={s.formButton}>Add new post</button>
+
+				<button disabled={props.pristine} className={s.formButton}>Add new post</button>
 			</div>
 		</form>
 	)

@@ -7,6 +7,10 @@ export const Dialogs = (props) => {
 
 let	onSubmit = (values)=> {
 	values.newTextDialog && props.addNewPost(values.newTextDialog);
+	const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
+	return disableBtnSend(10000).then(() => {
+		return true;
+	})
 };
 
 	return (

@@ -15,9 +15,9 @@ const DialogsReduxForm = (props) => {
 		<form   onSubmit={props.handleSubmit(props.onSubmit)}>
 			<div className={s.newDialogForm}>
 				<div className={s.newDialogBtn}>
-					<button className={s.Btn} disabled={!props.postSend}>Send message</button>
+					<button className={s.Btn} disabled={props.pristine}>Send message</button>
 			</div>
-				<Field className={s.newDialogText} label={'Minimum 3 symbols...'}
+				<Field className={s.newDialogText} label={'Minimum 3 symbols every 10 seconds'}
 							component={InputComponent} readonly
 							 cols='40' rows='5' name={'newTextDialog'} type={'text'} typeComponent='textarea'
 							validate={[minLength3]}

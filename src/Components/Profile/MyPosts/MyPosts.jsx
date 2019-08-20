@@ -10,7 +10,11 @@ class MyPosts extends React.Component {
 	onSubmit = (formData) => {
 
 /*if(!formData.text)return alert('Write message minimum 3 symbols please..');*/
-this.props.addNewPost(formData.text)
+this.props.addNewPost(formData.text);
+		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
+		return disableBtnSend(10000).then(() => {
+			return true;
+		})
 	};
 
 

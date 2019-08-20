@@ -105,7 +105,7 @@ const SettingsReduxForm = (props) => {
 					</div>
 				</div>
 				{props.error && <div className={s.settingsErrorForm}><span className={s.errorForm}>{props.error}</span></div>}
-				{props.submitFinished && <div className={s.submitFinished}><span className={s.errorForm}>Данные успешно обновлены</span></div>}
+				{props.submitFinished && <div className={s.submitFinished}><span className={s.finishedForm}>Данные успешно обновлены</span></div>}
 			</form>
 		</div>
 	)
