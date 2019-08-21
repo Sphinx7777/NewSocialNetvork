@@ -73,5 +73,10 @@ export const SettingsApi = {
 		return instans.put('profile', {...formData})
 			.then(response => response.data)
 	},
+	sendUserPhoto(formData) {
+		return instans.post('profile/photo', {formData})
+			.then(response => response.data)
+	},
 };
+
 

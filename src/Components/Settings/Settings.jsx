@@ -4,17 +4,27 @@ import SettingsReduxForm from "./SettingsReduxForm";
 
 
 
-export const Settings = (props) => {
 
+class Settings extends React.Component{
+	onSubmit = (formData) => {
+
+		this.props.sendUserPhotos(formData);
+	};
+
+	render(){
 	return (
 
-			<div className={s.settings}>
-				<SettingsReduxForm onSubmit={props.onSubmit}
-													 submitFinished={props.submitFinished}
-													 setSubmitFinished={props.setSubmitFinished}
-				/>
+		<div className={s.settings}>
+			<SettingsReduxForm
+				onSubmit={this.props.onSubmit}
+				submitFinished={this.props.submitFinished}
+				setSubmitFinished={this.props.setSubmitFinished}
+			/>
 
-			</div>
+		</div>
 
-	)
-};
+	)}
+}
+
+
+export default Settings;

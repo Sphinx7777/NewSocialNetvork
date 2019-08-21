@@ -16,12 +16,9 @@ const SettingsReduxForm = (props) => {
 		setTimeout(stop,5000)
 	}
 
-
-
-
 	return (
 		<div className={s.settingsFormWrapper}>
-			<form  onSubmit={handleSubmit}>
+			<form  onSubmit={handleSubmit(props.onSubmit)}>
 				<div className={props.submitFinished ? s.settingsForm + ' ' + s.active : s.settingsForm}>
 					<div className={s.description}>
 						<span className={s.titleAboutMe}>About me</span>

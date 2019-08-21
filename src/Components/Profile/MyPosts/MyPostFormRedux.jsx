@@ -12,7 +12,7 @@ const MyPostFormRedux = (props) => {
 	return (
 		<form className={s.myPostForm} onSubmit={props.handleSubmit(props.onSubmit)}>
 			<div className={s.formInput}>
-				<Field component={InputComponent} typeComponent='textarea' label='At least 3 characters every 10 seconds'
+				<Field component={InputComponent} typeComponent='textarea' label='At least 3 characters every 5 seconds'
 							 type='text' name='text' validate={[minlength3,emptyField]}/>
 			</div>
 			<div>
