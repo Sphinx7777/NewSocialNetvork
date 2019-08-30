@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Users.module.scss';
 import photo from './../../Images/skull2.png';
 import {NavLink} from "react-router-dom";
+
 
 
 
@@ -32,9 +33,11 @@ export const Users = (props) => {
 
 		)
 	});
-let toTheTop = () => {
-	let scrollEl = document.querySelector('#users');
-	scrollEl.scrollTop = 0;
+
+	let usersScroll = React.createRef();
+
+	let toTheTop = () => {
+		usersScroll.current.scrollTop = 0;
 };
 
 
@@ -43,8 +46,19 @@ let addUserOnPage =(event)=>{
 
 };
 
+let [name,setName]=useState(null);
+
+let nameUser = (e)=>{
+	setName(e.currentTarget.value);
+	props.searchUsers(name)
+	};
+
+/*let searchUser= ()=>{
+props.searchUsers(name)
+};*/
+
 	return (
-		<div className={s.users} id="users">
+		<div className={s.users} ref={usersScroll}>
 			<div className={s.stringPages}>
 				<div className={props.currentPage===1 ? s.numberUsers : s.numberUsersHidden}>
 				<button disabled={props.currentPage>1} onClick={()=>{props.addCountUsers()}} className={s.numberUsersBtn}>Number users on page &#10148;</button>
@@ -68,9 +82,12 @@ let addUserOnPage =(event)=>{
 							: props.currentPage)
 					}} >. . . . . {pages.length} ↪
 				</span>
+
 				</div>
 
-
+				<div className={s.searchWrapper}>
+					<input onChange={nameUser} type="text" min="1" max="50" placeholder='UserNameSearch'/>
+					{/*<span className={s.search} onClick={searchUser}>Search</span>*/}</div>
 			</div>
 			{props.users.map(u => {
 

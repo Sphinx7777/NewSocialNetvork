@@ -51,5 +51,13 @@ export const getNewUsers = (currentPage, numberUsersOnPage) => {
 			 dispatch(setTotalNumberOfUsersAC(data.totalCount));
 			})}};
 
+export const searchUsers = (name) => {
+	return (dispatch) => {
+
+		usersApi.searchUser(name)
+			.then(data => {
+			 dispatch(setNewUsersAC(data.items));
+			})}};
+
 
 export default usersReducer;

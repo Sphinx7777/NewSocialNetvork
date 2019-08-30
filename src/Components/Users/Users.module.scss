@@ -56,8 +56,23 @@ margin-right: 1rem;
 }
 	.stringPages {
 		background-color: rgba(0, 0, 0, .6);
-
 		border-radius: 0.5rem;
+
+		.searchWrapper {
+			display: flex;
+			margin-right: 0.5rem;
+			/*.search {
+				color: white;
+				cursor: pointer;
+				padding: 0 0.5rem;
+				margin-right: 0.5rem;
+				border: 1px solid white;
+				border-radius: 0.3rem;
+				outline: none;
+			}*/
+		}
+
+
 .string {
 	color: white;
 	margin: 0 auto;

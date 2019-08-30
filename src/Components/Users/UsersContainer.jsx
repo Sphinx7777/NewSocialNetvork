@@ -1,7 +1,7 @@
 import React from 'react';
 import {Users} from "./Users";
 import {connect} from "react-redux";
-import {getNewUsers, SetNumberUsersOnPageAC} from "../Redux/usersReducer";
+import {getNewUsers, searchUsers, SetNumberUsersOnPageAC} from "../Redux/usersReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
 import {compose} from "redux";
 import {getloadLogin, getUsers} from "../Redux/selectors";
@@ -44,6 +44,7 @@ addCountUsers = ()=>{
 									                addUser={this.addUser}
 									addCountUsers={this.addCountUsers}
 									countUsersOnPageLocal={this.state.countUsersOnPage}
+									searchUsers={this.props.searchUsers}
 
 		/>
 	}
@@ -60,5 +61,5 @@ let mapStateToProps = (state) => {
 	}
 };
 export default compose(
-	connect(mapStateToProps, {getNewUsers,SetNumberUsersOnPageAC}))(UsersContainer);
+	connect(mapStateToProps, {getNewUsers,SetNumberUsersOnPageAC,searchUsers}))(UsersContainer);
 

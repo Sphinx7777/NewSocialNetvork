@@ -1,9 +1,44 @@
 .settings {
 	display: flex;
 
+   .uploadPhotoWrapper {
+    max-height: 8rem;
+
+		 background-color: rgba(0, 0, 0, .6);
+		 color: white;
+		 display: flex;
+		 border-radius: 0.5rem;
+		 outline: none;
+		 margin: 0.3rem;
+		 .uploadPhoto {
+			 display: flex;
+			 flex-direction: column;
+
+			 .uploadPhotoFinished {
+				 padding: 0.2rem;
+				 color: white;
+				 background-color: rgba(0, 250, 0, .6);
+				 text-align: center;
+				 border-radius: 0.5rem;
+				 outline: none;
+				 margin: 0.3rem 0.3rem 0 0.3rem;
+			 }
+			 input {
+				 padding: 0.5rem;
+			 }
+
+			 .sendPhotoBtn {
+				 padding: 0.5rem;
+				 margin-top: 0.5rem;
+
+
+			 }
+		 }
+
+	 }
 
 	.settingsFormWrapper {
-		max-width: 40%;
+
 		display: flex;
 
 
@@ -54,6 +89,7 @@
 			.description {
 				display: flex;
 				flex-direction: column;
+				margin-right: 0.5rem;
 
 				.titleAboutMe {
 					font-size: 1.2rem;
@@ -89,4 +125,10 @@
 		}
 	}
 
+}
+@media screen and (max-width: 900px) {
+	.settings {
+		display: flex;
+		flex-direction: column;
+	}
 }

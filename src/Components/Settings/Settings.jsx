@@ -1,14 +1,18 @@
 import React from 'react';
 import s from './Settings.module.scss';
 import SettingsReduxForm from "./SettingsReduxForm";
+import UploadPhoto from "./UploadPhoto";
+import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
+
+
 
 
 
 
 class Settings extends React.Component{
-	onSubmit = (formData) => {
+	onSubmit = (photo) => {
 
-		this.props.sendUserPhotos(formData);
+		this.props.sendUserPhotos(photo);
 	};
 
 	render(){
@@ -20,11 +24,15 @@ class Settings extends React.Component{
 				submitFinished={this.props.submitFinished}
 				setSubmitFinished={this.props.setSubmitFinished}
 			/>
-
+<UploadPhoto
+	onSubmit={this.onSubmit}
+	uploadPhotos={this.props.uploadPhotos}
+	setUploadPhoto={this.props.setUploadPhoto}
+/>
 		</div>
 
 	)}
 }
 
 
-export default Settings;
+export default withAuthRedirect(Settings);

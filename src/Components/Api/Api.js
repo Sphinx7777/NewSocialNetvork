@@ -7,7 +7,7 @@ let instans = axios.create({
 	baseURL: `https://social-network.samuraijs.com/api/1.0/`,
 	withCredentials: true,
 	headers: {
-		'API-KEY': '82fcf4a4-b6c7-4186-a174-dfde5a4494be'
+		'API-KEY': 'db1d40cc-4208-4f37-bc5e-856605c7e662'
 	}
 });
 
@@ -15,7 +15,11 @@ export const usersApi = {
 	getUsers(currentPage, numberUsersOnPage) {
 		return instans.get(`users/?page=${currentPage}&count=${numberUsersOnPage}`)
 			.then(response => response.data)
-	}
+	},
+	searchUser(name) {
+		return instans.get(`users/?term=${name}`)
+			.then(response => response.data)
+	},
 };
 
 export const friendsApi = {
@@ -69,14 +73,20 @@ export const loginApi = {
 };
 
 export const SettingsApi = {
+
 	sendFormSettings(formData) {
 		return instans.put('profile', {...formData})
 			.then(response => response.data)
 	},
-	sendUserPhoto(formData) {
-		return instans.post('profile/photo', {formData})
+	sendUserPhoto(photo) {
+		return instans.put('profile/photo', photo, {
+			headers:{
+				'Content-Type': 'multipart/form-data',
+			}
+		})
 			.then(response => response.data)
 	},
 };
+
 
 

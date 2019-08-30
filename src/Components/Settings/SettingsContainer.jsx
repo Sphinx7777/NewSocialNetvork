@@ -1,7 +1,7 @@
 import React from 'react';
 import Settings from "./Settings";
 import {connect} from "react-redux";
-import {sendSettingsForm, sendUserPhotos, setSubmitFinished} from "../Redux/settingsReducer";
+import {sendSettingsForm, sendUserPhotos, setSubmitFinished, setUploadPhoto} from "../Redux/settingsReducer";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {compose} from "redux";
 
@@ -39,15 +39,19 @@ class SettingsContainer extends React.Component {
 		return <Settings onSubmit={this.onSubmit} submitFinished={this.props.submitFinished}
 										 setSubmitFinished={this.props.setSubmitFinished}
 										 sendUserPhotos={this.props.sendUserPhotos}
+										 uploadPhotos={this.props.uploadPhotos}
+										 setUploadPhoto={this.props.setUploadPhoto}
+
 		/>
 	}
 }
 
 let mapStateToProps = (state) => {
 	return {
-		submitFinished: state.settings.submitFinished
+		submitFinished: state.settings.submitFinished,
+		uploadPhotos: state.settings.uploadPhotos,
 	}
 };
 
 export default compose(withAuthRedirect,
-	connect(mapStateToProps, {sendSettingsForm,setSubmitFinished,sendUserPhotos}))(SettingsContainer);
+	connect(mapStateToProps, {sendSettingsForm,setSubmitFinished,sendUserPhotos,setUploadPhoto}))(SettingsContainer);
