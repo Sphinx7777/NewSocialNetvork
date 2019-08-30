@@ -8,7 +8,7 @@ export const Header = (props) => {
 	return (
 		<div className={s.headerWrapper}>
 			<div className={s.header}>
-				<div className={s.logo}>Все там будем...</div>
+				<div className={s.logo}>Все тут будем...</div>
 				{!props.loadLogin ? <NavLink to='/login' className={s.loginLink}>Go login</NavLink> :
 					<NavLink className={s.login} to='/login'>
 						<img className={s.loginPhoto} src={loginImg} alt=""/>

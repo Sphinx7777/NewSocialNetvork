@@ -13,6 +13,7 @@ import {Preloader} from "./Components/Others/Preloader/Preloader";
 import {compose} from "redux";
 import {initializationApp} from "./Components/Redux/initialsReducer";
 import SettingsContainer from "./Components/Settings/SettingsContainer";
+import NewsContainer from "./Components/News/NewsContainer";
 
 
 
@@ -37,6 +38,7 @@ class App extends React.Component {
 					<Route path='/login' render = {()=> <LoginContainer />} />
 					<Route path='/dialogs' render = {()=> <DialogsContainer />} />
 					<Route path='/settings' render = {()=> <SettingsContainer />} />
+					<Route path='/news' render = {()=> <NewsContainer />} />
 				</div>
 			</div>
 		);

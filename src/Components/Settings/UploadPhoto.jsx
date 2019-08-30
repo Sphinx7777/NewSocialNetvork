@@ -23,6 +23,7 @@ const UploadPhoto = (props) => {
 
 	return (
 		<div className={s.uploadPhotoWrapper}>
+			<span>Upload user photo</span>
 			<div  className={s.uploadPhoto}>
 				<input
 					name='image'
@@ -32,7 +33,8 @@ const UploadPhoto = (props) => {
 				<div className={s.sendPhotoBtn}>
 					<button  onClick={sentPhoto} disabled={!photo }>Upload photo</button>
 				</div>
-				{props.uploadPhotos ? <div className={s.uploadPhotoFinished}>Фото успешно загружено</div> :''}
+				{props.uploadPhotos ? <div className={s.uploadPhotoFinished}>Фото успешно загружено</div>
+					:''}
 			</div>
 		</div>
 	)

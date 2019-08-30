@@ -89,11 +89,17 @@
 			}
 
 			.formButton {
-				border-radius: 0.5rem;
+				border-radius: 0.3rem;
 				border: 1px solid green;
 				outline: none;
 				background-color: rgba(0, 0, 0, .5);
 				color: white;
+
+			}
+			.formButton:disabled {
+
+				border: 1px solid darkgrey;
+				color: darkgrey;
 
 			}
 		}
