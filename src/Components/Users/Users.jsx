@@ -50,12 +50,12 @@ let [name,setName]=useState(null);
 
 let nameUser = (e)=>{
 	setName(e.currentTarget.value);
-	props.searchUsers(name)
+	/*props.searchUsers(name)*/
 	};
 
-/*let searchUser= ()=>{
+let searchUser= ()=>{
 props.searchUsers(name)
-};*/
+};
 
 	return (
 		<div className={s.users} ref={usersScroll}>
@@ -87,7 +87,7 @@ props.searchUsers(name)
 
 				<div className={s.searchWrapper}>
 					<input onChange={nameUser} type="text" min="1" max="50" placeholder='UserNameSearch'/>
-					{/*<span className={s.search} onClick={searchUser}>Search</span>*/}</div>
+					<span className={s.search} onClick={searchUser}>Search</span></div>
 			</div>
 			{props.users.map(u => {
 

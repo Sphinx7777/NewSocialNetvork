@@ -2,7 +2,7 @@ import React from 'react';
 import s from './App.module.scss';
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import SideBarContainer from "./Components/SideBar/SideBarContainer";
-import {Redirect, Route, withRouter} from "react-router-dom";
+import {Route, Switch, withRouter} from "react-router-dom";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import LoginContainer from "./Components/Login/LoginContainer";
@@ -25,20 +25,21 @@ class App extends React.Component {
 
 	render() {
 		if(!this.props.initialisation) return <Preloader />;
-		if(this.props.location.pathname=== "/") return <Redirect to='/main'/>;
 
 		return (
 			<div className={s.app}>
 				<HeaderContainer />
 				<SideBarContainer />
 				<div className={s.contentWrapper}>
+					<Switch>
+					<Route exact path='/' render = {()=> <MainContainer />} />
 					<Route path='/users' render = {()=> <UsersContainer />} />
-					<Route path='/main' render = {()=> <MainContainer />} />
 					<Route path='/profile/:userId?' render = {()=> <ProfileContainer />} />
 					<Route path='/login' render = {()=> <LoginContainer />} />
 					<Route path='/dialogs' render = {()=> <DialogsContainer />} />
 					<Route path='/settings' render = {()=> <SettingsContainer />} />
 					<Route path='/news' render = {()=> <NewsContainer />} />
+					</Switch>
 				</div>
 			</div>
 		);
