@@ -2,10 +2,10 @@ import {SettingsApi} from "../Api/Api";
 import {stopSubmit} from "redux-form";
 
 
-const SET_MY_SETTINGS = 'SET_MY_SETTINGS';
-const SET_STOP_SUBMIT = 'SET_STOP_SUBMIT';
-const SET_USER_PHOTO = 'SET_USER_PHOTO';
-const SET_UPLOAD_PHOTO = 'SET_UPLOAD_PHOTO';
+const SET_MY_SETTINGS = '/settingsReducer///SET_MY_SETTINGS';
+const SET_STOP_SUBMIT = '/settingsReducer///SET_STOP_SUBMIT';
+const SET_USER_PHOTO = '/settingsReducer///SET_USER_PHOTO';
+const SET_UPLOAD_PHOTO = '/settingsReducer///SET_UPLOAD_PHOTO';
 
 
 let initialState = {
@@ -15,21 +15,20 @@ let initialState = {
 	uploadPhotos: null,
 };
 
-const settingsReducer = (state = initialState, action) => {
-	switch (action.type) {
+const settingsReducer = (state = initialState, {type, formData, status}) => {
+	switch (type) {
 		case SET_MY_SETTINGS: {
-			return {...state, aboutMe: {...action.formData}, submitFinished: true}
+			return {...state, aboutMe: {...formData}, submitFinished: true}
 		}
 		case SET_USER_PHOTO: {
-			return {...state, photos: {...action.formData}}
+			return {...state, photos: {...formData}}
 		}
 		case SET_UPLOAD_PHOTO: {
-			return {...state, uploadPhotos: action.status}
+			return {...state, uploadPhotos: status}
 		}
 		case SET_STOP_SUBMIT: {
 			return {...state, submitFinished: false}
 		}
-
 		default:
 			return state;
 	}
@@ -42,30 +41,24 @@ export const setSubmitFinished = () => ({type: SET_STOP_SUBMIT});
 
 
 export const sendSettingsForm = (formData) => {
-	return (dispatch) => {
-		SettingsApi.sendFormSettings(formData)
-			.then(data => {
-				if (data.resultCode === 0) {
-					dispatch(setMySettings(formData));
-				} else {
-					dispatch(stopSubmit('settingsForm', {_error: data.messages[0]}))
-				}
-			})
+	return async (dispatch) => {
+		let data = await SettingsApi.sendFormSettings(formData);
+		if (data.resultCode === 0) {
+			dispatch(setMySettings(formData));
+		} else {
+			dispatch(stopSubmit('settingsForm', {_error: data.messages[0]}))
+		}
 	}
-
 };
 
 export const sendUserPhotos = (photo) => {
-	return (dispatch) => {
-		SettingsApi.sendUserPhoto(photo)
-			.then(data => {
-				if (data.resultCode === 0) {
-					dispatch(setUserPhoto(data.data.photos));
-					dispatch(setUploadPhoto(true));
-				}
-			})
+	return async (dispatch) => {
+		let data = await SettingsApi.sendUserPhoto(photo);
+		if (data.resultCode === 0) {
+			dispatch(setUserPhoto(data.data.photos));
+			dispatch(setUploadPhoto(true));
+		}
 	}
-
 };
 
 

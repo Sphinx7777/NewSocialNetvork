@@ -1,7 +1,7 @@
 
 
-const SET_NEW_POST = 'SET_NEW_PROFILE';
-const SET_POST_STATUS = 'SET_POST_STATUS';
+const SET_NEW_POST = '/dialogsReducer///SET_NEW_PROFILE';
+const SET_POST_STATUS = '/dialogsReducer///SET_POST_STATUS';
 
 
 

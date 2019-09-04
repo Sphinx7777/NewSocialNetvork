@@ -3,6 +3,7 @@
 
    .uploadPhotoWrapper {
     max-height: 9rem;
+		 max-width: 26.8rem;
 		 color: white;
 		 background-color: rgba(0, 0, 0, .6);
 		 display: flex;
@@ -137,5 +138,9 @@
 	.settings {
 		display: flex;
 		flex-direction: column;
+
+		.uploadPhotoWrapper{
+			margin-left: 0;
+		}
 	}
 }

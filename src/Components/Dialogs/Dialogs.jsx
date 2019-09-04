@@ -8,7 +8,7 @@ export const Dialogs = (props) => {
 let	onSubmit = (values)=> {
 	values.newTextDialog && props.addNewPost(values.newTextDialog);
 	const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
-	return disableBtnSend(10000).then(() => {
+	return disableBtnSend(5000).then(() => {
 		return true;
 	})
 };
@@ -45,6 +45,7 @@ let	onSubmit = (values)=> {
 
 			</div>
 			<div className={s.answers}>
+				<h3>Answers</h3>
 				{props.userAnswers.map((a,index)=> {
 					return( <div key={index}>
 						{a.answered}

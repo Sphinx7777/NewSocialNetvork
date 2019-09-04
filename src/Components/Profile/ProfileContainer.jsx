@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {
 	addUserAsFriend, dellUserAsFriend,
 	getFriendStatus, getNewProfile,
-	getStatus, updateStatus
+	getStatus,updateStatus
 } from "../Redux/profileReducer";
 import {Redirect, withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
@@ -31,8 +31,9 @@ if(this.props.match.params.userId || this.props.loginId){
 		if (this.props.match.params.userId !== prevProps.match.params.userId) {
 			this.componentDidMount()
 		}
-
 	}
+
+
 	render() {
 		if (!this.props.match.params.userId) {
 			return <Redirect to={this.props.loginId ? `/profile/${this.props.loginId}` : `/login`}/>
@@ -49,6 +50,7 @@ if(this.props.match.params.userId || this.props.loginId){
 			dellFriend={this.props.dellUserAsFriend}
 			updateStatus={this.props.updateStatus}
 			loadLogin={this.props.loadLogin}
+			loadProfile={this.props.loadProfile}
 		/>
 	}
 }

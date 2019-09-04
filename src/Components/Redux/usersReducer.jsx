@@ -1,10 +1,10 @@
 import {usersApi} from "../Api/Api";
 
-const SET_NEW_USERS = 'SET_NEW_USERS';
-const SET_TOTAL_NUMBERS_OF_USERS = 'SET_TOTAL_NUMBERS_OF_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_NUMBER_USERS_ON_PAGE = 'SET_NUMBER_USERS_ON_PAGE';
-const SET_LOAD_USERS = 'SET_LOAD_USERS';
+const SET_NEW_USERS = '/usersReducer///SET_NEW_USERS';
+const SET_TOTAL_NUMBERS_OF_USERS = '/usersReducer///SET_TOTAL_NUMBERS_OF_USERS';
+const SET_CURRENT_PAGE = '/usersReducer///SET_CURRENT_PAGE';
+const SET_NUMBER_USERS_ON_PAGE = '/usersReducer///SET_NUMBER_USERS_ON_PAGE';
+const SET_LOAD_USERS = '/usersReducer///SET_LOAD_USERS';
 
 
 
@@ -48,24 +48,22 @@ export const SetNumberUsersOnPageAC = (numberUsersOnPage) => ({type:SET_NUMBER_U
 
 
 export const getNewUsers = (currentPage, numberUsersOnPage) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(setLoadUsersAC(false));
 		dispatch(setCurrentPageAC(currentPage));
-		usersApi.getUsers(currentPage, numberUsersOnPage)
-			.then(data => {
+		let data = await usersApi.getUsers(currentPage, numberUsersOnPage);
 			 dispatch(setNewUsersAC(data.items));
 			 dispatch(setTotalNumberOfUsersAC(data.totalCount));
 			 dispatch(setLoadUsersAC(true));
-			})}};
+			}};
 
 export const searchUsers = (name) => {
-	return (dispatch) => {
-		dispatch(setLoadUsersAC(false));
-		usersApi.searchUser(name)
-			.then(data => {
-			 dispatch(setNewUsersAC(data.items));
-				dispatch(setLoadUsersAC(true));
-			})}};
+	return async (dispatch) => {
+		/*dispatch(setLoadUsersAC(false));*/
+		let data = await usersApi.searchUser(name);
+		dispatch(setNewUsersAC(data.items));
+				/*dispatch(setLoadUsersAC(true));*/
+			}};
 
 
 export default usersReducer;

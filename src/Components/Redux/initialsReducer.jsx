@@ -1,7 +1,7 @@
 import {authMe} from "./authReducer";
 
 
-const SET_INITIALS_FINISHED = 'SET_INITIALS_FINISHED';
+const SET_INITIALS_FINISHED = '/initialsReducer///SET_INITIALS_FINISHED';
 
 
 let initialState = {

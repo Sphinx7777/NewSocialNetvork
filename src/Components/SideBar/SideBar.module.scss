@@ -1,12 +1,7 @@
-
 .sideBarWrapper {
 	max-width: 6rem;
 	float: left;
 	margin-right: 1rem;
-
-
-
-
 
 	.sideBar {
 
@@ -25,6 +20,7 @@
 			padding: 0.3rem 0.5rem;
 			font-weight: bold;
 		}
+
 		.item:hover, .activeItem {
 			border: 3px solid red;
 			color: red;
@@ -35,16 +31,19 @@
 		}
 	}
 }
+
 @media screen and (max-width: 900px) {
 	.sideBarWrapper {
 
-	}}
+	}
+}
+
 @media screen and (max-width: 630px) {
 	.sideBarWrapper {
 		display: flex;
-margin: 0 auto;
-	position: sticky;
-		top:0;
+		margin: 0 auto;
+		position: relative;
+		top: 0;
 		float: none;
 		text-align: center;
 		max-width: 100%;
@@ -53,7 +52,7 @@ margin: 0 auto;
 		.sideBar {
 			margin: 0 auto;
 
-width: 100%;
+			width: 100%;
 			justify-content: space-around;
 
 			.item {
@@ -63,23 +62,18 @@ width: 100%;
 				margin: 0.1rem;
 			}
 
-
-
 			.item:first-child {
 				margin-top: 0.5rem;
 			}
-
 		}
-
 	}
 }
+
 @media screen and (max-width: 450px) {
 	.sideBarWrapper {
 		.sideBar {
 			.item {
-
 			}
 		}
 	}
-
 }

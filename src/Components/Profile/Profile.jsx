@@ -3,10 +3,11 @@ import s from './Profile.module.scss';
 import photo from './../../Images/skull2.png';
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileStatusWithHook from "./ProfileStatusWithHook";
+import {Preloader} from "../Others/Preloader/Preloader";
 
 
 export const Profile = (props) => {
-
+	if (!props.loadProfile) return <Preloader/>;
 	return (
 		<div className={s.profileWrapper}>
 			<div className={s.profile}>

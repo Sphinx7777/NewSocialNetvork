@@ -9,6 +9,7 @@ import {getloadLogin, getUsers} from "../Redux/selectors";
 
 
 class UsersContainer extends React.Component {
+
 	state={
 		countUsersOnPage:this.props.numberUsersOnPage
 	};
@@ -23,12 +24,13 @@ addCountUsers = ()=>{
 };
 
 	componentDidMount() {
-		this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage);
-
+		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
+		getNewUsers(currentPage,numberUsersOnPage);
 	}
 	componentDidUpdate(prevProps) {
-		if(prevProps.numberUsersOnPage !== this.props.numberUsersOnPage) this.props.getNewUsers(this.props.currentPage, this.props.numberUsersOnPage);
-
+		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
+		if(prevProps.numberUsersOnPage !== numberUsersOnPage)
+			getNewUsers(currentPage,numberUsersOnPage);
 	}
 
 	onClickNumberOfPage = (currentPage) => {

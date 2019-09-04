@@ -1,6 +1,7 @@
 .formComponentLabel {
 	display: block;
 	margin-bottom: 1rem;
+	text-align: center;
 }
 .formComponent {
 	display: flex;
@@ -20,7 +21,7 @@
 
 	.formComponentField {
 		padding: 0.2rem;
-		margin: 0.5rem auto;
+
 		max-width: 100%;
 	}
 
