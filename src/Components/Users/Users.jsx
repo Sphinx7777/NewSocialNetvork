@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './Users.module.scss';
 import {User} from "./User";
 import {NumberUsersOfPage} from "./NumberUsersOfPage";
+import {Search} from "./Search";
 
 
 export const Users = (props) => {
@@ -17,10 +18,10 @@ export const Users = (props) => {
 	}
 
 
-	let pagesCreator = (started, finish) => pages.filter(p => {
-		return (p >= started && p <= finish);
+	let pagesCount = pages.filter(p => {
+		return (p >= currentPage - 5 && p <= currentPage + 5);
 	});
-	let pagesCount = pagesCreator(currentPage - 5, currentPage + 5);
+
 	let stringPages = () => pagesCount.map((n, index) => {
 		return (
 			<span
@@ -38,28 +39,11 @@ export const Users = (props) => {
 		usersScroll.current.scrollTop = 0;
 	};
 
-
-	let addUserOnPage = (event) => {
-		addUser(event.target.value < 50 ? event.target.value : 50);
-
-	};
-
-	let [name, setName] = useState(null);
-
-	let nameUser = (e) => {
-		setName(e.currentTarget.value);
-		searchUsers(name)
-	};
-
-	/*let searchUser= ()=>{
-	props.searchUsers(name)
-	};*/
-
 	return (
 		<div className={s.users} ref={usersScroll}>
 			<div className={s.stringPages}>
 				<NumberUsersOfPage countUsersOnPageLocal={countUsersOnPageLocal}
-													 addUserOnPage={addUserOnPage}
+													 addUser={addUser}
 													 currentPage={currentPage}
 													 addCountUsers={addCountUsers}/>
 				<div className={s.string}>
@@ -75,14 +59,9 @@ export const Users = (props) => {
 							: currentPage)
 					}}>. . . . . {pages.length} ↪
 				</span>
-
 				</div>
-
-				<div className={s.searchWrapper}>
-					<input onChange={nameUser} type="text" min="1" max="50" placeholder='UserNameSearch'/>
-					{/*<span className={s.search} onClick={searchUser}>Search</span>*/}</div>
+				<Search searchUsers={searchUsers}/>
 			</div>
-
 			<User users={users}
 						loadLogin={loadLogin}/>
 

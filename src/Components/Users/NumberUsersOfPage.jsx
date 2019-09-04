@@ -3,8 +3,11 @@ import s from './Users.module.scss';
 
 
 export const NumberUsersOfPage = (props) => {
-let {currentPage,addCountUsers,addUserOnPage,countUsersOnPageLocal}=props;
+let {currentPage,addCountUsers,addUser,countUsersOnPageLocal}=props;
 
+let addUserOnPage = (event) => {
+		addUser(event.target.value < 50 ? event.target.value : 50);
+	};
 	return (
 
 		<div className={currentPage === 1 ? s.numberUsers : s.numberUsersHidden}>
