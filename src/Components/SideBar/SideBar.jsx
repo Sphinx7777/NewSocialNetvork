@@ -1,6 +1,7 @@
-import React from 'react';
+import React,{useState} from 'react';
 import s from './SideBar.module.scss';
 import {NavLink} from "react-router-dom";
+
 
 let link = (to, title) => {
 	return <NavLink className={s.item} activeClassName={s.activeItem} to={`${to}`}>{title}</NavLink>
@@ -8,8 +9,19 @@ let link = (to, title) => {
 
 
 export const SideBar = (props) => {
-	return <div className={s.sideBarWrapper}>
-		<div className={s.sideBar}>
+
+	let [menu,setMenu]=useState(true);
+let hideMenu = ()=> {
+	setMenu(!menu)
+};
+
+	return (<div className={s.sideBarWrapper}>
+		<div className={s.itemMenu} onClick={hideMenu}>
+			<span className={s.itemMenuSpan}> </span>
+			<span className={s.itemMenuSpan}> </span>
+			<span className={s.itemMenuSpan}> </span>
+		</div>
+		{menu	&&	<div className={s.sideBar}>
 			<NavLink className={s.item} activeClassName={s.activeItem} exact to='/'>Main</NavLink>
 			{link('/users', 'Users')}
 			{link('/profile', 'Profile')}
@@ -18,6 +30,7 @@ export const SideBar = (props) => {
 			{link('/music', 'Music')}
 			{link('/login', 'Login')}
 			{link('/settings', 'Settings')}
-		</div>
-	</div>
+		</div>}
+<div>foto</div>
+	</div>)
 };

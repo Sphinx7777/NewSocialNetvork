@@ -1,14 +1,12 @@
 import React from 'react';
 import Settings from "./Settings";
 import {connect} from "react-redux";
-import {sendSettingsForm, sendUserPhotos, setSubmitFinished, setUploadPhoto} from "../Redux/settingsReducer";
+import {
+	sendSettingsForm, sendUserPhotos,
+	setSubmitFinished, setUploadPhoto
+} from "../Redux/settingsReducer";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {compose} from "redux";
-
-
-
-
-
 
 class SettingsContainer extends React.Component {
 
@@ -26,13 +24,12 @@ class SettingsContainer extends React.Component {
 				email: formData.email,
 			}
 		};
+
 		this.props.sendSettingsForm(data);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
 		return disableBtnSend(5000).then(() => {
 			return true;
 		})
-
-
 	};
 
 	render() {
@@ -54,4 +51,4 @@ let mapStateToProps = (state) => {
 };
 
 export default compose(withAuthRedirect,
-	connect(mapStateToProps, {sendSettingsForm,setSubmitFinished,sendUserPhotos,setUploadPhoto}))(SettingsContainer);
+	connect(mapStateToProps, {sendSettingsForm, setSubmitFinished, sendUserPhotos, setUploadPhoto}))(SettingsContainer);

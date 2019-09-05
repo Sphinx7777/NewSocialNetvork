@@ -28,7 +28,8 @@ class App extends React.Component {
 
 		return (
 			<div className={s.app}>
-				<HeaderContainer />
+
+				{/*<HeaderContainer />*/}
 				<SideBarContainer />
 				<div className={s.contentWrapper}>
 					<Switch>

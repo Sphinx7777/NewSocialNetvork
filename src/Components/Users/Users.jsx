@@ -4,6 +4,7 @@ import {User} from "./User";
 import {NumberUsersOfPage} from "./NumberUsersOfPage";
 import {Search} from "./Search";
 import {PrevNextTopBtn} from "./PrevNextTopBtn";
+import {StringOfPage} from "./StringOfPage";
 
 
 export const Users = (props) => {
@@ -11,6 +12,7 @@ export const Users = (props) => {
 		totalNumberOfUsers, numberUsersOnPage, currentPage, onClickNumberOfPage,
 		addUser, searchUsers, addCountUsers, users, loadLogin, countUsersOnPageLocal
 	} = props;
+	let usersScroll = React.createRef();
 
 	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
 	let pages = [];
@@ -19,23 +21,6 @@ export const Users = (props) => {
 	}
 
 
-	let pagesCount = pages.filter(p => {
-		return (p >= currentPage - 5 && p <= currentPage + 5);
-	});
-
-	let stringPages = () => pagesCount.map((n, index) => {
-		return (
-			<span
-				onClick={() => {
-					onClickNumberOfPage(n)
-				}}
-				key={index} className={currentPage === n ? s.selectedPage : s.numberPage}>{n}
-	        </span>
-		)
-	});
-
-	let usersScroll = React.createRef();
-
 	return (
 		<div className={s.users} ref={usersScroll}>
 			<div className={s.stringPages}>
@@ -43,21 +28,13 @@ export const Users = (props) => {
 													 addUser={addUser}
 													 currentPage={currentPage}
 													 addCountUsers={addCountUsers}/>
-				<div className={s.string}>
-					<span className={s.goToTheTop} onClick={() => {
-						onClickNumberOfPage(currentPage > 1 ? 1
-							: currentPage)
-					}}>↩ 1 . . . . .
-				</span>
-					{stringPages()}
-					<span className={s.goToTheEnd} onClick={() => {
-						onClickNumberOfPage(currentPage < totalCountUsers
-							? totalCountUsers
-							: currentPage)
-					}}>. . . . . {pages.length} ↪
-				</span>
-				</div>
-				<Search searchUsers={searchUsers}/>
+				<StringOfPage onClickNumberOfPage={onClickNumberOfPage}
+											currentPage={currentPage}
+											totalCountUsers={totalCountUsers}
+											pages={pages}/>
+
+				<Search
+					      searchUsers={searchUsers}/>
 			</div>
 			<User users={users}
 						loadLogin={loadLogin}/>
