@@ -32,12 +32,10 @@
 		flex-direction: column;
 		border-radius: 1rem;
 		background-color: rgba(0, 0, 0, .5);
-		min-height: 89vh;
 		width: 50%;
-
 		margin-right: 0.5rem;
 		padding-left: 0.5rem;
-		overflow: auto;
+
 
 
 		.avaAndBtn {
@@ -93,7 +91,7 @@
 		.description {
 			padding-top: 0.4rem;
 			justify-content: space-around;
-			align-items: flex-start;
+			align-items: center;
 
 			.statusInput {
 				border: 1px solid red;

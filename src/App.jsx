@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './App.module.scss';
-import HeaderContainer from "./Components/Header/HeaderContainer";
 import SideBarContainer from "./Components/SideBar/SideBarContainer";
 import {Route, Switch, withRouter} from "react-router-dom";
 import UsersContainer from "./Components/Users/UsersContainer";
@@ -28,8 +27,6 @@ class App extends React.Component {
 
 		return (
 			<div className={s.app}>
-
-				{/*<HeaderContainer />*/}
 				<SideBarContainer />
 				<div className={s.contentWrapper}>
 					<Switch>

@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import s from './Header.module.scss';
 import loginImg from './../../Images/skull2.png';
@@ -17,4 +18,4 @@ export const Header = (props) => {
 			</div>
 		</div>)
 
-};
+};*/

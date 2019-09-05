@@ -13,7 +13,7 @@ let initialState = {
 	users: [],
 	totalNumberOfUsers: null,
 	currentPage: 1,
-	numberUsersOnPage: 5,
+	numberUsersOnPage: 10,
 	loadedUsers: false
 };
 

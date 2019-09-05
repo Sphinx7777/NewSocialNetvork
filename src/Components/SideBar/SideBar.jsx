@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import s from './SideBar.module.scss';
 import {NavLink} from "react-router-dom";
+import {LoginSideBar} from "./LoginSideBar";
 
 
 let link = (to, title) => {
@@ -31,6 +32,6 @@ let hideMenu = ()=> {
 			{link('/login', 'Login')}
 			{link('/settings', 'Settings')}
 		</div>}
-<div>foto</div>
+<LoginSideBar login={props.login} loadLogin={props.loadLogin}/>
 	</div>)
 };
