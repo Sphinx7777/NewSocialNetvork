@@ -1,54 +1,50 @@
 .settings {
 	display: flex;
+	margin: 0 2.5rem;
 
-   .uploadPhotoWrapper {
-    max-height: 9rem;
-		 max-width: 26.8rem;
-		 color: white;
-		 background-color: rgba(0, 0, 0, .6);
-		 display: flex;
-		 flex-direction: column;
-		 border-radius: 0.5rem;
-		 outline: none;
-		 margin: 0.3rem;
+	.uploadPhotoWrapper {
+		max-height: 9rem;
+		max-width: 26.8rem;
+		color: white;
+		background-color: rgba(0, 0, 0, .6);
+		display: flex;
+		flex-direction: column;
+		border-radius: 0.5rem;
+		outline: none;
+		margin: 0.3rem;
 
-		 span {
-			 margin: 0 auto;
-			 font-weight: bold;
-			 font-size: 1.2rem;
-		 }
+		span {
+			margin: 0 auto;
+			font-weight: bold;
+			font-size: 1.2rem;
+		}
 
-		 .uploadPhoto {
-			 display: flex;
-			 flex-direction: column;
+		.uploadPhoto {
+			display: flex;
+			flex-direction: column;
 
-			 .uploadPhotoFinished {
-				 padding: 0.2rem;
+			.uploadPhotoFinished {
+				padding: 0.2rem;
+				background-color: rgba(0, 250, 0, .6);
+				text-align: center;
+				border-radius: 0.5rem;
+				outline: none;
+				margin: 0.3rem 0.3rem 0 0.3rem;
+			}
 
-				 background-color: rgba(0, 250, 0, .6);
-				 text-align: center;
-				 border-radius: 0.5rem;
-				 outline: none;
-				 margin: 0.3rem 0.3rem 0 0.3rem;
-			 }
-			 input {
-				 padding: 0.5rem;
-			 }
+			input {
+				padding: 0.5rem;
+			}
 
-			 .sendPhotoBtn {
-				 padding: 0.5rem;
-				 margin-top: 0.5rem;
-
-
-			 }
-		 }
-
-	 }
+			.sendPhotoBtn {
+				padding: 0.5rem;
+				margin-top: 0.5rem;
+			}
+		}
+	}
 
 	.settingsFormWrapper {
-
 		display: flex;
-
 
 		.submitFinished {
 			color: white;
@@ -63,7 +59,6 @@
 				font-size: 1.1rem;
 				font-weight: bold;
 			}
-
 		}
 
 		.settingsErrorForm {
@@ -93,7 +88,6 @@
 			padding: 0.3rem;
 			background-color: rgba(0, 0, 0, .6);
 
-
 			.description {
 				display: flex;
 				flex-direction: column;
@@ -115,7 +109,6 @@
 					border-radius: 0.5rem;
 					outline: none;
 				}
-
 			}
 		}
 
@@ -134,12 +127,13 @@
 	}
 
 }
+
 @media screen and (max-width: 900px) {
 	.settings {
 		display: flex;
 		flex-direction: column;
 
-		.uploadPhotoWrapper{
+		.uploadPhotoWrapper {
 			margin-left: 0;
 		}
 	}

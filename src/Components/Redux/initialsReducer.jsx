@@ -21,12 +21,14 @@ const initialsReducer = (state = initialState, action) => {
 const setInitialization = () => ({type: SET_INITIALS_FINISHED});
 
 
-
 export const initializationApp = () => {
-	return (dispatch) => {
-  let promise = dispatch(authMe());
-		Promise.all([promise]).then(()=>{
-				dispatch(setInitialization());
-		})}};
+	return async (dispatch) => {
+		let promise = await dispatch(authMe());
+		 await Promise.all([promise]);
+			dispatch(setInitialization());
+		}};
+
 
 export default initialsReducer;
+
+

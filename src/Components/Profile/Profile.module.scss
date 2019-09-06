@@ -10,8 +10,7 @@
 	display: flex;
 	overflow: auto;
 	max-width: 100%;
-	margin-top: 1rem;
-
+	margin: 1rem 2.5rem;
 
 	.myPostsWrapper {
 		display: flex;
@@ -23,9 +22,7 @@
 		margin-right: 0.5rem;
 		padding-left: 0.5rem;
 		overflow: auto;
-
 	}
-
 
 	.profile {
 		display: flex;
@@ -35,8 +32,6 @@
 		width: 50%;
 		margin-right: 0.5rem;
 		padding-left: 0.5rem;
-
-
 
 		.avaAndBtn {
 			display: flex;
@@ -60,7 +55,6 @@
 				outline: none;
 				cursor: pointer;
 				display: inline-block;
-
 			}
 
 			.btnAdd:disabled, .btnDell:disabled {
@@ -73,7 +67,6 @@
 				border: 3px solid green;
 				color: green;
 				background-color: rgba(0, 128, 0, 0.2);
-
 			}
 
 			.btnDell {
@@ -100,21 +93,18 @@
 				padding: 0.1rem;
 				font-size: 1rem;
 				margin: 0.5rem 0 0 0.5rem;
-
 			}
 
-			.title,.titleDesc {
+			.title, .titleDesc {
 				font-weight: bold;
 				font-size: 1.1rem;
 				padding: 0 0 0.5rem 0.5rem;
 				color: red;
-
 			}
+
 			.titleDesc {
 				font-size: 0.8rem;
 				color: white;
-
-
 			}
 
 			.desc {
@@ -123,17 +113,14 @@
 				border-bottom-right-radius: 1rem;
 				padding: 0.1rem 0.5rem;
 				color: white;
-
 			}
 
 			.contacts {
 				display: flex;
 				padding-left: 1rem;
 
-
 				.title {
 					display: block;
-
 				}
 
 				.desc {
@@ -146,21 +133,19 @@
 }
 
 
-
-
-
-
 @media screen and (max-width: 920px) {
 
 	.profileWrapper {
-display: block;
+		display: block;
 		font-size: 90%;
 		max-width: 100%;
+
 		.profile {
 			width: 100%;
 			padding-left: 0;
 			margin-left: 0;
 		}
+
 		.myPostsWrapper {
 			width: 100%;
 			padding-left: 0;
@@ -169,34 +154,33 @@ display: block;
 
 	}
 }
+
 @media screen and (max-width: 600px) {
 	.contentWrapper {
 		display: flex;
 		flex-direction: column;
-	.profileWrapper {
 
-		font-size: 90%;
-height: 100%;
-		padding: 0;
-		margin: 0;
-		.myPostsWrapper {
-
-		}
-
-		.profile {
-			max-width: 100%;
+		.profileWrapper {
+			font-size: 90%;
+			height: 100%;
 			padding: 0;
 			margin: 0;
-			.avaAndBtn {
-				max-width: 5rem ;
-				.photo {
-					max-width: 5rem ;
+
+			.profile {
+				max-width: 100%;
+				padding: 0;
+				margin: 0;
+
+				.avaAndBtn {
+					max-width: 5rem;
+
+					.photo {
+						max-width: 5rem;
+					}
 				}
 			}
-
 		}
-
-	}}
+	}
 }
 
 

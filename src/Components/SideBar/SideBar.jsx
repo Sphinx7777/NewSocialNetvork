@@ -22,7 +22,7 @@ let hideMenu = ()=> {
 			<span className={s.itemMenuSpan}> </span>
 			<span className={s.itemMenuSpan}> </span>
 		</div>
-		{menu	&&	<div className={s.sideBar}>
+		{menu	?	<div className={s.sideBar}>
 			<NavLink className={s.item} activeClassName={s.activeItem} exact to='/'>Main</NavLink>
 			{link('/users', 'Users')}
 			{link('/profile', 'Profile')}
@@ -31,7 +31,11 @@ let hideMenu = ()=> {
 			{link('/music', 'Music')}
 			{link('/login', 'Login')}
 			{link('/settings', 'Settings')}
-		</div>}
+		</div>:
+			<div className={s.promo}>Тут могла бы быть ваша реклама</div>
+
+
+		}
 <LoginSideBar login={props.login} loadLogin={props.loadLogin}/>
 	</div>)
 };

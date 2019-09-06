@@ -1,39 +1,41 @@
 .sideBarWrapper {
 	display: flex;
-align-items: center;
-justify-content: space-between;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 1rem;
 	position: sticky;
 	top: 0;
 
-margin: 0.5rem 0;
-
 	.loginHeader {
-margin-right: 0.5rem;
+		margin-right: 0.5rem;
 
-		.loginLink {
+		.loginLink, .loginName {
+			display: inline-block;;
 			text-decoration: none;
 			color: red;
+			background-color: rgba(0, 0, 0, .6);
+			text-align: center;
+			border: 3px solid red;
+			border-radius: 0.5rem;
+			padding: 0.3rem 0.5rem;
 			font-weight: bold;
-			font-style: italic;
+		}
 
-
-			.loginName {
-
-				display: block;
-				max-width: 3rem;
-				font-style: italic;
-
-
-				font-weight: bold;
-				color: white;
-				outline: none;
-			}
+		.loginName {
+			color: white;
+			border: 3px solid white;
 		}
 	}
 
-
-
-
+	.promo {
+		font-weight: bold;
+		font-size: 1.2rem;
+		padding: 3px;
+		border: 1px solid white;
+		border-radius: 0.5rem;
+		background-color: rgba(0, 0, 0, .6);
+		font-style: italic;
+	}
 
 	.itemMenu {
 		display: flex;
@@ -41,39 +43,29 @@ margin-right: 0.5rem;
 		color: white;
 		background-color: black;
 		text-align: left;
-		border: 3px solid white;
+		border: 3px solid black;
 		border-radius: 0.5rem;
 		font-weight: bold;
-		position: sticky;
-		left: 0;
-		top: 0;
-    min-width: 2rem;
+		min-width: 2rem;
 		max-width: 2rem;
-		margin-right: 1rem;
 		cursor: pointer;
 
 		.itemMenuSpan {
 			border: 1px solid white;
 			margin: 4px 0;
-
 		}
 	}
-
 
 	.sideBar {
 		display: flex;
 
-
-
-
 		.item {
-			display: block;
+			display: inline-block;;
 			text-decoration: none;
 			color: white;
 			background-color: rgba(0, 0, 0, .6);
-
 			text-align: center;
-			border: 3px solid white;
+			border: 3px solid black;
 			border-radius: 0.5rem;
 			padding: 0.3rem 0.5rem;
 			font-weight: bold;
@@ -83,65 +75,23 @@ margin-right: 0.5rem;
 			border: 3px solid red;
 			color: red;
 		}
-
-		.item:first-child {
-
-		}
 	}
 }
 
-@media screen and (max-width: 900px) {
-	.sideBarWrapper {
-
-	}
-}
 
 @media screen and (max-width: 700px) {
 	.sideBarWrapper {
-    flex-direction: column;
-		position: fixed;
-		left: 0;
-		.loginLink {
-      display: none;
-			font-size: 0.9rem;
-			font-weight: normal;
-		}
-
-		.itemMenu {
-			display: flex;
-			margin: 0;
-			margin-bottom: 1rem;
-			position: relative;
-			left: 0;
-			top: 0;
-		}
-
-
-
 
 		.sideBar {
-			margin: 0 auto;
-			flex-direction: column;
+			display: block;
 
 			.item {
-				display: inline-block;
 				font-weight: normal;
 				padding: 0.1rem;
 				margin: 0.1rem;
 			}
-
-			.item:first-child {
-
-			}
 		}
 	}
 }
 
-@media screen and (max-width: 450px) {
-	.sideBarWrapper {
-		.sideBar {
-			.item {
-			}
-		}
-	}
-}
+

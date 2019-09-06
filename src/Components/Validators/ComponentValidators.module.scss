@@ -3,11 +3,11 @@
 	margin-bottom: 1rem;
 	text-align: center;
 }
+
 .formComponent {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-
 
 	.formComponentField.errorField {
 		border: 2px solid red;
@@ -16,12 +16,10 @@
 	.formComponentField, .formComponentError {
 		border-radius: 0.5rem;
 		outline: none;
-
 	}
 
 	.formComponentField {
 		padding: 0.2rem;
-
 		max-width: 100%;
 	}
 
@@ -32,7 +30,6 @@
 		display: inline-block;
 		cursor: pointer;
 		margin: 0 auto;
-
 	}
 
 	.formComponentError {
@@ -41,6 +38,4 @@
 		background-color: rgba(255, 0, 0, .5);
 		margin: 0 auto;
 	}
-
-
 }

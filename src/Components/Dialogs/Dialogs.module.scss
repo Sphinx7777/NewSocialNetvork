@@ -2,10 +2,7 @@
 	max-width: 100%;
 
 	.newDialogForm {
-
 		max-width: 100%;
-
-
 
 		.newDialogText {
 			max-width: 100%;
@@ -15,29 +12,24 @@
 			outline: none;
 			max-height: 5rem;
 			font-weight: bold;
-
-
 		}
 
 		.newDialogBtn {
-     text-align: center;
+			text-align: center;
 			padding: 0.2rem;
+
 			.Btn {
 				padding: 0.3rem 0.5rem;
 				border-radius: 0.5rem;
 				outline: none;
 				font-weight: bold;
-
 			}
-
-
 		}
 	}
 
 	.dialogs {
-
 		display: flex;
-
+		margin: 0 2.5rem;
 
 		.user, .messages, .answers {
 			padding: 0.5rem;
@@ -51,26 +43,20 @@
 
 		.user {
 			flex-basis: 16%;
-
 			max-width: 16%;
-
 		}
 
 		.messages {
-
 			flex-basis: 42%;
 			max-width: 42%;
 
 			.newDialogMinimum {
 				font-size: 0.83333125rem;
 				margin-left: 5.91rem;
-
-
 			}
 		}
 
 		.answers {
-
 			flex-basis: 42%;
 			max-width: 42%;
 		}
@@ -80,27 +66,26 @@
 
 @media screen and (max-width: 920px) {
 	.dialogsWrapper {
-	.dialogs {
-		flex-direction: column;
-		align-items: flex-start;
+		.dialogs {
+			flex-direction: column;
+			align-items: flex-start;
 
-		.user, .messages, .answers {
-			min-width: 80%;
-			margin-bottom: 0.5rem;
-		}
-		.user {
-			flex-direction: row;
-
-			color: red;
-			.userItem {
-				display: inline;
-				max-width: 10%;
-				padding-right: 0.5rem;
-
+			.user, .messages, .answers {
+				min-width: 80%;
+				margin-bottom: 0.5rem;
 			}
 
+			.user {
+				flex-direction: row;
+				color: red;
 
+				.userItem {
+					display: inline;
+					max-width: 10%;
+					padding-right: 0.5rem;
+
+				}
+			}
 		}
 	}
-}
 }

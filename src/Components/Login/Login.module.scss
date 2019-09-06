@@ -23,11 +23,6 @@
 		 font-weight: bold;
 	 }
 
-	.loginCheck {
-
-
-	}
-
 .loginBtns,.logOutBtns {
 	display: flex;
 	flex-direction: column;
@@ -48,6 +43,7 @@
 }
 	.logOutBtns {
 		width: 100%;
+
 		.logOutBtn{
 			padding: 0.1rem;
 			color: black;
