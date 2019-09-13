@@ -13,7 +13,7 @@ let addUserOnPage = (event) => {
 		<div className={currentPage === 1 ? s.numberUsers : s.numberUsersHidden}>
 			<button disabled={currentPage > 1} onClick={() => {
 				addCountUsers()
-			}} className={s.numberUsersBtn}>Number users on page &#10148;</button>
+			}} className={s.numberUsersBtn}>&#10148;</button>
 			<div className={s.numbers}>
 				<span className={s.maxUsers}>Max 50 users</span>
 				<input disabled={currentPage > 1} onChange={addUserOnPage} className={s.numberUsersInput} type="number"

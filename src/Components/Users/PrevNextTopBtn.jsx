@@ -4,7 +4,7 @@ import s from './Users.module.scss';
 
 export const PrevNextTopBtn = (props) => {
 	let {
-		currentPage, onClickNumberOfPage, pages,usersScroll
+		currentPage, onClickNumberOfPage, pages,usersScroll,
 	} = props;
 
 
@@ -21,7 +21,7 @@ export const PrevNextTopBtn = (props) => {
 			}} className={s.showPrevPage} disabled={currentPage === 1}>Show prev page ↩
 			</button>
 			<button className={s.toTheTop} onClick={() => {
-				toTheTop()
+				toTheTop();
 			}}>To the top
 			</button>
 			<button onClick={() => {

@@ -13,6 +13,7 @@ export const Users = (props) => {
 		addUser, searchUsers, addCountUsers, users, loadLogin, countUsersOnPageLocal
 	} = props;
 	let usersScroll = React.createRef();
+	console.log(usersScroll);
 
 	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
 	let pages = [];
@@ -36,13 +37,16 @@ export const Users = (props) => {
 				<Search
 					      searchUsers={searchUsers}/>
 			</div>
-			<User users={users}
-						loadLogin={loadLogin}/>
-			<PrevNextTopBtn usersScroll={usersScroll}
-											currentPage={currentPage}
-											onClickNumberOfPage={onClickNumberOfPage}
-											pages={pages}/>
-		</div>
+			<div>
+				<User users={users}
+							loadLogin={loadLogin}/>
+				<PrevNextTopBtn usersScroll={usersScroll}
+												currentPage={currentPage}
+												onClickNumberOfPage={onClickNumberOfPage}
+												pages={pages}/>
+			</div>
+<div className={s.crutch}> </div>
 
+		</div>
 	);
 };

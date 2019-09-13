@@ -111,6 +111,11 @@
 				}
 			}
 		}
+		@media screen and (max-width: 580px) {
+			.settingsForm {
+				display: block;
+			}
+		}
 
 		.settingsForm.active {
 			background-color: rgba(0, 128, 0, .2);
@@ -135,6 +140,7 @@
 
 		.uploadPhotoWrapper {
 			margin-left: 0;
+			min-width: 28rem;
 		}
 	}
 }

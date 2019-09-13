@@ -8,6 +8,9 @@
 	font-weight: bold;
 	max-width: 100%;
 	text-align: center;
+	overflow: auto;
+
+
 
 	.goToTheTop, .goToTheEnd {
 		cursor: pointer;
@@ -220,6 +223,7 @@
 			padding: 0 0.5rem;
 			font-style: italic;
 			font-size: 1.3rem;
+			word-break: break-all;
 		}
 	}
 
@@ -227,11 +231,20 @@
 	.user:last-child {
 		margin-bottom: 0;
 	}
+	.crutch {
+		height: 4.5rem;
+	}
+	@media screen and (max-width: 650px) {
+		.crutch {
+			height: 7rem;
+		}
+	}
 }
 
 @media screen and (max-width: 800px) {
 	.users {
 		.stringPages {
+
 			.numberUsers {
 				display: flex;
 				padding: 0.1rem 0.1rem;
@@ -270,7 +283,7 @@
 	.users {
 
 		.nav {
-			margin-right: 0;
+			margin: 0.5rem auto 0.5rem;
 
 			.user {
 				.photoAndFriendStatus {
@@ -292,6 +305,37 @@
 		}
 	}
 }
+@media screen and (max-width: 500px) {
+	.users {
+		.stringPages {
+
+			.numberUsers {
+				display: none;
+
+
+				.numbers {
+
+					.maxUsers {
+
+					}
+				}
+
+				.numberUsersBtn {
+
+				}
+
+				.numberUsersBtn:disabled {
+
+				}
+			}
+		}
+
+		.stringPages {
+
+		}
+	}
+}
+
 
 @media screen and (max-width: 350px) {
 	.users {

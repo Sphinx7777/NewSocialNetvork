@@ -13,7 +13,7 @@
 			display: inline-block;;
 			text-decoration: none;
 			color: red;
-			background-color: rgba(0, 0, 0, .6);
+			background-color: rgba(255, 255, 255, 0.8);
 			text-align: center;
 			border: 3px solid red;
 			border-radius: 0.5rem;
@@ -22,8 +22,9 @@
 		}
 
 		.loginName {
-			color: white;
-			border: 3px solid white;
+			color: black;
+			border: 3px solid black;
+			margin-left: 1.5rem;
 		}
 	}
 
@@ -35,6 +36,12 @@
 		border-radius: 0.5rem;
 		background-color: rgba(0, 0, 0, .6);
 		font-style: italic;
+		margin: 0 auto;
+	}
+	@media screen and (max-width: 450px) {
+		.promo {
+			opacity: 0;
+		}
 	}
 
 	.itemMenu {
@@ -49,6 +56,7 @@
 		min-width: 2rem;
 		max-width: 2rem;
 		cursor: pointer;
+		margin-right: 1.5rem;
 
 		.itemMenuSpan {
 			border: 1px solid white;
@@ -62,12 +70,13 @@
 		.item {
 			display: inline-block;;
 			text-decoration: none;
-			color: white;
-			background-color: rgba(0, 0, 0, .6);
+			color: black;
+			border: 1px solid black;
+			background-color: rgba(255, 255, 255, 1);
 			text-align: center;
-			border: 3px solid black;
-			border-radius: 0.5rem;
-			padding: 0.3rem 0.5rem;
+			border-radius: 0.4rem;
+			padding: 2px;
+			margin-right: 0.3rem;
 			font-weight: bold;
 		}
 
@@ -81,14 +90,23 @@
 
 @media screen and (max-width: 700px) {
 	.sideBarWrapper {
+justify-content: flex-end;
 
+		.loginHeader {
+			margin-right: 1.5rem;
+
+		}
 		.sideBar {
-			display: block;
+			flex-direction: column;
+			position: absolute;
+			right: 0.5rem;
+			top: 3.2rem;
+
 
 			.item {
 				font-weight: normal;
-				padding: 0.1rem;
-				margin: 0.1rem;
+				padding: 0.3rem;
+				margin-bottom: 1rem;
 			}
 		}
 	}

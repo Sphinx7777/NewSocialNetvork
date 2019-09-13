@@ -17,13 +17,12 @@ let hideMenu = ()=> {
 };
 
 	return (<div className={s.sideBarWrapper}>
-		<div className={s.itemMenu} onClick={hideMenu}>
-			<span className={s.itemMenuSpan}> </span>
-			<span className={s.itemMenuSpan}> </span>
-			<span className={s.itemMenuSpan}> </span>
-		</div>
+		{menu && <LoginSideBar login={props.login} loadLogin={props.loadLogin}/>}
+
+
 		{menu	?	<div className={s.sideBar}>
 			<NavLink className={s.item} activeClassName={s.activeItem} exact to='/'>Main</NavLink>
+			<NavLink className={s.item} activeClassName={s.activeItem} target='_blank' to="/resume">Resume</NavLink>
 			{link('/users', 'Users')}
 			{link('/profile', 'Profile')}
 			{link('/dialogs', 'Dialogs')}
@@ -32,10 +31,14 @@ let hideMenu = ()=> {
 			{link('/login', 'Login')}
 			{link('/settings', 'Settings')}
 		</div>:
-			<div className={s.promo}>Тут могла бы быть ваша реклама</div>
+			<div className={s.promo}>Учебный проект React+Redux и др.</div>
 
 
 		}
-<LoginSideBar login={props.login} loadLogin={props.loadLogin}/>
+		<div className={s.itemMenu} onClick={hideMenu}>
+			<span className={s.itemMenuSpan}> </span>
+			<span className={s.itemMenuSpan}> </span>
+			<span className={s.itemMenuSpan}> </span>
+		</div>
 	</div>)
 };
