@@ -4,13 +4,11 @@ import s from './Users.module.scss';
 
 export const PrevNextTopBtn = (props) => {
 	let {
-		currentPage, onClickNumberOfPage, pages,usersScroll,
+		currentPage, onClickNumberOfPage, pages
 	} = props;
 
-
-
 	let toTheTop = () => {
-		usersScroll.current.scrollTop = 0;
+		window.scrollTo(0, 0);
 	};
 
 	return (
@@ -22,7 +20,7 @@ export const PrevNextTopBtn = (props) => {
 			</button>
 			<button className={s.toTheTop} onClick={() => {
 				toTheTop();
-			}}>To the top
+			}}>⇪ To the top ⇪
 			</button>
 			<button onClick={() => {
 				onClickNumberOfPage(currentPage < pages.length ? currentPage + 1 : currentPage);

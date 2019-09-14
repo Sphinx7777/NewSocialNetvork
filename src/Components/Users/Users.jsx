@@ -12,8 +12,6 @@ export const Users = (props) => {
 		totalNumberOfUsers, numberUsersOnPage, currentPage, onClickNumberOfPage,
 		addUser, searchUsers, addCountUsers, users, loadLogin, countUsersOnPageLocal
 	} = props;
-	let usersScroll = React.createRef();
-	console.log(usersScroll);
 
 	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
 	let pages = [];
@@ -22,8 +20,10 @@ export const Users = (props) => {
 	}
 
 
+
+
 	return (
-		<div className={s.users} ref={usersScroll}>
+		<div className={s.users}>
 			<div className={s.stringPages}>
 				<NumberUsersOfPage countUsersOnPageLocal={countUsersOnPageLocal}
 													 addUser={addUser}
@@ -40,8 +40,7 @@ export const Users = (props) => {
 			<div>
 				<User users={users}
 							loadLogin={loadLogin}/>
-				<PrevNextTopBtn usersScroll={usersScroll}
-												currentPage={currentPage}
+				<PrevNextTopBtn currentPage={currentPage}
 												onClickNumberOfPage={onClickNumberOfPage}
 												pages={pages}/>
 			</div>
