@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/SocialNetvork/static/css/main.1e5a5ec8.chunk.css",
+    "main.js": "/SocialNetvork/static/js/main.5086f6e2.chunk.js",
+    "main.js.map": "/SocialNetvork/static/js/main.5086f6e2.chunk.js.map",
+    "runtime~main.js": "/SocialNetvork/static/js/runtime~main.d65f8260.js",
+    "runtime~main.js.map": "/SocialNetvork/static/js/runtime~main.d65f8260.js.map",
+    "static/js/2.d328a85f.chunk.js": "/SocialNetvork/static/js/2.d328a85f.chunk.js",
+    "static/js/2.d328a85f.chunk.js.map": "/SocialNetvork/static/js/2.d328a85f.chunk.js.map",
+    "index.html": "/SocialNetvork/index.html",
+    "precache-manifest.4cd2e6982371da9232949cb5a43e12fe.js": "/SocialNetvork/precache-manifest.4cd2e6982371da9232949cb5a43e12fe.js",
+    "service-worker.js": "/SocialNetvork/service-worker.js",
+    "static/css/main.1e5a5ec8.chunk.css.map": "/SocialNetvork/static/css/main.1e5a5ec8.chunk.css.map",
+    "static/media/App.module.scss": "/SocialNetvork/static/media/forest.fb6b8e60.jpg",
+    "static/media/Profile.module.scss": "/SocialNetvork/static/media/forest3.bd111534.jpg",
+    "static/media/Users.module.scss": "/SocialNetvork/static/media/forest4.56cca69f.jpg",
+    "static/media/git.ico": "/SocialNetvork/static/media/git.2bcad980.ico",
+    "static/media/lamp.ico": "/SocialNetvork/static/media/lamp.b4166a32.ico",
+    "static/media/skull2.png": "/SocialNetvork/static/media/skull2.a61a1279.png",
+    "static/media/telegram.ico": "/SocialNetvork/static/media/telegram.5e18d520.ico"
+  }
+}
