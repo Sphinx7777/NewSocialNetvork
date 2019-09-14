@@ -2,12 +2,12 @@ import React from 'react';
 import s from './Main.module.scss';
 
 
-export const Main = (props) => {
+export const Main = () => {
 
 	return (
 		<div className={s.mainWrapper}>
 			<div className={s.main}>
-			Main
+				В разработке
 			</div>
 		</div>
 	)

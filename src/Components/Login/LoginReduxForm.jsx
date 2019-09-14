@@ -6,7 +6,7 @@ import {InputComponent} from "../Validators/ValidatosComponents";
 
 const maxlength15 = maxLengthCreator(15);
 const maxlength30 = maxLengthCreator(30);
-const minlength6 = minLengthCreator(6);
+const minlength4 = minLengthCreator(4);
 
 
 const LoginReduxForm = props => {
@@ -31,7 +31,7 @@ const LoginReduxForm = props => {
 						type="password"
 						component={InputComponent}
 						label="Password"
-						validate={[emptyField, minlength6, maxlength15]}
+						validate={[emptyField, minlength4, maxlength15]}
 
 					/>
 				</div>

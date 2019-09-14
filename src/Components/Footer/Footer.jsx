@@ -1,6 +1,5 @@
 import React from 'react'
 import s from './Footer.module.scss'
-import {NavLink} from "react-router-dom";
 import telegram from "../../Images/telegram.ico";
 import lamp from "../../Images/lamp.ico";
 import git from "../../Images/git.ico";
@@ -20,22 +19,26 @@ export const Footer = ({menuShowStatus}) => {
 
 				<div className={s.LinkWrapper}>
 					<div className={s.linkLineWrapper}>
-						<NavLink className={s.link} target='_blank' to="/djinni">
+						<a className={s.link}  target='_blank' rel='noopener noreferrer'
+							 href="https://djinni.co/q/03c688fb54">
 							<img className={s.linkImg} src={lamp} alt="Джинни"/><span className={s.linkTitle}>Djinni</span>
-						</NavLink>
-						<NavLink className={s.link} target='_blank' to="/telegram">
+						</a>
+						<a className={s.link} target='_blank' rel='noopener noreferrer'
+										 href="https://t.me/S_f_i_n_x">
 							<img className={s.linkImg} src={telegram} alt="Телеграм"/><span className={s.linkTitle}>Telegram</span>
-						</NavLink>
-						<NavLink className={s.link} target='_blank' to="/git">
+						</a>
+						<a className={s.link} target='_blank' rel='noopener noreferrer'
+										 href="https://github.com/Sphinx7777?tab=repositories">
 							<img className={s.linkImg} src={git} alt="Гитхаб"/><span className={s.linkTitle}>Git</span>
-						</NavLink>
+						</a>
 					</div>
 				</div>
 
 				<div>
-					<NavLink className={s.linkPost} target='_blank' to="/mailLink">
+					<a className={s.linkPost} target='_blank' rel='noopener noreferrer'
+									 href="mailto:Spamoglot13@gmail.com">
 						Spamoglot13@gmail.com
-					</NavLink>
+					</a>
 				</div>
 			</footer>
 		</div>

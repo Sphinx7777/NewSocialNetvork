@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Settings.module.scss';
 import SettingsReduxForm from "./SettingsReduxForm";
 import UploadPhoto from "./UploadPhoto";
-import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
+
 
 
 class Settings extends React.Component {
@@ -30,4 +30,4 @@ class Settings extends React.Component {
 }
 
 
-export default withAuthRedirect(Settings);
+export default Settings;

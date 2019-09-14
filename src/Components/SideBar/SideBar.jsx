@@ -22,7 +22,8 @@ let hideMenu = ()=> {
 
 		{menu	?	<div className={s.sideBar}>
 			<NavLink className={s.item} activeClassName={s.activeItem} exact to='/'>Main</NavLink>
-			<NavLink className={s.item} activeClassName={s.activeItem} target='_blank' to="/resume">Resume</NavLink>
+			<a className={s.item} target='_blank' rel='noopener noreferrer'
+							 href="https://sphinx7777.github.io/Portfolio">Portfolio</a>
 			{link('/users', 'Users')}
 			{link('/profile', 'Profile')}
 			{link('/dialogs', 'Dialogs')}
@@ -42,3 +43,5 @@ let hideMenu = ()=> {
 		</div>
 	</div>)
 };
+/*
+rel='noopener noreferrer'*/

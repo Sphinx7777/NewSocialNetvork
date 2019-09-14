@@ -19,6 +19,11 @@ return (
 
 
 		<LoginReduxForm onSubmit={onSubmit} logOutMe={props.logOutMe} loadLogin={props.loadLogin}/>
+		<div>
+			Тестовые Email и Password
+			<div>Email: free@samuraijs.com</div>
+			<div>Password: free</div>
+		</div>
 		</div>
 	);
 };

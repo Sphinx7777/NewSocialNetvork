@@ -14,6 +14,7 @@ import {initializationApp} from "./Components/Redux/initialsReducer";
 import SettingsContainer from "./Components/Settings/SettingsContainer";
 import NewsContainer from "./Components/News/NewsContainer";
 import {Footer} from "./Components/Footer/Footer";
+import MusicContainer from "./Components/Music/MusicContainer";
 
 
 class App extends React.Component {
@@ -37,26 +38,7 @@ class App extends React.Component {
 						<Route path='/dialogs' render={() => <DialogsContainer/>}/>
 						<Route path='/settings' render={() => <SettingsContainer/>}/>
 						<Route path='/news' render={() => <NewsContainer/>}/>
-						{/*<Route path='/resume' component={() => {
-							window.location.href = '#';
-							return null;
-						}}/>*/}
-						<Route path='/telegram' component={() => {
-							window.location.href = 'https://t.me/S_f_i_n_x';
-							return null;
-						}}/>
-						<Route path='/djinni' component={() => {
-							window.location.href = 'https://djinni.co/q/03c688fb54';
-							return null;
-						}}/>
-						<Route path='/git' component={() => {
-							window.location.href = 'https://github.com/Sphinx7777?tab=repositories';
-							return null;
-						}}/>
-						<Route path='/mailLink' component={() => {
-							window.location.href = 'mailto:Spamoglot13@gmail.com';
-							return null;
-						}}/>
+						<Route path='/music' render={() => <MusicContainer/>}/>
 					</Switch>
 				</div>
 				<Footer/>
