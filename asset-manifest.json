@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SocialNetvork/static/css/main.1e1aed17.chunk.css",
-    "main.js": "/SocialNetvork/static/js/main.2da51b8d.chunk.js",
-    "main.js.map": "/SocialNetvork/static/js/main.2da51b8d.chunk.js.map",
+    "main.js": "/SocialNetvork/static/js/main.7b4819dc.chunk.js",
+    "main.js.map": "/SocialNetvork/static/js/main.7b4819dc.chunk.js.map",
     "runtime~main.js": "/SocialNetvork/static/js/runtime~main.d65f8260.js",
     "runtime~main.js.map": "/SocialNetvork/static/js/runtime~main.d65f8260.js.map",
-    "static/js/2.fbf43e39.chunk.js": "/SocialNetvork/static/js/2.fbf43e39.chunk.js",
-    "static/js/2.fbf43e39.chunk.js.map": "/SocialNetvork/static/js/2.fbf43e39.chunk.js.map",
+    "static/js/2.18d33306.chunk.js": "/SocialNetvork/static/js/2.18d33306.chunk.js",
+    "static/js/2.18d33306.chunk.js.map": "/SocialNetvork/static/js/2.18d33306.chunk.js.map",
     "index.html": "/SocialNetvork/index.html",
-    "precache-manifest.7646ebec9a1443538a10ed92e7670497.js": "/SocialNetvork/precache-manifest.7646ebec9a1443538a10ed92e7670497.js",
+    "precache-manifest.9f0bb90464b98abcf3532352693a142b.js": "/SocialNetvork/precache-manifest.9f0bb90464b98abcf3532352693a142b.js",
     "service-worker.js": "/SocialNetvork/service-worker.js",
     "static/css/main.1e1aed17.chunk.css.map": "/SocialNetvork/static/css/main.1e1aed17.chunk.css.map",
     "static/media/App.module.scss": "/SocialNetvork/static/media/forest.fb6b8e60.jpg",
@@ -16,6 +16,7 @@
     "static/media/Users.module.scss": "/SocialNetvork/static/media/forest4.56cca69f.jpg",
     "static/media/git.ico": "/SocialNetvork/static/media/git.2bcad980.ico",
     "static/media/lamp.ico": "/SocialNetvork/static/media/lamp.b4166a32.ico",
+    "static/media/linkedIn.ico": "/SocialNetvork/static/media/linkedIn.b3148231.ico",
     "static/media/skull2.png": "/SocialNetvork/static/media/skull2.a61a1279.png",
     "static/media/telegram.ico": "/SocialNetvork/static/media/telegram.5e18d520.ico"
   }
