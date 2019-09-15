@@ -44,8 +44,6 @@ export const Users = (props) => {
 												onClickNumberOfPage={onClickNumberOfPage}
 												pages={pages}/>
 			</div>
-<div className={s.crutch}> </div>
-
 		</div>
 	);
 };

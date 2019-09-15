@@ -31,14 +31,13 @@ body {
 	color: white;
 	min-height: 100vh;
 	font-size: 100%;
-	position: relative;
+
 
 	.contentWrapper {
-		bottom: 0;
-		overflow: auto;
 		margin: 0 auto;
 		padding: 0;
 		max-width: 100%;
+    min-height: 81vh;
 	}
 }
 
@@ -46,8 +45,7 @@ body {
 	.app {
 
 		.contentWrapper {
-			margin: 0 auto;
-			padding: 0;
+
 		}
 	}
 }
@@ -56,7 +54,7 @@ body {
 	.app {
 
 		.contentWrapper {
-			padding: 0;
+
 		}
 	}
 }

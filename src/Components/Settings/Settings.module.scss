@@ -1,6 +1,7 @@
 .settings {
 	display: flex;
-	margin: 0 2.5rem;
+	align-content: center;
+
 
 	.uploadPhotoWrapper {
 		max-height: 9rem;
@@ -136,11 +137,12 @@
 @media screen and (max-width: 900px) {
 	.settings {
 		display: flex;
+		flex-wrap: wrap;
 		flex-direction: column;
 
 		.uploadPhotoWrapper {
 			margin-left: 0;
-			min-width: 28rem;
+
 		}
 	}
 }

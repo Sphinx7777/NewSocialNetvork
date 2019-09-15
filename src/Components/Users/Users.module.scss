@@ -229,14 +229,6 @@
 	.user:last-child {
 		margin-bottom: 0;
 	}
-	.crutch {
-		height: 4.5rem;
-	}
-	@media screen and (max-width: 650px) {
-		.crutch {
-			height: 7rem;
-		}
-	}
 }
 
 @media screen and (max-width: 800px) {

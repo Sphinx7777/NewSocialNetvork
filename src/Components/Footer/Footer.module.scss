@@ -10,13 +10,8 @@ inset 0 0 40px rgba(0, 0, 0, .1);
 
 .footerWrapper {
 	@include bRad (1rem);
-	margin: 1rem auto 1rem auto;
-	background-color: rgba(0, 0, 0, .6);
-
-
-
-
-
+	margin: 0 auto;
+	background-color: transparent;
 
 	.linkPost {
 		color: lightskyblue;
@@ -27,14 +22,9 @@ inset 0 0 40px rgba(0, 0, 0, .1);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.2rem;
+		padding: 0.2rem 0.5rem;
 		@include bRad (0.5rem);
 		max-width: 100%;
-
-		position: absolute;
-		bottom: 0;
-		left: 0.5rem;
-		right: 0.5rem;
 
 		.linkLineWrapper {
 			display: flex;
