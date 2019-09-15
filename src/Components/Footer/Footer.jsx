@@ -3,6 +3,7 @@ import s from './Footer.module.scss'
 import telegram from "../../Images/telegram.ico";
 import lamp from "../../Images/lamp.ico";
 import git from "../../Images/git.ico";
+import linkedin from "../../Images/linkedIn.ico";
 
 
 export const Footer = ({menuShowStatus}) => {
@@ -28,9 +29,13 @@ export const Footer = ({menuShowStatus}) => {
 							<img className={s.linkImg} src={telegram} alt="Телеграм"/><span className={s.linkTitle}>Telegram</span>
 						</a>
 						<a className={s.link} target='_blank' rel='noopener noreferrer'
-										 href="https://github.com/Sphinx7777?tab=repositories">
-							<img className={s.linkImg} src={git} alt="Гитхаб"/><span className={s.linkTitle}>Git</span>
-						</a>
+									 href="https://github.com/Sphinx7777?tab=repositories">
+						<img className={s.linkImg} src={git} alt="Гитхаб"/><span className={s.linkTitle}>Git</span>
+					</a>
+						<a className={s.link} target='_blank' rel='noopener noreferrer'
+							 href="https://www.linkedin.com/in/onishchenkosergei/">
+						<img className={s.linkImg} src={linkedin} alt="Линкедин"/><span className={s.linkTitle}>Linkedin</span>
+					</a>
 					</div>
 				</div>
 
