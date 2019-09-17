@@ -11,6 +11,13 @@ let instans = axios.create({
 	}
 });
 
+export const newsApi = {
+	getNews(SearchType='search',searchString='',currentPage=3,tags='') {
+		return axios.get(`https://hn.algolia.com/api/v1/${SearchType}?query=${searchString}&page=${currentPage}&tags=${tags}`)
+	}
+};
+
+
 export const usersApi = {
 	getUsers(currentPage, numberUsersOnPage) {
 		return instans.get(`users/?page=${currentPage}&count=${numberUsersOnPage}`)

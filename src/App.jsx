@@ -34,11 +34,15 @@ class App extends React.Component {
 						<Route exact path='/' render={() => <MainContainer/>}/>
 						<Route path='/users' render={() => <UsersContainer/>}/>
 						<Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+
+
 						<Route path='/login' render={() => <LoginContainer/>}/>
 						<Route path='/dialogs' render={() => <DialogsContainer/>}/>
 						<Route path='/settings' render={() => <SettingsContainer/>}/>
 						<Route path='/news' render={() => <NewsContainer/>}/>
 						<Route path='/music' render={() => <MusicContainer/>}/>
+
+
 					</Switch>
 				</div>
 				<Footer/>

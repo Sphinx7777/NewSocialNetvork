@@ -7,6 +7,7 @@ import { reducer as formReducer } from 'redux-form';
 import dialogsReducer from "./dialogsReducer";
 import initialsReducer from "./initialsReducer";
 import settingsReducer from "./settingsReducer";
+import newsReducer from "./newsReducer";
 
 
 let reducers = combineReducers(
@@ -17,7 +18,8 @@ let reducers = combineReducers(
 		 form: formReducer,
 		 dialogsPage: dialogsReducer,
 		 initial: initialsReducer,
-		 settings: settingsReducer
+		 settings: settingsReducer,
+		 newsPage: newsReducer
 	});
 
 
