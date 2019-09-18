@@ -1,8 +1,9 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import s from './News.module.scss';
+import {StringOfPage} from "../Users/StringOfPage";
 
 
-export const News = ({hitsPerPage,news,currentPage,searchNews,setNumberPerPage}) => {
+export const News = ({hitsPerPage,news,currentPage,searchNews,totalCountUsers,setNumberPerPage,getNews}) => {
 	let validNews = news.filter(n => n.title );
 
 	let [searchValue, setSearchValue] = useState('');
@@ -11,10 +12,18 @@ export const News = ({hitsPerPage,news,currentPage,searchNews,setNumberPerPage})
 		searchNews(searchValue,hitsPerPage);
 	}, [searchNews,searchValue,hitsPerPage]);
 
-
+	let onClickNumberOfPage = (currentPage) => {
+		getNews(currentPage, hitsPerPage)
+	};
 
 	return (
 		<div className={s.newsWrapper}>
+			<StringOfPage
+				onClickNumberOfPage={onClickNumberOfPage}
+				currentPage={currentPage}
+				totalNumberOfUsers={totalCountUsers}
+				numberUsersOnPage={hitsPerPage}
+			/>
 			<div>
 				<input type="text" onChange={(e)=>{setSearchValue(e.currentTarget.value)}} value={searchValue}/>
 				<input type="number" max='50' step={10} onChange={(e)=>setNumberPerPage(+e.currentTarget.value)} value={hitsPerPage}/>

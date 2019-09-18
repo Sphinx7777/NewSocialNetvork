@@ -1,0 +1,33 @@
+.string {
+	color: white;
+	margin: 0 auto;
+
+	.goToTheTop, .goToTheEnd {
+		cursor: pointer;
+		color: white;
+		outline: none;
+		font-weight: bold;
+		text-align: center;
+	}
+	.goToTheTop {
+		margin-right: 1rem;
+	}
+
+	.goToTheEnd {
+		margin-left: 1rem;
+	}
+	.numberPage, .selectedPage {
+		padding: 0.3rem;
+		display: inline-block;
+		font-weight: normal;
+		cursor: pointer;
+		color: white;
+	}
+	.selectedPage {
+		font-weight: bold;
+		font-size: 1.2rem;
+		color: red;
+		border: 1px solid red;
+		border-radius: 50%;
+	}
+}

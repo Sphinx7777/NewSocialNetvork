@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Users.module.scss';
+import s from './StringOfPage.module.scss';
 
 
 export const StringOfPage = (props) => {
