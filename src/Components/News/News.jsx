@@ -1,17 +1,13 @@
-import React, {Fragment, useEffect, useState} from 'react';
+import React, {Fragment,useState} from 'react';
 import s from './News.module.scss';
 import {StringOfPage} from "../Others/StringOfPage/StringOfPage";
 import {PrevNextTopBtn} from "../Others/PrevNextTopBtn/PrevNextTopBtn";
 
 
-export const News = ({hitsPerPage,news,currentPage,searchNews,totalCountUsers,setNumberPerPage,getNews}) => {
+export const News = ({hitsPerPage,news,currentPage,totalCountUsers,setNumberPerPage,getNews}) => {
 	let validNews = news.filter(n => n.title );
 
 	let [searchValue, setSearchValue] = useState('');
-
-	useEffect(() => {
-		searchNews(searchValue,hitsPerPage);
-	}, [searchNews,searchValue,hitsPerPage]);
 
 	let onClickNumberOfPage = (currentPage) => {
 		getNews(currentPage, hitsPerPage)
@@ -23,8 +19,16 @@ export const News = ({hitsPerPage,news,currentPage,searchNews,totalCountUsers,se
 			<div className={s.inputWrapper}>
 				<input className={s.searchInput} placeholder='Search...' type="text"
 							 onChange={(e)=>{setSearchValue(e.currentTarget.value)}} value={searchValue}/>
-				<input className={s.numberInput} type="number" max='50' step={10}
-							 onChange={(e)=>setNumberPerPage(+e.currentTarget.value)} value={hitsPerPage}/>
+				<label> <span>Новостей на странице : </span>
+				<select className={s.numberSelect} value={hitsPerPage} onChange={(e)=>setNumberPerPage(+e.currentTarget.value)}>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="30">30</option>
+					<option value="40">40</option>
+					<option value="50">50</option>
+				</select>
+				</label>
+
 			</div>
 			<div className={s.stringPage}>
 				<StringOfPage

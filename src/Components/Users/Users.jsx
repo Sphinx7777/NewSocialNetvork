@@ -9,8 +9,8 @@ import {StringOfPage} from "../Others/StringOfPage/StringOfPage";
 
 export const Users = (props) => {
 	let {
-		totalNumberOfUsers, numberUsersOnPage, currentPage, onClickNumberOfPage,
-		addUser, searchUsers, addCountUsers, users, loadLogin, countUsersOnPageLocal,
+		totalNumberOfUsers, numberUsersOnPage, currentPage,
+		onClickNumberOfPage,searchUsers, users, loadLogin,SetNumberUsersOnPageAC,
 	} = props;
 
 
@@ -18,8 +18,8 @@ export const Users = (props) => {
 		<React.Fragment>
 		<div className={s.users}>
 			<div className={s.stringPages}>
-				<NumberUsersOfPage {...{currentPage,addCountUsers,
-					addUser,countUsersOnPageLocal}}/>
+				<NumberUsersOfPage {...{currentPage,
+					SetNumberUsersOnPageAC,numberUsersOnPage}}/>
 
 				<StringOfPage {...{
 					onClickNumberOfPage, currentPage,

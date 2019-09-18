@@ -10,18 +10,7 @@ import {getloadLogin, getUsers} from "../Redux/selectors";
 
 class UsersContainer extends React.Component {
 
-	state={
-		countUsersOnPage:this.props.numberUsersOnPage
-	};
-	addUser =(count)=>{
-    this.setState({
-			countUsersOnPage:count
-		})
-	};
 
-addCountUsers = ()=>{
-	this.props.SetNumberUsersOnPageAC(this.state.countUsersOnPage)
-};
 
 	componentDidMount() {
 		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
@@ -43,10 +32,7 @@ addCountUsers = ()=>{
 		}
 
 		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}
-									                addUser={this.addUser}
-									addCountUsers={this.addCountUsers}
-									countUsersOnPageLocal={this.state.countUsersOnPage}
-									searchUsers={this.props.searchUsers}
+
 
 		/>
 	}

@@ -10,7 +10,7 @@ const SET_CURRENT_PAGE = '/authReducer///SET_CURRENT_PAGE';
 let initialState = {
 	news: [],
 	currentPage: 1,
-	hitsPerPage: 20,
+	hitsPerPage: 10,
 	totalCountUsers: 1000,
 
 
@@ -22,7 +22,7 @@ const newsReducer = (state = initialState, {type, hits,number,currentPage}) => {
 			return {...state, news:hits}
 		}
 		case SET_NUMBER_PER_PAGE: {
-			return {...state, hitsPerPage:number,}
+			return {...state,  hitsPerPage:number,}
 		}
 		case SET_CURRENT_PAGE: {
 			return {...state, currentPage:currentPage,}

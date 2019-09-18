@@ -23,14 +23,13 @@
 		margin-bottom: 1rem;
 
 
-		.searchInput, .numberInput {
+		.searchInput {
 			@include bRad (0.5rem);
 			padding: 5px;
 
 		}
-		.numberInput {
-			text-align: left;
-			max-width: 3rem;
+		.numberSelect {
+			zoom: 1.3;
 		}
 
 	}

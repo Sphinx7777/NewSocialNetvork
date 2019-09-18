@@ -4,10 +4,11 @@ import s from './Users.module.scss';
 
 export const Search = (props) => {
 
-	let [name, setName] = useState(null);
+	let [name, setName] = useState('');
 
 	let nameUser = (e) => {
 		setName(e.currentTarget.value);
+		name.length >=1 &&
 		props.searchUsers(name)
 	};
 
@@ -17,7 +18,7 @@ export const Search = (props) => {
 
 	return (
 		<div className={s.searchWrapper}>
-					<input onChange={nameUser} type="text" min="1" max="50" placeholder='UserNameSearch'/>
+					<input className={s.searchField} onChange={nameUser} type="text" min="1" max="50" placeholder='UserNameSearch'/>
 					{/*<span className={s.search} onClick={searchUser}>Search</span>*/}
 		</div>
 	);
