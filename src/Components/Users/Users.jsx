@@ -18,7 +18,7 @@ export const Users = (props) => {
 		<React.Fragment>
 		<div className={s.users}>
 			<div className={s.stringPages}>
-				<NumberUsersOfPage {...{currentPage,
+				<NumberUsersOfPage {...{currentPage,totalNumberOfUsers,
 					SetNumberUsersOnPageAC,numberUsersOnPage}}/>
 
 				<StringOfPage {...{
