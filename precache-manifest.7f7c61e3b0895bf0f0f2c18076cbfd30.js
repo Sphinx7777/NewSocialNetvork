@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eaec07acc0c114fb6b170fcbde9a5fb3",
+    "revision": "871d8b4c93611d9f7e8d3ca3a8584806",
     "url": "/SocialNetvork/index.html"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetvork/static/css/10.555eb3bd.chunk.css"
   },
   {
-    "revision": "9ca609b08059a18b35b8",
-    "url": "/SocialNetvork/static/css/4.fcf5280f.chunk.css"
+    "revision": "1e2536aabfbdf69e5c82",
+    "url": "/SocialNetvork/static/css/4.9a058980.chunk.css"
   },
   {
-    "revision": "274443e6894b6b2db4e2",
-    "url": "/SocialNetvork/static/css/5.7a351255.chunk.css"
+    "revision": "0eda05d7dd62d38b2053",
+    "url": "/SocialNetvork/static/css/5.52a18224.chunk.css"
   },
   {
     "revision": "f481ca3b5b09644ef16e",
@@ -32,7 +32,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetvork/static/css/9.c90be9d5.chunk.css"
   },
   {
-    "revision": "f4227481126aedbfec02",
+    "revision": "c29640933034039e8e42",
     "url": "/SocialNetvork/static/css/main.e7efe60f.chunk.css"
   },
   {
@@ -48,12 +48,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetvork/static/js/3.0873fc86.chunk.js"
   },
   {
-    "revision": "9ca609b08059a18b35b8",
-    "url": "/SocialNetvork/static/js/4.9dbacf9f.chunk.js"
+    "revision": "1e2536aabfbdf69e5c82",
+    "url": "/SocialNetvork/static/js/4.1dc94e9d.chunk.js"
   },
   {
-    "revision": "274443e6894b6b2db4e2",
-    "url": "/SocialNetvork/static/js/5.c5f93a91.chunk.js"
+    "revision": "0eda05d7dd62d38b2053",
+    "url": "/SocialNetvork/static/js/5.bfc72119.chunk.js"
   },
   {
     "revision": "f481ca3b5b09644ef16e",
@@ -72,12 +72,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SocialNetvork/static/js/9.b6cc276d.chunk.js"
   },
   {
-    "revision": "f4227481126aedbfec02",
-    "url": "/SocialNetvork/static/js/main.cb2e8e3b.chunk.js"
+    "revision": "c29640933034039e8e42",
+    "url": "/SocialNetvork/static/js/main.55c94dfc.chunk.js"
   },
   {
-    "revision": "810209ded74bf694c786",
-    "url": "/SocialNetvork/static/js/runtime~main.63b8a7bd.js"
+    "revision": "ea170a7ebd07da452113",
+    "url": "/SocialNetvork/static/js/runtime~main.c4716725.js"
   },
   {
     "revision": "fb6b8e6013ad8ed9e0788759373f0663",
