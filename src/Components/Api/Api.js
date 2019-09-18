@@ -12,9 +12,12 @@ let instans = axios.create({
 });
 
 export const newsApi = {
-	getNews(SearchType='search',searchString='',currentPage=3,tags='') {
-		return axios.get(`https://hn.algolia.com/api/v1/${SearchType}?query=${searchString}&page=${currentPage}&tags=${tags}`)
-	}
+	getNews(currentPage,hitsPerPage) {
+		return axios.get(`https://hn.algolia.com/api/v1/search?page=${currentPage}&hitsPerPage=${hitsPerPage}`)
+	},
+	searchNews(searchValue,hitsPerPage) {
+		return axios.get(`https://hn.algolia.com/api/v1/search?query=${searchValue}&hitsPerPage=${hitsPerPage}`)
+	},
 };
 
 

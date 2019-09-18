@@ -4,8 +4,14 @@ import s from './Users.module.scss';
 
 export const StringOfPage = (props) => {
 	let {
-		totalCountUsers, pages, currentPage, onClickNumberOfPage,
+		currentPage, onClickNumberOfPage,totalNumberOfUsers,numberUsersOnPage
 	} = props;
+
+	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
+	let pages = [];
+	for (let i = 1; i <= totalCountUsers; i++) {
+		pages.push(i);
+	}
 
 	let pagesCount = pages.filter(p => {
 		return (p >= currentPage - 5 && p <= currentPage + 5);

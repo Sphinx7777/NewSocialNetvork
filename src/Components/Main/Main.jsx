@@ -7,7 +7,7 @@ export const Main = () => {
 	return (
 		<div className={s.mainWrapper}>
 			<div className={s.main}>
-				В разработке
+				В разработке...ждем backend...
 			</div>
 		</div>
 	)

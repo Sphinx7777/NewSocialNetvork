@@ -4,8 +4,17 @@ import s from './Users.module.scss';
 
 export const PrevNextTopBtn = (props) => {
 	let {
-		currentPage, onClickNumberOfPage, pages
+		currentPage, onClickNumberOfPage,totalNumberOfUsers,numberUsersOnPage
 	} = props;
+
+
+	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
+	let pages = [];
+	for (let i = 1; i <= totalCountUsers; i++) {
+		pages.push(i);
+	}
+
+
 
 	let toTheTop = () => {
 		window.scrollTo(0, 0);

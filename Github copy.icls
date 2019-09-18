@@ -1,10 +1,10 @@
-<scheme name="Github copy1" version="142" parent_scheme="Default">
+<scheme name="Github copy" version="142" parent_scheme="Default">
   <metaInfo>
-    <property name="created">2019-06-27T18:25:58</property>
+    <property name="created">2019-09-17T16:56:44</property>
     <property name="ide">WebStorm</property>
-    <property name="ideVersion">2019.1.3.0.0</property>
-    <property name="modified">2019-06-27T18:26:11</property>
-    <property name="originalScheme">Github copy1</property>
+    <property name="ideVersion">2019.1.2.0.0</property>
+    <property name="modified">2019-09-17T16:56:54</property>
+    <property name="originalScheme">Github copy</property>
   </metaInfo>
   <colors>
     <option name="CARET_COLOR" value="333333" />
@@ -295,7 +295,6 @@
     <option name="CSS.CLASS_NAME">
       <value>
         <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="CSS.COLOR">
@@ -342,13 +341,11 @@
     <option name="CSS.PSEUDO">
       <value>
         <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="CSS.TAG_NAME">
       <value>
         <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="CSS.URL">
@@ -785,7 +782,7 @@
     </option>
     <option name="HTML_ATTRIBUTE_NAME">
       <value>
-        <option name="FOREGROUND" value="795da3" />
+        <option name="FOREGROUND" value="7870a3" />
       </value>
     </option>
     <option name="HTML_ATTRIBUTE_VALUE">
@@ -807,13 +804,12 @@
     </option>
     <option name="HTML_TAG">
       <value>
-        <option name="FOREGROUND" value="c6d1d" />
+        <option name="FOREGROUND" value="333333" />
       </value>
     </option>
     <option name="HTML_TAG_NAME">
       <value>
-        <option name="FOREGROUND" value="c6d1d" />
-        <option name="FONT_TYPE" value="1" />
+        <option name="FOREGROUND" value="48930" />
       </value>
     </option>
     <option name="HYPERLINK_ATTRIBUTES">
@@ -997,11 +993,6 @@
         <option name="FOREGROUND" value="7a3d3e" />
       </value>
     </option>
-    <option name="JS.INTERFACE">
-      <value>
-        <option name="FOREGROUND" value="333333" />
-      </value>
-    </option>
     <option name="JS.KEYWORD">
       <value>
         <option name="FOREGROUND" value="6f10a7" />
@@ -1030,7 +1021,7 @@
     </option>
     <option name="JS.REGEXP">
       <value>
-        <option name="FOREGROUND" value="498019" />
+        <option name="FOREGROUND" value="9926" />
       </value>
     </option>
     <option name="JS.SEMICOLON">
@@ -1038,25 +1029,9 @@
         <option name="FOREGROUND" value="86b3" />
       </value>
     </option>
-    <option name="JS.STRING">
-      <value>
-        <option name="FOREGROUND" value="784a1b" />
-      </value>
-    </option>
-    <option name="JS.TYPE_ALIAS">
-      <value>
-        <option name="FOREGROUND" value="333333" />
-      </value>
-    </option>
     <option name="LABEL">
       <value>
         <option name="FOREGROUND" value="a71d5d" />
-      </value>
-    </option>
-    <option name="LESS_ID_SELECTOR">
-      <value>
-        <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="LESS_JS_CODE_DELIM">
@@ -1604,12 +1579,6 @@
         <option name="FOREGROUND" value="183691" />
       </value>
     </option>
-    <option name="SASS_CLASS_NAME">
-      <value>
-        <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
-      </value>
-    </option>
     <option name="SASS_COLOR">
       <value>
         <option name="FOREGROUND" value="0" />
@@ -1643,7 +1612,6 @@
     <option name="SASS_ID_SELECTOR">
       <value>
         <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="SASS_IMPORTANT">
@@ -1684,7 +1652,6 @@
     <option name="SASS_PSEUDO">
       <value>
         <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="SASS_STRING">
@@ -1695,7 +1662,6 @@
     <option name="SASS_TAG_NAME">
       <value>
         <option name="FOREGROUND" value="7f5808" />
-        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="SASS_URL">
@@ -1837,11 +1803,6 @@
         <option name="ERROR_STRIPE_COLOR" value="ff" />
       </value>
     </option>
-    <option name="TS.TYPE.ALIAS">
-      <value>
-        <option name="FOREGROUND" value="333333" />
-      </value>
-    </option>
     <option name="TYPEDEF">
       <value>
         <option name="FOREGROUND" value="a71d5d" />
@@ -1868,18 +1829,17 @@
     </option>
     <option name="XML_ATTRIBUTE_VALUE">
       <value>
-        <option name="FOREGROUND" value="183691" />
+        <option name="FOREGROUND" value="7c916f" />
       </value>
     </option>
     <option name="XML_ENTITY_REFERENCE">
       <value>
-        <option name="FOREGROUND" value="0" />
+        <option name="FOREGROUND" value="3048be" />
       </value>
     </option>
     <option name="XML_TAG">
       <value>
-        <option name="FOREGROUND" value="116319" />
-        <option name="FONT_TYPE" value="1" />
+        <option name="FOREGROUND" value="48930" />
       </value>
     </option>
     <option name="XML_TAG_DATA">
@@ -1890,8 +1850,7 @@
     </option>
     <option name="XML_TAG_NAME">
       <value>
-        <option name="FOREGROUND" value="116319" />
-        <option name="FONT_TYPE" value="1" />
+        <option name="FOREGROUND" value="48930" />
       </value>
     </option>
     <option name="YAML_COMMENT">
