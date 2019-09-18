@@ -1,6 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import s from './News.module.scss';
-import {StringOfPage} from "../Users/StringOfPage";
+import {StringOfPage} from "../Others/StringOfPage/StringOfPage";
+import {PrevNextTopBtn} from "../Others/PrevNextTopBtn/PrevNextTopBtn";
 
 
 export const News = ({hitsPerPage,news,currentPage,searchNews,totalCountUsers,setNumberPerPage,getNews}) => {
@@ -18,16 +19,22 @@ export const News = ({hitsPerPage,news,currentPage,searchNews,totalCountUsers,se
 
 	return (
 		<div className={s.newsWrapper}>
-			<StringOfPage
-				onClickNumberOfPage={onClickNumberOfPage}
-				currentPage={currentPage}
-				totalNumberOfUsers={totalCountUsers}
-				numberUsersOnPage={hitsPerPage}
-			/>
-			<div>
-				<input type="text" onChange={(e)=>{setSearchValue(e.currentTarget.value)}} value={searchValue}/>
-				<input type="number" max='50' step={10} onChange={(e)=>setNumberPerPage(+e.currentTarget.value)} value={hitsPerPage}/>
+
+			<div className={s.inputWrapper}>
+				<input className={s.searchInput} placeholder='Search...' type="text"
+							 onChange={(e)=>{setSearchValue(e.currentTarget.value)}} value={searchValue}/>
+				<input className={s.numberInput} type="number" max='50' step={10}
+							 onChange={(e)=>setNumberPerPage(+e.currentTarget.value)} value={hitsPerPage}/>
 			</div>
+			<div className={s.stringPage}>
+				<StringOfPage
+					onClickNumberOfPage={onClickNumberOfPage}
+					currentPage={currentPage}
+					totalNumberOfUsers={totalCountUsers}
+					numberUsersOnPage={hitsPerPage}
+				/>
+			</div>
+
 			{validNews.map(({objectID, author, created_at, points, title, url, num_comments}) =>
 				<Fragment key={objectID}>
 				<a className={s.newsLink} href={url} target='_blank' rel='noopener noreferrer'>
@@ -44,6 +51,10 @@ export const News = ({hitsPerPage,news,currentPage,searchNews,totalCountUsers,se
 				</a>
 				</Fragment>
 			)}
+			<PrevNextTopBtn
+				currentPage={currentPage} onClickNumberOfPage={onClickNumberOfPage}
+				totalNumberOfUsers={totalCountUsers} numberUsersOnPage={hitsPerPage}
+			/>
 		</div>
 	)
 };

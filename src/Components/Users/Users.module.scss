@@ -11,52 +11,6 @@
 	overflow: auto;
 
 
-
-	.goToTheTop, .goToTheEnd {
-		cursor: pointer;
-		color: white;
-		outline: none;
-		font-weight: bold;
-		text-align: center;
-	}
-
-	.goToTheTop {
-		margin-right: 1rem;
-	}
-
-	.goToTheEnd {
-		margin-left: 1rem;
-	}
-
-	.showPages {
-		display: flex;
-		justify-content: space-between;
-
-		.showNextPage, .showPrevPage, .toTheTop {
-			display: inline-block;
-			color: white;
-			background-color: rgba(0, 0, 0, .6);
-			margin: 0.5rem 0.5rem;
-			text-align: center;
-			border: 3px solid white;
-			border-radius: 0.5rem;
-			outline: none;
-			padding: 0.3rem 0.5rem;
-			font-weight: bold;
-			cursor: pointer;
-
-		}
-
-		.showNextPage:disabled, .showPrevPage:disabled {
-			border: 3px solid darkgrey;
-			background-color: white;
-			color: darkgrey;
-			cursor: auto;
-		}
-
-
-	}
-
 	.stringPages {
 		background-color: rgba(0, 0, 0, .6);
 		border-radius: 0.5rem;
@@ -74,12 +28,6 @@
 				 border-radius: 0.3rem;
 				 outline: none;
 			 }*/
-		}
-
-
-		.string {
-			color: white;
-			margin: 0 auto;
 		}
 
 		.numberUsers {
@@ -139,21 +87,6 @@
 		padding: 0.3rem 0;
 		color: black;
 
-		.numberPage, .selectedPage {
-			padding: 0.3rem;
-			display: inline-block;
-			font-weight: normal;
-			cursor: pointer;
-			color: white;
-		}
-
-		.selectedPage {
-			font-weight: bold;
-			font-size: 1.2rem;
-			color: red;
-			border: 1px solid red;
-			border-radius: 50%;
-		}
 	}
 
 	.nav {
