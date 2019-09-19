@@ -8,6 +8,8 @@ export const Main = () => {
 		<div className={s.mainWrapper}>
 			<div className={s.main}>
 				В разработке...ждем backend...
+			</div><div className={s.main}>
+				Тестовые логин и пароль на странице логина...
 			</div>
 		</div>
 	)
