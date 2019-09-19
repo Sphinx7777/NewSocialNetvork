@@ -22,6 +22,8 @@ class SettingsContainer extends React.Component {
 				instagram: formData.instagram,
 				vk: formData.vk,
 				email: formData.email,
+				website: formData.website,
+
 			}
 		};
 

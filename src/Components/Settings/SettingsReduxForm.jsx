@@ -92,6 +92,13 @@ const SettingsReduxForm = (props) => {
 							validate={[]}
 						/>
 						<Field
+							name='website'
+							type='text'
+							component={InputComponent}
+							label='My website'
+							validate={[]}
+						/>
+						<Field
 							name='email'
 							type='email'
 							component={InputComponent}

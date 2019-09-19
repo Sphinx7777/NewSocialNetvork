@@ -21,9 +21,19 @@ export const DescriptionProfile = (props) => {
 			</div>
 			<div className={s.title}>Contacts :
 				<div className={s.contacts}>
-					<label className={s.title}>Facebook : <span className={s.desc}>{contacts.facebook}</span> </label>
+					<label className={s.title}>Facebook :
+						<span className={s.desc}>
+							<a style={{textDecoration:'none',color:'blue'}} target='_blank' rel='noopener noreferrer'
+								 href={contacts.facebook}>facebook.com/OnishenkoSerg</a>
+					</span>
+					</label>
 					<label className={s.title}> VK : <span className={s.desc}>{contacts.vk}</span></label>
-					<label className={s.title}>My website : <span className={s.desc}>{contacts.website}</span></label>
+					<label className={s.title}>My website :
+						<span className={s.desc}>
+						<a style={{textDecoration:'none',color:'blue'}} target='_blank' rel='noopener noreferrer'
+							 href={contacts.website}>sphinx7777.github.io/SocialNetvork</a>
+					</span>
+					</label>
 				</div>
 			</div>
 			{loginId === userId
