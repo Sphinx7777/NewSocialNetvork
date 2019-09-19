@@ -8,7 +8,6 @@ let link = (to, title) => {
 	return <NavLink className={s.item} activeClassName={s.activeItem} to={`${to}`}>{title}</NavLink>
 };
 
-
 export const SideBar = (props) => {
 
 	let [menu,setMenu]=useState(true);
@@ -33,8 +32,6 @@ let hideMenu = ()=> {
 			{link('/settings', 'Settings')}
 		</div>:
 			<div className={s.promo}>Учебный проект React+Redux и др.</div>
-
-
 		}
 		<div className={s.itemMenu} onClick={hideMenu}>
 			<span className={s.itemMenuSpan}> </span>

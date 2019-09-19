@@ -21,20 +21,6 @@
 		border-radius: 0.5rem;
 		margin: 0 2.5rem;
 
-		.numberSelect {
-			color: white;
-
-			padding-left: 0.3rem;
-			.select {
-				zoom: 1.2;
-				@include bRad (0.3rem);
-			}
-
-			.selectTitle {
-				padding: 3px;
-			}
-		}
-
 		.searchWrapper {
 			display: flex;
 			margin-right: 0.5rem;

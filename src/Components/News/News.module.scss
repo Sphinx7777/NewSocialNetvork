@@ -14,28 +14,19 @@
 		background-color: rgba(0,0,0,0.6);
 		@include bRad (0.5rem);
 		margin-bottom: 1rem;
+		margin-top: 1rem;
 
 	}
 
 	.inputWrapper {
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 1rem;
-
 
 		.searchInput {
 			@include bRad (0.5rem);
 			padding: 5px;
-
 		}
-		.numberSelect {
-			zoom: 1.3;
-		}
-
 	}
-
-
-
 
 	.newsLink {
 		background-color: rgba(0,0,0,0.6);

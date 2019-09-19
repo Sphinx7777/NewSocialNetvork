@@ -1,6 +1,7 @@
 import React from "react";
 import s from './ComponentValidators.module.scss';
 
+// Поля ввода для редакс-форм в зависимости от typeComponent input или textarea
 
 export const InputComponent = (
 	{typeComponent,cols,input, label,rows, type, meta:{error,warning,touched}}) => {

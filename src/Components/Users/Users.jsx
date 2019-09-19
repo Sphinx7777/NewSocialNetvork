@@ -1,39 +1,42 @@
 import React from 'react';
 import s from './Users.module.scss';
 import {User} from "./User";
-import {NumberUsersOfPage} from "./NumberUsersOfPage";
 import {Search} from "./Search";
 import {PrevNextTopBtn} from "../Others/PrevNextTopBtn/PrevNextTopBtn";
 import {StringOfPage} from "../Others/StringOfPage/StringOfPage";
+import {Select} from "../Others/MyComponents/Select/Select";
+import {optionsForUsers} from "../Others/MyComponents/Select/Options";
+
 
 
 export const Users = (props) => {
 	let {
 		totalNumberOfUsers, numberUsersOnPage, currentPage,
-		onClickNumberOfPage,searchUsers, users, loadLogin,SetNumberUsersOnPageAC,
+		onClickNumberOfPage, searchUsers, users, loadLogin, SetNumberUsersOnPageAC,
 	} = props;
 
 
 	return (
 		<React.Fragment>
-		<div className={s.users}>
-			<div className={s.stringPages}>
-				<NumberUsersOfPage {...{currentPage,
-					SetNumberUsersOnPageAC,numberUsersOnPage}}/>
+			<div className={s.users}>
+				<div className={s.stringPages}>
+					<Select value={numberUsersOnPage} onChange={SetNumberUsersOnPageAC}
+									label=': на странице' options={optionsForUsers}
+					/>
 
-				<StringOfPage {...{
-					onClickNumberOfPage, currentPage,
-					totalNumberOfUsers, numberUsersOnPage
-				}}/>
+					<StringOfPage {...{
+						onClickNumberOfPage, currentPage,
+						totalNumberOfUsers, numberUsersOnPage
+					}}/>
 
-				<Search {...{searchUsers}}/>
+					<Search {...{searchUsers}}/>
+				</div>
+				<div>
+					<User users={users} loadLogin={loadLogin}/>
+
+				</div>
+
 			</div>
-			<div>
-				<User users={users} loadLogin={loadLogin}/>
-
-			</div>
-
-		</div>
 			<PrevNextTopBtn {...{
 				currentPage, onClickNumberOfPage,
 				totalNumberOfUsers, numberUsersOnPage

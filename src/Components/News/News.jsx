@@ -2,6 +2,8 @@ import React, {Fragment,useState} from 'react';
 import s from './News.module.scss';
 import {StringOfPage} from "../Others/StringOfPage/StringOfPage";
 import {PrevNextTopBtn} from "../Others/PrevNextTopBtn/PrevNextTopBtn";
+import {optionsForNews} from "../Others/MyComponents/Select/Options";
+import {Select} from "../Others/MyComponents/Select/Select";
 
 
 export const News = ({hitsPerPage,news,currentPage,totalCountUsers,setNumberPerPage,getNews}) => {
@@ -19,15 +21,10 @@ export const News = ({hitsPerPage,news,currentPage,totalCountUsers,setNumberPerP
 			<div className={s.inputWrapper}>
 				<input className={s.searchInput} placeholder='Search...' type="text"
 							 onChange={(e)=>{setSearchValue(e.currentTarget.value)}} value={searchValue}/>
-				<label> <span>Новостей на странице : </span>
-				<select className={s.numberSelect} value={hitsPerPage} onChange={(e)=>setNumberPerPage(+e.currentTarget.value)}>
-					<option value="10">10</option>
-					<option value="20">20</option>
-					<option value="30">30</option>
-					<option value="40">40</option>
-					<option value="50">50</option>
-				</select>
-				</label>
+
+				<Select value={hitsPerPage} onChange={setNumberPerPage}
+								label=': на странице' options={optionsForNews}
+				/>
 
 			</div>
 			<div className={s.stringPage}>

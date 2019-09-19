@@ -4,22 +4,25 @@ import s from './PrevNextTopBtn.module.scss';
 
 export const PrevNextTopBtn = (props) => {
 	let {
-		currentPage, onClickNumberOfPage,totalNumberOfUsers,numberUsersOnPage
+		currentPage, // текущая страница
+		onClickNumberOfPage, // обработчик клика
+		totalNumberOfUsers, // общее количество айтемов
+		numberUsersOnPage // кол-во айтемов на странице
 	} = props;
 
 
 	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
-	let pages = [];
+	let pages = []; // получение динамического количества страниц
 	for (let i = 1; i <= totalCountUsers; i++) {
 		pages.push(i);
 	}
 
 
-
+  // Скрол на верх страницы
 	let toTheTop = () => {
 		window.scrollTo(0, 0);
 	};
-
+  // Сборка и логика обработчика кликов для именения текущей страницы
 	return (
 		<div className={s.showPages}>
 			<button onClick={() => {
