@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Dialogs.module.scss';
+import s from './DialogsReduxForm.module.scss';
 import {Field,reduxForm} from "redux-form";
 
 import {minLengthCreator} from "../Validators/CheckComponent";
@@ -15,13 +15,16 @@ const DialogsReduxForm = (props) => {
 		<form   onSubmit={props.handleSubmit(props.onSubmit)}>
 			<div className={s.newDialogForm}>
 
-				<Field className={s.newDialogText} label={'Minimum 3 symbols every 5 seconds'}
-							component={InputComponent} readonly
-							 cols='40' rows='5' name={'newTextDialog'} type={'text'} typeComponent='textarea'
+				<Field className={s.newDialogText}
+							component={InputComponent}
+							 cols='40' rows='3' name={'newTextDialog'} type={'text'} typeComponent='textarea'
 							validate={[minLength3]}
 			 />
 				<div className={s.newDialogBtn}>
 					<button className={s.Btn} disabled={props.pristine || props.submitting}>Send message</button>
+					<button className={s.clearBtn} type="button" disabled={props.pristine || props.submitting} onClick={props.reset}>
+						Clear Values
+					</button>
 				</div>
 			</div>
 		</form>

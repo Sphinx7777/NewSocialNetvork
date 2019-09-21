@@ -5,54 +5,48 @@ import DialogsReduxForm from "./DialogsReduxForm";
 
 export const Dialogs = (props) => {
 
-let	onSubmit = (values)=> {
-	values.newTextDialog && props.addNewPost(values.newTextDialog);
-	const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
-	return disableBtnSend(5000).then(() => {
-		return true;
-	})
-};
-
+	let onSubmit = (values) => {
+		values.newTextDialog && props.addNewPost(values.newTextDialog);
+		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
+		return disableBtnSend(5000).then(() => {
+			return true;
+		})
+	};
 
 
 	return (
 		<div className={s.dialogsWrapper}>
-			<div className={s.dialogs}>
-			<div className={s.user}>
+			<div className={s.users}>
 				<div className={s.userItem}>
-				user
+					user
+				</div>
+				<div className={s.userItem}>
+					user
+				</div>
+				<div className={s.userItem}>
+					user
+				</div>
+				<div className={s.userItem}>
+					user
+				</div>
+				<div className={s.userItem}>
+					user
+				</div>
 			</div>
-				<div className={s.userItem}>
-					user
-				</div>
-				<div className={s.userItem}>
-					user
-				</div>
-				<div className={s.userItem}>
-					user
-				</div>
-			</div>
-			<div className={s.messages}>
-				<DialogsReduxForm onSubmit={onSubmit} postSend={props.postSend}/>
-				<div>
-					{props.myPost.map(p=> {
-						return( <div key={p.id}>
-							{p.post}
-						</div>)
-					})}
+			<div>
+
+				<div className={s.contentWrapper}>
+					<div className={s.userData}>
+						user friend Photo and Name and Status and other info
+					</div>
+					<div className={s.dialogs}>
+						dialogs
+					</div>
+					<DialogsReduxForm onSubmit={onSubmit}/>
 				</div>
 
+			</div>
 
-			</div>
-			<div className={s.answers}>
-				<h3>Answers</h3>
-				{props.userAnswers.map((a,index)=> {
-					return( <div key={index}>
-						{a.answered}
-					</div>)
-				})}
-			</div>
-			</div>
 		</div>
 	)
 };

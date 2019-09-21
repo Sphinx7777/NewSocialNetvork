@@ -45,6 +45,7 @@ export const loginMe = (data) => {
 			dispatch(authMe());
 		} else {
 			dispatch(stopSubmit('loginForm', {_error: result.messages[0]}))
+
 		}
 	}
 };

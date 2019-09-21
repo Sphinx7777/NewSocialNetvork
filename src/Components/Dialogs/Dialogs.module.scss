@@ -1,91 +1,57 @@
 .dialogsWrapper {
+	color: black;
 	max-width: 100%;
+	display: grid;
+	grid-template-columns: 2fr 10fr;
 
-	.newDialogForm {
-		max-width: 100%;
-
-		.newDialogText {
+	.users {
+		background-color: lightgray;
+		max-height: 80vh;
+		overflow: auto;
+		padding: 0.5rem;
+		border-radius: 1rem;
+		outline: none;
+		margin: 2rem 0 0 0.5rem;
+		&::-webkit-scrollbar {
+			width: 5px;
+		}
+		&::-webkit-scrollbar-track-piece {
+			background-color: white;
+		}
+		&::-webkit-scrollbar-thumb {
+			height: 5px;
+			background-color: #666;
+			border-radius: 3px;
+		}
+		.userItem {
+			height: 3rem;
 			max-width: 100%;
-			padding: 0.2rem;
-			width: 100%;
-			border-radius: 0.5rem;
-			outline: none;
-			max-height: 5rem;
-			font-weight: bold;
 		}
 
-		.newDialogBtn {
-			text-align: center;
-			padding: 0.2rem;
-
-			.Btn {
-				padding: 0.3rem 0.5rem;
-				border-radius: 0.5rem;
-				outline: none;
-				font-weight: bold;
-			}
-		}
 	}
 
-	.dialogs {
-		display: flex;
-		margin: 0 2.5rem;
+		.userData {
+			background-color: lightpink;
+			height: 5rem;
 
-		.user, .messages, .answers {
+		}
+
+	.contentWrapper {
+     margin-top: 2rem;
+
+		.dialogs {
+			background-color: blue;
+			height: 69vh;
 			padding: 0.5rem;
-			display: flex;
-			flex-direction: column;
-			margin-left: 0.5rem;
-			background-color: rgba(0, 0, 0, .6);
-			border-radius: 1rem;
-			outline: none;
+
 		}
 
-		.user {
-			flex-basis: 16%;
-			max-width: 16%;
-		}
-
-		.messages {
-			flex-basis: 42%;
-			max-width: 42%;
-
-			.newDialogMinimum {
-				font-size: 0.83333125rem;
-				margin-left: 5.91rem;
-			}
-		}
-
-		.answers {
-			flex-basis: 42%;
-			max-width: 42%;
-		}
 	}
+
+
 }
 
 
 @media screen and (max-width: 920px) {
-	.dialogsWrapper {
-		.dialogs {
-			flex-direction: column;
-			align-items: flex-start;
 
-			.user, .messages, .answers {
-				min-width: 80%;
-				margin-bottom: 0.5rem;
-			}
-
-			.user {
-				flex-direction: row;
-				color: red;
-
-				.userItem {
-					display: inline;
-					max-width: 10%;
-					padding-right: 0.5rem;
-
-				}
-			}
-		}
-	}
 }

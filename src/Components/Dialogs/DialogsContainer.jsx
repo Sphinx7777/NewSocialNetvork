@@ -7,6 +7,9 @@ import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 
 
 class DialogsContainer extends React.Component {
+
+
+
 	
 	render() {
 		return <Dialogs {...this.props}/>

@@ -9,6 +9,7 @@ export const Login = (props) => {
 	let	onSubmit = (formData)=> {
 	let promise=props.loginMe(formData);
 	promise.then(()=> {
+		props.loadLogin &&
 		props.history.goBack();
 	})
 };

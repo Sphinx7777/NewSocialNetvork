@@ -1,0 +1,23 @@
+.newDialogForm {
+	max-width: 100%;
+
+	.newDialogText {
+		max-width: 100%;
+		padding: 0.2rem;
+		border-radius: 0.5rem;
+		outline: none;
+
+	}
+
+	.newDialogBtn {
+		text-align: center;
+		padding: 0.2rem;
+
+		.Btn {
+			padding: 0.3rem 0.5rem;
+			border-radius: 0.5rem;
+			outline: none;
+			font-weight: bold;
+		}
+	}
+}
