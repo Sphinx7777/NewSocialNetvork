@@ -3,7 +3,7 @@ import s from './DialogsReduxForm.module.scss';
 import {Field,reduxForm} from "redux-form";
 
 import {minLengthCreator} from "../Validators/CheckComponent";
-import {InputComponent} from "../Validators/ValidatorsComponents";
+import {TextAreaComponent} from "../Validators/ValidatorsComponents";
 
 
 
@@ -14,16 +14,18 @@ const DialogsReduxForm = (props) => {
 	return (
 		<form  className={s.newDialogForm} onSubmit={props.handleSubmit(props.onSubmit)}>
 			<Field className={s.newDialogText}
-							component={InputComponent}
-							 cols='40' rows='3' name={'newTextDialog'} type={'text'} typeComponent='textarea'
-							validate={[minLength3]}
-			 />
-				<div className={s.newDialogBtn}>
-					<button className={s.Btn} disabled={props.pristine || props.submitting}>Send message</button>
-					<button className={s.clearBtn} type="button" disabled={props.pristine || props.submitting} onClick={props.reset}>
-						Clear Values
-					</button>
-				</div>
+						 component={TextAreaComponent}
+						 cols='170' rows='2' name={'newTextDialog'}
+						 validate={[minLength3]} label='At least 3 characters every 5 seconds'
+
+			/>
+			<div className={s.newDialogBtn}>
+				<button className={s.Btn} disabled={props.pristine || props.submitting}>Sent message</button>
+				<button className={s.clearBtn} type="button" disabled={props.pristine || props.submitting} onClick={props.reset}>
+					Clear field
+				</button>
+
+			</div>
 
 		</form>
 	)

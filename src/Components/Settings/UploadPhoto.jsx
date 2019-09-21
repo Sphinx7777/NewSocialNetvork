@@ -31,7 +31,7 @@ const UploadPhoto = (props) => {
 					onChange={setNewPhoto}
 				/>
 				<div className={s.sendPhotoBtn}>
-					<button  onClick={sentPhoto} disabled={!photo }>Upload photo</button>
+					<button  className={s.sendPhoto} onClick={sentPhoto} disabled={!photo }>Upload photo</button>
 				</div>
 				{props.uploadPhotos ? <div className={s.uploadPhotoFinished}>Фото успешно загружено</div>
 					:''}

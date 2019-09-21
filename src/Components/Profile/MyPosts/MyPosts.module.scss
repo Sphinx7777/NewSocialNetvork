@@ -71,6 +71,9 @@
 
 		.formInput {
 			padding-bottom: 0.5rem;
+			display: inline-block;
+			max-width: 100%;
+position: relative;
 
 			textarea {
 				margin: 0 auto;

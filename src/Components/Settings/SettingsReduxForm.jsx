@@ -20,47 +20,7 @@ const SettingsReduxForm = (props) => {
 		<div className={s.settingsFormWrapper}>
 			<form  onSubmit={handleSubmit(props.onSubmit)}>
 				<div className={props.submitFinished ? s.settingsForm + ' ' + s.active : s.settingsForm}>
-					<div className={s.description}>
-						<span className={s.titleAboutMe}>About me</span>
-						<div className={s.fullName}>
-							<Field
-								name='fullName'
-								type='text'
-								component={InputComponent}
-								label='fullName'
-								validate={[]}
-							/>
-						</div>
-						<div className={s.aboutMe}>
-							<Field
-								name='aboutMe'
-								type='text'
-								component={InputComponent}
-								label='aboutMe'
-								validate={[]}
-							/>
-						</div>
-						<div className={s.lookingForAJobDescription}>
-							<Field
-								name='lookingForAJobDescription'
-								type='text'
-								component={InputComponent}
-								label='lookingForAJobDescription'
-								validate={[]}
-							/>
-						</div>
-						<div className={s.lookingForAJob}>
-							<Field
-								name='lookingForAJob'
-								type='checkbox'
-								component={InputComponent}
-								label='lookingForAJob'
-								validate={[]}
-							/>
-						</div>
-						<button className={s.sendBtn} type="submit" disabled={pristine || submitting}>To send</button>
-						<button className={s.sendBtn} disabled={pristine} onClick={reset}>Clear fields</button>
-					</div>
+
 					<div className={s.contacts}>
 						<span className={s.titleAboutMe}>Contacts</span>
 						<Field
@@ -105,8 +65,41 @@ const SettingsReduxForm = (props) => {
 							label='email'
 							validate={[]}
 						/>
-
 					</div>
+					<div className={s.description}>
+						<span className={s.titleAboutMe}>About me</span>
+						<Field
+							name='fullName'
+							type='text'
+							component={InputComponent}
+							label='fullName'
+							validate={[]}
+						/>
+						<Field
+							name='aboutMe'
+							type='text'
+							component={InputComponent}
+							label='aboutMe'
+							validate={[]}
+						/>
+						<Field
+							name='lookingForAJobDescription'
+							type='text'
+							component={InputComponent}
+							label='lookingForAJobDescription'
+							validate={[]}
+						/>
+						<Field
+							name='lookingForAJob'
+							type='checkbox'
+							component={InputComponent}
+							label='lookingForAJob'
+							validate={[]}
+						/>
+						<button className={s.sendBtn} type="submit" disabled={pristine || submitting}>To send</button>
+						<button className={s.sendBtn} disabled={pristine} onClick={reset}>Clear fields</button>
+					</div>
+
 				</div>
 				{props.error && <div className={s.settingsErrorForm}><span className={s.errorForm}>{props.error}</span></div>}
 				{props.submitFinished && <div className={s.submitFinished}><span className={s.finishedForm}>Данные успешно обновлены</span></div>}

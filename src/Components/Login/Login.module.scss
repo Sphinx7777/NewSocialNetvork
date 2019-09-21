@@ -14,12 +14,13 @@
 		outline: none;
 	}
 	 .loginEmail, .loginPass, .loginCheck{
+		 position: relative;
 		 display: flex;
 		 flex-direction: column;
 		 align-items: center;
 		 max-height: 100%;
 		 padding: 0.5rem;
-		 color: black;
+		 color: white;
 		 font-weight: bold;
 	 }
 
