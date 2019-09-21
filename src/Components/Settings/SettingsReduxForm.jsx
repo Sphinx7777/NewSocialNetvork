@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Settings.module.scss';
 import {Field, reduxForm} from "redux-form";
-import {InputComponent} from "../Validators/ValidatosComponents";
+import {InputComponent} from "../Validators/ValidatorsComponents";
 
 
 const SettingsReduxForm = (props) => {

@@ -3,7 +3,7 @@ import s from './DialogsReduxForm.module.scss';
 import {Field,reduxForm} from "redux-form";
 
 import {minLengthCreator} from "../Validators/CheckComponent";
-import {InputComponent} from "../Validators/ValidatosComponents";
+import {InputComponent} from "../Validators/ValidatorsComponents";
 
 
 
@@ -12,10 +12,8 @@ let minLength3=minLengthCreator(3);
 const DialogsReduxForm = (props) => {
 
 	return (
-		<form   onSubmit={props.handleSubmit(props.onSubmit)}>
-			<div className={s.newDialogForm}>
-
-				<Field className={s.newDialogText}
+		<form  className={s.newDialogForm} onSubmit={props.handleSubmit(props.onSubmit)}>
+			<Field className={s.newDialogText}
 							component={InputComponent}
 							 cols='40' rows='3' name={'newTextDialog'} type={'text'} typeComponent='textarea'
 							validate={[minLength3]}
@@ -26,7 +24,7 @@ const DialogsReduxForm = (props) => {
 						Clear Values
 					</button>
 				</div>
-			</div>
+
 		</form>
 	)
 };

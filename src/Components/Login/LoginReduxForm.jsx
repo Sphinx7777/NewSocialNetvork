@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Login.module.scss';
 import {Field, reduxForm} from "redux-form";
 import {emptyField, maxLengthCreator, minLengthCreator} from "../Validators/CheckComponent";
-import {InputComponent} from "../Validators/ValidatosComponents";
+import {InputComponent} from "../Validators/ValidatorsComponents";
 
 const maxlength15 = maxLengthCreator(15);
 const maxlength30 = maxLengthCreator(30);

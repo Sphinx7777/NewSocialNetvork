@@ -1,7 +1,16 @@
+
+
 .newDialogForm {
 	max-width: 100%;
+	padding: 0.5rem;
+	margin: 0 auto;
+
+	.formComponentLabel {
+		display: none;
+	}
 
 	.newDialogText {
+		display: inline-block;
 		max-width: 100%;
 		padding: 0.2rem;
 		border-radius: 0.5rem;
@@ -10,6 +19,7 @@
 	}
 
 	.newDialogBtn {
+		display: inline-block;
 		text-align: center;
 		padding: 0.2rem;
 

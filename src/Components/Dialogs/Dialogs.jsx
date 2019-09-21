@@ -33,20 +33,19 @@ export const Dialogs = (props) => {
 					user
 				</div>
 			</div>
+			<div className={s.userData}>
+				user friend Photo and Name and Status and other info
+			</div>
 			<div>
-
 				<div className={s.contentWrapper}>
-					<div className={s.userData}>
-						user friend Photo and Name and Status and other info
-					</div>
 					<div className={s.dialogs}>
 						dialogs
 					</div>
-					<DialogsReduxForm onSubmit={onSubmit}/>
+					<div className={s.dialogForm}>
+						<DialogsReduxForm onSubmit={onSubmit}/>
+					</div>
 				</div>
-
 			</div>
-
 		</div>
 	)
 };

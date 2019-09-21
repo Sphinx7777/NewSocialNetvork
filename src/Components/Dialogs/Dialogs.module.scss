@@ -1,17 +1,11 @@
 .dialogsWrapper {
 	color: black;
 	max-width: 100%;
-	display: grid;
-	grid-template-columns: 2fr 10fr;
 
 	.users {
 		background-color: lightgray;
-		max-height: 80vh;
 		overflow: auto;
-		padding: 0.5rem;
-		border-radius: 1rem;
 		outline: none;
-		margin: 2rem 0 0 0.5rem;
 		&::-webkit-scrollbar {
 			width: 5px;
 		}
@@ -26,6 +20,7 @@
 		.userItem {
 			height: 3rem;
 			max-width: 100%;
+			display: inline-block;
 		}
 
 	}
@@ -37,13 +32,16 @@
 		}
 
 	.contentWrapper {
-     margin-top: 2rem;
+		max-width: 100%;
 
 		.dialogs {
 			background-color: blue;
-			height: 69vh;
+			height: 55vh;
 			padding: 0.5rem;
 
+		}
+		.dialogForm {
+			max-width: 100%;
 		}
 
 	}

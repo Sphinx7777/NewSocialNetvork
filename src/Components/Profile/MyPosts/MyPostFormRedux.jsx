@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.scss';
 import {Field, reduxForm} from "redux-form";
-import {InputComponent} from "../../Validators/ValidatosComponents";
+import {InputComponent} from "../../Validators/ValidatorsComponents";
 import {minLengthCreator} from "../../Validators/CheckComponent";
 
 const minlength3 = minLengthCreator(3);

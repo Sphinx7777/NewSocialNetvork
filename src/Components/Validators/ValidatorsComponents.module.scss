@@ -1,12 +1,25 @@
-.formComponentLabel {
+.inputLabel,.areaLabel {
 	text-align: center;
+	padding: 0.5rem;
+}
+
+.inputField,.areaField {
+	border-radius: 0.3rem;
+	outline: none;
 	padding: 0.3rem;
+}
+.inputField[type=checkbox] {
+	zoom: 1.8;
+	display: inline-block;
+	cursor: pointer;
+	padding: 0.5rem;
+
 }
 
 .formComponent {
 	display: flex;
-	flex-direction: column;
 	text-align: center;
+
 
 	.formComponentField.errorField {
 		border: 2px solid red;
@@ -20,16 +33,11 @@
 	.formComponentField {
 		padding: 0.2rem;
 		max-width: 100%;
+		max-height: 5rem;
 	}
 
 
-	.formComponentField[type=checkbox] {
-		transform: scale(2);
-		padding: 0.5rem;
-		display: inline-block;
-		cursor: pointer;
-		margin: 0 auto;
-	}
+
 
 	.formComponentError {
 		color: white;
