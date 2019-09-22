@@ -7,39 +7,34 @@ import {
 } from "../Redux/settingsReducer";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {compose} from "redux";
+import {getNewProfile} from "../Redux/profileReducer";
 
 class SettingsContainer extends React.Component {
 
-	onSubmit = (formData) => {
-		let data = {
-			aboutMe: formData.aboutMe,
-			lookingForAJob: formData.lookingForAJob,
-			fullName: formData.fullName,
-			lookingForAJobDescription: formData.lookingForAJobDescription,
-			contacts: {
-				skype: formData.skype,
-				facebook: formData.facebook,
-				instagram: formData.instagram,
-				vk: formData.vk,
-				email: formData.email,
-				website: formData.website,
+	onSubmit =(formData) => {
 
-			}
-		};
-
-		this.props.sendSettingsForm(data);
+		this.props.sendSettingsForm(formData);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
-		return disableBtnSend(5000).then(() => {
+		return disableBtnSend(3000).then(() => {
 			return true;
 		})
 	};
-
+	componentDidMount() {
+		this.props.getNewProfile(this.props.loginId);
+	}
+	componentDidUpdate(prevProps) {
+		if(prevProps.profile !== this.props.profile){
+			this.props.getNewProfile(this.props.loginId);
+		}
+	}
 	render() {
-		return <Settings onSubmit={this.onSubmit} submitFinished={this.props.submitFinished}
+		return <Settings onSubmit={this.onSubmit}
+										 submitFinished={this.props.submitFinished}
 										 setSubmitFinished={this.props.setSubmitFinished}
 										 sendUserPhotos={this.props.sendUserPhotos}
 										 uploadPhotos={this.props.uploadPhotos}
 										 setUploadPhoto={this.props.setUploadPhoto}
+										 profile={this.props.profile}
 
 		/>
 	}
@@ -49,8 +44,10 @@ let mapStateToProps = (state) => {
 	return {
 		submitFinished: state.settings.submitFinished,
 		uploadPhotos: state.settings.uploadPhotos,
+		loginId: state.auth.id,
+		profile: state.profilePage.profile
 	}
 };
 
 export default compose(withAuthRedirect,
-	connect(mapStateToProps, {sendSettingsForm, setSubmitFinished, sendUserPhotos, setUploadPhoto}))(SettingsContainer);
+	connect(mapStateToProps, {sendSettingsForm,getNewProfile, setSubmitFinished, sendUserPhotos, setUploadPhoto}))(SettingsContainer);

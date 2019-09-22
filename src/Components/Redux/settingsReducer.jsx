@@ -44,7 +44,8 @@ export const sendSettingsForm = (formData) => {
 	return async (dispatch) => {
 		let data = await SettingsApi.sendFormSettings(formData);
 		if (data.resultCode === 0) {
-			dispatch(setMySettings(formData));
+		 dispatch(setMySettings(formData));
+		 return true;
 		} else {
 			dispatch(stopSubmit('settingsForm', {_error: data.messages[0]}))
 		}

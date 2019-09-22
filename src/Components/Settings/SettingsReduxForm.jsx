@@ -13,56 +13,55 @@ const SettingsReduxForm = (props) => {
 	};
 
 	if(submitFinished){
-		setTimeout(stop,5000)
+		setTimeout(stop,3000)
 	}
 
 	return (
 		<div className={s.settingsFormWrapper}>
-			<form  onSubmit={handleSubmit(props.onSubmit)}>
+			<form  onSubmit={handleSubmit}>
 				<div className={props.submitFinished ? s.settingsForm + ' ' + s.active : s.settingsForm}>
-
 					<div className={s.contacts}>
 						<span className={s.titleAboutMe}>Contacts</span>
 						<Field
-							name='skype'
+							name='contacts.skype'
 							type='text'
 							component={InputComponent}
 							label='skype'
 							validate={[]}
 						/>
 						<Field
-							name='facebook'
+							name='contacts.facebook'
 							type='text'
 							component={InputComponent}
 							label='facebook'
 							validate={[]}
 						/>
 						<Field
-							name='instagram'
+							name='contacts.instagram'
 							type='text'
 							component={InputComponent}
 							label='instagram'
 							validate={[]}
 						/>
 						<Field
-							name='vk'
+							name='contacts.vk'
 							type='text'
 							component={InputComponent}
 							label='vk'
 							validate={[]}
 						/>
 						<Field
-							name='website'
+							name='contacts.website'
 							type='text'
 							component={InputComponent}
 							label='My website'
 							validate={[]}
 						/>
 						<Field
-							name='email'
-							type='email'
+							name='contacts.github'
+							type='text'
 							component={InputComponent}
-							label='email'
+							label='Git'
 							validate={[]}
 						/>
 					</div>

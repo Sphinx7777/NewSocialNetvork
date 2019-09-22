@@ -9,12 +9,16 @@ class Settings extends React.Component {
 	onSubmit = (photo) => {
 		this.props.sendUserPhotos(photo);
 	};
+	componentDidMount() {
+
+	}
 
 	render() {
 		return (
 
 			<div className={s.settings}>
 				<SettingsReduxForm
+					initialValues={this.props.profile}
 					onSubmit={this.props.onSubmit}
 					submitFinished={this.props.submitFinished}
 					setSubmitFinished={this.props.setSubmitFinished}

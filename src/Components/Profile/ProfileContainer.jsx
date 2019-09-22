@@ -19,14 +19,16 @@ class ProfileContainer extends React.Component {
 		if (!userId) {
 			userId = this.props.loginId
 		}
-if(this.props.match.params.userId || this.props.loginId){
-		this.props.getNewProfile(userId);
-		this.props.getStatus(userId);}
+		if (this.props.match.params.userId || this.props.loginId) {
+			this.props.getNewProfile(userId);
+			this.props.getStatus(userId);
+		}
 		if (this.props.loginId) {
 			this.props.getFriendStatus(userId);
 		}
 
 	}
+
 	componentDidUpdate(prevProps) {
 		if (this.props.match.params.userId !== prevProps.match.params.userId) {
 			this.componentDidMount()
