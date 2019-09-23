@@ -86,7 +86,7 @@ export const addNewPost = (post) => {
 export const getNewProfile = (userId) => {
 	return async (dispatch) => {
 		let data = await profileApi.getProfile(userId);
-		dispatch(setNewProfile(data));
+		await dispatch(setNewProfile(data));
 		dispatch(setStatusLoadProfile())
 	}
 };

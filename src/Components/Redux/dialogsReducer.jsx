@@ -42,6 +42,8 @@ const setTotalCountOfUsers = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount
 
 export const getUsersForFriends = (page=1, count=100) => {
 	return async (dispatch) => {
+
+
 		let data = await usersApi.getUsers(page, count);
 		await dispatch(setFriends(data.items,));
 		dispatch(setTotalCountOfUsers(data.totalCount));
