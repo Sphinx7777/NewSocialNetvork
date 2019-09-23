@@ -38,7 +38,7 @@ console.log('render');
 				}}/>
 				{friend.length ?
 					friend.map(u =>
-						<div key={Math.random()} className={s.userItem} onClick={() => {
+						<div key={u.id} className={s.userItem+' '+(profile && u.id===profile.userId && s.active)} onClick={() => {
 							getNewProfile(u.id)
 						}}>
 							<img className={s.ava} src={u.photos.large || ava} alt=""/>

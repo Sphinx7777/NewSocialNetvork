@@ -4,8 +4,6 @@
 }
 
 
-
-
 .users {
 	@include bRad (0.5rem);
 	width: 8rem;
@@ -15,23 +13,27 @@
 	background-color: rgba(0, 0, 0, .2);
 	overflow: auto;
 	outline: none;
+
 	&::-webkit-scrollbar {
 		width: 5px;
 	}
+
 	&::-webkit-scrollbar-track-piece {
 		background-color: white;
 	}
+
 	&::-webkit-scrollbar-thumb {
 		height: 5px;
 		background-color: #666;
 		border-radius: 3px;
 	}
+
 	.userItem {
 		display: block;
 		text-align: center;
 		max-width: 100%;
 		margin-bottom: 1rem;
-		cursor:pointer;
+		cursor: pointer;
 		padding: 5px;
 		border: 1px solid white;
 		@include bRad (0.3rem);
@@ -42,15 +44,21 @@
 			margin: 0 auto;
 			max-width: 3rem;
 		}
+
 		.name {
 			max-width: 100%;
 			word-break: break-all;
 		}
 	}
-	.search {
 
+	.userItem.active {
+		border: 1px solid red;
+		background-color: rgba(0, 0, 0, .4);
 	}
 
+	.search {
+		@include bRad (0.3rem);
+	}
 }
 
 .dialogsWrapper {
@@ -58,28 +66,28 @@
 	color: black;
 	max-width: 90%;
 	padding: 0.5rem;
-
 	border-radius: 1rem;
 	outline: none;
 	margin: 1rem 0.5rem 0 8.5rem;
 
-
-
 	.dialogs {
-			background-color: rgba(0, 0, 0, .2);
-			height: 65vh;
+		background-color: rgba(0, 0, 0, .2);
+		height: 65vh;
 		overflow: auto;
-			padding: 0.5rem;
+		padding: 0.5rem;
 		margin-top: 0.5rem;
-			@include bRad (0.5rem);
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
+		@include bRad (0.5rem);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+
 		&::-webkit-scrollbar {
 			width: 5px;
 		}
+
 		&::-webkit-scrollbar-track-piece {
 			background-color: white;
 		}
+
 		&::-webkit-scrollbar-thumb {
 			height: 5px;
 			background-color: #666;
@@ -89,7 +97,7 @@
 		.posts {
 			color: white;
 
-			.userPost,.myPost {
+			.userPost, .myPost {
 				background-color: rgba(0, 0, 0, .4);
 				margin-top: 1rem;
 				padding: 0.5rem;
@@ -98,18 +106,18 @@
 				border: 1px solid white;
 
 				.postContent {
-          margin-top: 0.3rem;
+					margin-top: 0.3rem;
 					word-break: break-all;
 					text-align: start;
 					padding: 0.3rem;
 					background-color: rgba(0, 0, 0, .8);
-					letter-spacing:1px;
+					letter-spacing: 1px;
 					@include bRad (0.5rem);
 
 				}
 
 				.userInfo {
-display: flex;
+					display: flex;
 					flex-wrap: wrap;
 					justify-content: space-between;
 					align-items: center;
@@ -120,35 +128,26 @@ display: flex;
 						border-radius: 100%;
 						border: 1px solid white;
 						margin-right: 3px;
-
-
 					}
-
 				}
-
 			}
+
 			.userPost {
 				max-width: 85%;
 
 			}
+
 			.myPost {
 				max-width: 100%;
 				margin-left: 15%;
 				background-color: rgba(0, 0, 0, .1);
 			}
-
 		}
+	}
 
-
-
-		}
-		.dialogForm {
-			max-width: 100%;
-		}
-
-
-
-
+	.dialogForm {
+		max-width: 100%;
+	}
 }
 
 
