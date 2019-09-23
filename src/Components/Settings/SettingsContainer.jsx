@@ -15,7 +15,7 @@ class SettingsContainer extends React.Component {
 
 		this.props.sendSettingsForm(formData);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
-		return disableBtnSend(3000).then(() => {
+		return disableBtnSend(10000).then(() => {
 			return true;
 		})
 	};

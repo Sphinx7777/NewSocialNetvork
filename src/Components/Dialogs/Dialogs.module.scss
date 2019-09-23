@@ -3,69 +3,92 @@
 	outline: none;
 }
 
-.dialogsWrapper {
-	color: black;
-	max-width: 100%;
-	padding: 0.5rem;
-	border-radius: 1rem;
+
+
+.users {
+	@include bRad (0.5rem);
+	width: 8rem;
+	float: left;
+	max-height: 76vh;
+	margin: 1rem 0 0 0.5rem;
+	background-color: rgba(0, 0, 0, .2);
+	overflow: auto;
 	outline: none;
-
-	.users {
-		@include bRad (0.5rem);
-		height: 5rem;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-track-piece {
+		background-color: white;
+	}
+	&::-webkit-scrollbar-thumb {
+		height: 5px;
+		background-color: #666;
+		border-radius: 3px;
+	}
+	.userItem {
+		display: block;
+		text-align: center;
+		max-width: 100%;
+		margin-bottom: 1rem;
+		cursor:pointer;
+		padding: 5px;
+		border: 1px solid white;
+		@include bRad (0.3rem);
 		background-color: rgba(0, 0, 0, .6);
-		overflow: auto;
-		outline: none;
-		&::-webkit-scrollbar {
-			width: 5px;
-		}
-		&::-webkit-scrollbar-track-piece {
-			background-color: white;
-		}
-		&::-webkit-scrollbar-thumb {
-			height: 5px;
-			background-color: #666;
-			border-radius: 3px;
-		}
-		.userItem {
-			height: 3rem;
-			max-width: 100%;
-			display: inline-block;
-		}
 
+		.ava {
+			display: block;
+			margin: 0 auto;
+			max-width: 3rem;
+		}
+		.name {
+			max-width: 100%;
+			word-break: break-all;
+		}
 	}
 
-		.userData {
-			margin-top: 0.5rem;
+}
+
+.dialogsWrapper {
+	display: block;
+	color: black;
+	max-width: 90%;
+	padding: 0.5rem;
+
+	border-radius: 1rem;
+	outline: none;
+	margin: 1rem 0.5rem 0 8.5rem;
+
+
+
+	.dialogs {
 			background-color: rgba(0, 0, 0, .6);
-			height: 5rem;
-			@include bRad (0.5rem);
-
-		}
-
-	.contentWrapper {
-		max-width: 100%;
-		margin-top: 0.5rem;
-
-		.dialogs {
-			background-color: rgba(0, 0, 0, .6);
-			height: 55vh;
+			height: 65vh;
 			padding: 0.5rem;
+		margin-top: 0.5rem;
 			@include bRad (0.5rem);
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
+
+		.dialog {
+
+		}
+
 
 		}
 		.dialogForm {
 			max-width: 100%;
 		}
 
+
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+	.users {
+		font-size: 0.8rem;
 	}
-
-
 }
 
-
-@media screen and (max-width: 920px) {
-
-}
