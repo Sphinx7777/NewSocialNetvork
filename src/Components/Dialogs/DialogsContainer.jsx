@@ -6,6 +6,7 @@ import {compose} from "redux";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {getNewProfile} from "../Redux/profileReducer";
 import {getMyPhoto} from "../Redux/authReducer";
+import {Preloader} from "../Others/Preloader/Preloader";
 
 
 
@@ -15,15 +16,15 @@ class DialogsContainer extends React.Component {
 		this.props.getUsersForFriends(this.props.page,100);
 		this.props.getMyPhoto(this.props.loginId)
 }
-	componentDidUpdate (prevProps) {
-		if (this.props.page<=Math.ceil(this.props.totalCount/100)){
-			this.props.getUsersForFriends (this.props.page,100);
-		}
-	}
 
 
 	render() {
-		return <Dialogs {...this.props}/>
+		if(this.props.friendLoaded){
+			return <Dialogs {...this.props}/>
+		}else{
+			return <Preloader/>
+		}
+
 	}
 }
 
@@ -32,6 +33,7 @@ let mapStateToProps = (state) => {
 		users: state.dialogsPage.users,
 		totalCount: state.dialogsPage.totalCount,
 		page: state.dialogsPage.page,
+		friendLoaded: state.dialogsPage.friendLoaded,
 		userProfile: state.profilePage.profile,
 		loginId: state.auth.id,
 		myPhoto: state.auth.myPhoto,

@@ -22,13 +22,13 @@ export const Dialogs = ({addNewPost, users, getNewProfile,myPhoto,
 	}, [userProfile]);
 	let searchFriend = (name) => {
 		if(name.length){
-			setUsers(() => friend.filter(t => t.name.match(name)));
+			setUsers(() => users.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
 		}else {
 			setUsers(users);
 		}
 
 	};
-
+console.log('render');
 
 	return (
 		<>
