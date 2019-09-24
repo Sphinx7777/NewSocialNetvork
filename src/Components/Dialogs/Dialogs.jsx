@@ -5,8 +5,10 @@ import ava from "./../../Images/skull.png";
 import {Preloader} from "../Others/Preloader/Preloader";
 
 
-export const Dialogs = ({addNewPost, users, getNewProfile,myPhoto,
-													login, userProfile}) => {
+export const Dialogs = ({
+													addNewPost, users, getNewProfile, myPhoto,
+													login, userProfile
+												}) => {
 	let onSubmit = (values) => {
 		values.newTextDialog && addNewPost(values.newTextDialog);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -21,14 +23,13 @@ export const Dialogs = ({addNewPost, users, getNewProfile,myPhoto,
 		setProfile(userProfile)
 	}, [userProfile]);
 	let searchFriend = (name) => {
-		if(name.length){
+		if (name.length) {
 			setUsers(() => users.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
-		}else {
+		} else {
 			setUsers(users);
 		}
 
 	};
-console.log('render');
 
 	return (
 		<>
@@ -38,9 +39,10 @@ console.log('render');
 				}}/>
 				{friend.length ?
 					friend.map(u =>
-						<div key={u.id} className={s.userItem+' '+(profile && u.id===profile.userId && s.active)} onClick={() => {
-							getNewProfile(u.id)
-						}}>
+						<div key={u.id} className={s.userItem + ' ' + (profile && u.id === profile.userId && s.active)}
+								 onClick={() => {
+									 getNewProfile(u.id)
+								 }}>
 							<img className={s.ava} src={u.photos.large || ava} alt=""/>
 							<div className={s.name}>{u.name}</div>
 						</div>)
@@ -52,6 +54,7 @@ console.log('render');
 					{profile && <div className={s.posts}>
 						<div className={s.userPost}>
 							<div className={s.userInfo}>
+
 								<img className={s.postAvatar} src={profile.photos.large || ava} alt=""/>
 								<b>{profile.fullName}</b>
 								<b>09:12:2019</b>
@@ -71,20 +74,13 @@ console.log('render');
 								jhhg juhyguji uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg jhhg juhyguji
 								uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg
 							</div>
-
-
 						</div>
 					</div>}
-
-
 				</div>
 				<div className={s.dialogForm}>
 					<DialogsReduxForm onSubmit={onSubmit}/>
 				</div>
-
 			</div>
-
-
 		</>
 	)
 };

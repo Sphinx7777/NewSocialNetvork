@@ -8,12 +8,12 @@ const SET_FRIEND_LOAD = '/dialogsReducer///SET_FRIEND_LOAD';
 let initialState = {
 	users: [],
 	userAnswers: [
-		{id: 1, answered: 'Прив..нормуль'},
-		{id: 2, answered: 'Везет..я тоже хо..'},
+		{id: 1, text: 'Прив..нормуль',date:'23:11:2019'},
+		{id: 2, text: 'Везет..я тоже хо..',date:'23:11:2019'},
 	],
 	myPost: [
-		{id: 1, post: 'Привет...как дела'},
-		{id: 2, post: 'Скоро на море поеду'},
+		{id: 1, text: 'Привет...как дела',date:'23:11:2019'},
+		{id: 2, text: 'Скоро на море поеду',date:'23:11:2019'},
 	],
 	totalCount: null,
 	page: 1,
