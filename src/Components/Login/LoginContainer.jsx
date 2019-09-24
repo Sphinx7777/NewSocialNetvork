@@ -14,13 +14,15 @@ class LoginContainer extends React.Component {
 									loginMe={this.props.loginMe}
 									logOutMe={this.props.logOutMe}
 									loadLogin={this.props.loadLogin}
+									captchaUrl={this.props.captchaUrl}
 		/>
 	}
 }
 
 let mapStateToProps = (state) => {
 	return {
-		loadLogin: getloadLogin(state)
+		loadLogin: getloadLogin(state),
+		captchaUrl: state.auth.captchaUrl
 
 	}
 };

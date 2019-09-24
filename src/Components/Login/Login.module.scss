@@ -13,8 +13,8 @@
 		border-radius: 0.5rem;
 		outline: none;
 	}
-	 .loginEmail, .loginPass, .loginCheck{
-		 position: relative;
+	 .loginEmail, .loginPass, .loginCheck, .captcha{
+
 		 display: flex;
 		 flex-direction: column;
 		 align-items: center;
@@ -23,6 +23,13 @@
 		 color: white;
 		 font-weight: bold;
 	 }
+	.captcha {
+
+		img {
+			border-radius: 0.5rem;
+			max-width: 11rem;
+		}
+	}
 
 .loginBtns,.logOutBtns {
 	display: flex;

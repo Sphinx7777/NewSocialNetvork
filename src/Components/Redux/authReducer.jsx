@@ -1,4 +1,4 @@
-import {profileApi, loginApi} from "../Api/Api";
+import {profileApi, loginApi,SecurityApi} from "../Api/Api";
 import {stopSubmit} from "redux-form";
 
 
@@ -6,6 +6,7 @@ import {stopSubmit} from "redux-form";
 const SET_MY_LOGIN = '/authReducer///SET_MY_LOGIN';
 const SET_MY_REGISTRATION = '/authReducer///SET_MY_REGISTRATION';
 const SET_MY_PHOTO = '/authReducer///SET_MY_PHOTO';
+const SET_CAPTCHA_URL = '/authReducer///SET_CAPTCHA_URL';
 
 
 let initialState = {
@@ -13,11 +14,12 @@ let initialState = {
 	email: null,
 	login: null,
 	loadLogin: false,
-	myPhoto : null
+	myPhoto : null,
+	captchaUrl: null
 
 };
 
-const authReducer = (state = initialState, {type, data,photo}) => {
+const authReducer = (state = initialState, {type, data,photo,captchaUrl}) => {
 	switch (type) {
 		case SET_MY_LOGIN: {
 			return {...state, ...data, loadLogin: true}
@@ -28,6 +30,9 @@ const authReducer = (state = initialState, {type, data,photo}) => {
 		case SET_MY_PHOTO: {
 			return {...state, myPhoto:photo}
 		}
+		case SET_CAPTCHA_URL: {
+			return {...state, captchaUrl:captchaUrl}
+		}
 		default:
 			return state;
 	}
@@ -36,6 +41,7 @@ const authReducer = (state = initialState, {type, data,photo}) => {
 const setMylogin = (data) => ({type: SET_MY_LOGIN, data});
 const setMyRegistration = (data) => ({type: SET_MY_REGISTRATION, data});
 export const setMyPhoto = (photo) => ({type: SET_MY_PHOTO, photo});
+export const setCaptchaUrl = (captchaUrl) => ({type: SET_CAPTCHA_URL, captchaUrl});
 
 
 
@@ -57,10 +63,21 @@ export const loginMe = (data) => {
 		let result = await loginApi.loginMe(data);
 		if (result.resultCode === 0) {
 			dispatch(authMe());
+			dispatch(setCaptchaUrl(null));
 		} else {
+			if(result.resultCode === 10){
+				dispatch(getCaptchaUrl())
+			}
 			dispatch(stopSubmit('loginForm', {_error: result.messages[0]}))
 
 		}
+	}
+};
+export const getCaptchaUrl= () => {
+	return async (dispatch) => {
+		let captchaUrl = await SecurityApi.getCaptchaUrl();
+			dispatch(setCaptchaUrl(captchaUrl.url));
+
 	}
 };
 

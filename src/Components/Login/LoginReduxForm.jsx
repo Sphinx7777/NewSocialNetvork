@@ -11,11 +11,12 @@ const minlength4 = minLengthCreator(4);
 
 const LoginReduxForm = props => {
 
-	const {handleSubmit, pristine, reset, submitting} = props;
+	const {handleSubmit, pristine, reset, submitting,captchaUrl} = props;
 
 	return (
 		<div className={s.login}>
-			<form onSubmit={handleSubmit(props.onSubmit)}>
+			<form onSubmit={handleSubmit} onKeyPress={(event)=>{if(event.key === 'Enter'){
+				handleSubmit()}}}>
 				<div className={s.loginEmail}>
 					<Field
 						name="email"
@@ -43,6 +44,18 @@ const LoginReduxForm = props => {
 						label="RememberMe"
 					/>
 				</div>
+				{captchaUrl && <div className={s.captcha}>
+					<img src={captchaUrl} alt="Captcha"/>
+					<Field
+						name="captcha"
+						type="text"
+						component={InputComponent}
+						placeholder="Field for captcha"
+						autoFocus='true'
+					/>
+				</div>}
+
+
 				{props.error && <span className={s.loginFormError}>{props.error}</span>}
 				<div className={s.loginBtns}>
 					{!props.loadLogin && <button className={s.loginBtn} type="submit" disabled={submitting}>Login</button>}

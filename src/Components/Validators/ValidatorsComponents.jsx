@@ -5,12 +5,12 @@ import s from './ValidatorsComponents.module.scss';
 
 // input for Redux-form
 export const InputComponent = (
-	{input,label,size,type,meta: {error, warning, touched}}) => {
+	{input,label,size,type,placeholder,autoFocus,meta: {error, warning, touched}}) => {
 	return (
 		<>
 			<div className={s.inputLabel + ' ' + (touched && error ? s.errorInputLabel : '')}>{label}</div>
 			<input className={s.inputField + ' ' + (touched && error ? s.errorInputField : '')}
-						 {...input} placeholder={label} size={size} type={type}/>
+						 {...input} autoFocus={autoFocus} placeholder={placeholder} size={size} type={type}/>
 			{touched &&
 			((error && <div className={s.inputError}>{error}</div>) ||
 				(warning && <div className={s.inputWarning}>{warning}  </div>))}

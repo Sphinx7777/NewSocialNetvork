@@ -81,6 +81,12 @@ export const loginApi = {
 			.then(response => response.data)
 	},
 };
+export const SecurityApi = {
+	getCaptchaUrl() {
+		return instans.get('security/get-captcha-url')
+			.then(response => response.data)
+	},
+};
 
 export const SettingsApi = {
 

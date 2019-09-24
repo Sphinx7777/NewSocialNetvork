@@ -3,6 +3,7 @@ import s from './Dialogs.module.scss';
 import DialogsReduxForm from "./DialogsReduxForm";
 import ava from "./../../Images/skull.png";
 import {Preloader} from "../Others/Preloader/Preloader";
+import {NavLink} from "react-router-dom";
 
 
 export const Dialogs = ({
@@ -54,8 +55,9 @@ export const Dialogs = ({
 					{profile && <div className={s.posts}>
 						<div className={s.userPost}>
 							<div className={s.userInfo}>
-
+                <NavLink to={`/profile/${profile.userId}`}>
 								<img className={s.postAvatar} src={profile.photos.large || ava} alt=""/>
+								</NavLink>
 								<b>{profile.fullName}</b>
 								<b>09:12:2019</b>
 							</div>
