@@ -4,6 +4,8 @@ import {Field, reduxForm} from "redux-form";
 import {emptyField, maxLengthCreator, minLengthCreator} from "../Validators/CheckComponent";
 import {InputComponent} from "../Validators/ValidatorsComponents";
 
+
+
 const maxlength15 = maxLengthCreator(15);
 const maxlength30 = maxLengthCreator(30);
 const minlength4 = minLengthCreator(4);
@@ -11,12 +13,16 @@ const minlength4 = minLengthCreator(4);
 
 const LoginReduxForm = props => {
 
-	const {handleSubmit, pristine, reset, submitting,captchaUrl} = props;
+	const {handleSubmit, pristine, reset, submitting, captchaUrl} = props;
 
 	return (
 		<div className={s.login}>
-			<form onSubmit={handleSubmit} onKeyPress={(event)=>{if(event.key === 'Enter'){
-				handleSubmit()}}}>
+
+			<form onSubmit={handleSubmit} onKeyPress={(event) => {
+				if (event.key === 'Enter') {
+					handleSubmit()
+				}
+			}}>
 				<div className={s.loginEmail}>
 					<Field
 						name="email"
@@ -33,7 +39,6 @@ const LoginReduxForm = props => {
 						component={InputComponent}
 						label="Password"
 						validate={[emptyField, minlength4, maxlength15]}
-
 					/>
 				</div>
 				<div className={s.loginCheck}>
@@ -62,6 +67,7 @@ const LoginReduxForm = props => {
 					<button className={s.clearBtn} type="button" disabled={pristine || submitting} onClick={reset}>
 						Clear Values
 					</button>
+
 				</div>
 			</form>
 			<div className={s.logOutBtns}>
@@ -70,6 +76,7 @@ const LoginReduxForm = props => {
 				}}>Out login</button>}
 			</div>
 		</div>
+
 
 	)
 };

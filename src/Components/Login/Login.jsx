@@ -3,7 +3,6 @@ import s from './Login.module.scss';
 import LoginReduxForm from "./LoginReduxForm";
 
 
-
 export const Login = (props) => {
 
 	let	onSubmit = (formData)=> {
@@ -16,7 +15,7 @@ export const Login = (props) => {
 
 return (
 		<div className={s.login}>
-			{props.loadLogin ? <h1>Logged in</h1> : <h1>Log in</h1>}
+			{props.loadLogin ? <h2>Logged in</h2> : <h2>Log in</h2>}
 
 
 		<LoginReduxForm onSubmit={onSubmit}
