@@ -70,6 +70,8 @@ export const Dialogs = ({
 				}
 			</div>
 			<div className={s.dialogsWrapper}>
+				<div style={{color:'red',fontSize:'2rem'}}>Диалоги еще в разработке...ждем бєк и оппонентов.....</div>
+
 				<div className={s.dialogs}>
 					{profile && <div className={s.posts}>
 						<div className={s.userPostWrapper}>
