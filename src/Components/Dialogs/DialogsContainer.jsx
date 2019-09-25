@@ -1,7 +1,7 @@
 import React from 'react';
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
-import {getUsersForFriends} from "../Redux/dialogsReducer";
+import {getFriendMessage, getUsersForFriends, sendNewMessage} from "../Redux/dialogsReducer";
 import {compose} from "redux";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {getNewProfile} from "../Redux/profileReducer";
@@ -34,6 +34,10 @@ let mapStateToProps = (state) => {
 		totalCount: state.dialogsPage.totalCount,
 		page: state.dialogsPage.page,
 		friendLoaded: state.dialogsPage.friendLoaded,
+		sendMessageStatus: state.dialogsPage.sendMessageStatus,
+		loadFriendMessages: state.dialogsPage.loadFriendMessages,
+		myMessages: state.dialogsPage.myMessages,
+		friendMessages: state.dialogsPage.friendMessages,
 		userProfile: state.profilePage.profile,
 		loginId: state.auth.id,
 		myPhoto: state.auth.myPhoto,
@@ -43,5 +47,5 @@ let mapStateToProps = (state) => {
 };
 export default compose(withAuthRedirect,
 	connect(mapStateToProps,
-		{getUsersForFriends,getNewProfile,getMyPhoto}))(DialogsContainer);
+		{getUsersForFriends,getNewProfile,getMyPhoto,sendNewMessage,getFriendMessage}))(DialogsContainer);
 

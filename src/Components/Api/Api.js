@@ -103,6 +103,16 @@ export const SettingsApi = {
 			.then(response => response.data)
 	},
 };
+export const dialogsApi = {
 
+	sendNewMessage(id,body) {
+		return instans.post(`dialogs/${id}//messages`,{body})
+			.then(response => response.data)
+	},
+	getFiendMessage(id) {
+		return instans.get(`dialogs/${id}//messages`)
+			.then(response => response.data)
+	},
+};
 
 

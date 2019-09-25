@@ -7,30 +7,53 @@ import {NavLink} from "react-router-dom";
 
 
 export const Dialogs = ({
-													addNewPost, users, getNewProfile, myPhoto,
-													login, userProfile
+													sendNewMessage, users, getNewProfile, myPhoto,
+													userProfile,myMessages,sendMessageStatus,getFriendMessage,
+													loadFriendMessages,friendMessages
 												}) => {
-	let onSubmit = (values) => {
-		values.newTextDialog && addNewPost(values.newTextDialog);
-		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
-		return disableBtnSend(5000).then(() => {
-			return true;
-		})
-	};
 	const [profile, setProfile] = useState(userProfile);
 	const [friend, setUsers] = useState(users);
+	const [messages, setMessages] = useState(myMessages);
+	const [newFriendMessages, setFriendMessages] = useState(friendMessages);
+
+	let getDialogs = (id)=>{
+		getNewProfile(id);
+		getFriendMessage(id)
+	};
 
 	useEffect(() => {
-		setProfile(userProfile)
-	}, [userProfile]);
+
+			setFriendMessages(friendMessages)
+
+	}, [loadFriendMessages,friendMessages]);
+
+	useEffect(() => {
+
+			setProfile(userProfile)
+
+	}, [userProfile,sendMessageStatus]);
+
+	useEffect(() => {
+		setMessages(myMessages)
+	}, [myMessages]);
+
+
 	let searchFriend = (name) => {
 		if (name.length) {
 			setUsers(() => users.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
 		} else {
 			setUsers(users);
 		}
-
 	};
+
+	let onSubmit = (values) => {
+		values.newTextDialog && sendNewMessage(profile.userId,values.newTextDialog);
+		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
+		return disableBtnSend(5000).then(() => {
+			return true;
+		})
+	};
+
 
 	return (
 		<>
@@ -42,8 +65,9 @@ export const Dialogs = ({
 					friend.map(u =>
 						<div key={u.id} className={s.userItem + ' ' + (profile && u.id === profile.userId && s.active)}
 								 onClick={() => {
-									 getNewProfile(u.id)
-								 }}>
+									 getDialogs(u.id)
+								 }}
+						>
 							<img className={s.ava} src={u.photos.large || ava} alt=""/>
 							<div className={s.name}>{u.name}</div>
 						</div>)
@@ -52,7 +76,9 @@ export const Dialogs = ({
 			</div>
 			<div className={s.dialogsWrapper}>
 				<div className={s.dialogs}>
+
 					{profile && <div className={s.posts}>
+
 						<div className={s.userPost}>
 							<div className={s.userInfo}>
                 <NavLink to={`/profile/${profile.userId}`}>
@@ -66,17 +92,26 @@ export const Dialogs = ({
 								uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg
 							</div>
 						</div>
+
+
 						<div className={s.myPost}>
 							<div className={s.userInfo}>
 								<img className={s.postAvatar} src={myPhoto.large || ava} alt=""/>
-								<b>{login}</b>
-								<b>09:12:2019</b>
+								{messages.map(m=>
+										<React.Fragment key={m.id}>
+									<b>{m.senderName}</b>
+									<b>{m.addedAt}</b>
+								</React.Fragment>
+								)}
 							</div>
-							<div className={s.postContent}>
-								jhhg juhyguji uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg jhhg juhyguji
-								uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg
-							</div>
+							{messages.map(m=>
+								<div key={m.id+m.recipientId} className={s.postContent}>
+									{m.body}
+								</div>
+							)}
 						</div>
+
+
 					</div>}
 				</div>
 				<div className={s.dialogForm}>
