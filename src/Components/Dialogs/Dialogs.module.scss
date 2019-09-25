@@ -8,7 +8,7 @@
 	@include bRad (0.5rem);
 	width: 8rem;
 	float: left;
-	max-height: 76vh;
+	max-height: 73vh;
 	margin: 1rem 0 0 0.5rem;
 	background-color: rgba(0, 0, 0, .2);
 	overflow: auto;
@@ -33,6 +33,7 @@
 		text-align: center;
 		max-width: 100%;
 		margin-bottom: 1rem;
+		margin-right: 0.5rem;
 		cursor: pointer;
 		padding: 5px;
 		border: 1px solid white;
@@ -58,6 +59,7 @@
 
 	.search {
 		@include bRad (0.3rem);
+		max-width: 100%;
 	}
 }
 
@@ -96,50 +98,98 @@
 
 		.posts {
 			color: white;
+			height: 96%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 
-			.userPost, .myPost {
-				background-color: rgba(0, 0, 0, .4);
-				margin-top: 1rem;
-				padding: 0.5rem;
-				text-align: left;
-				@include bRad (0.5rem);
-				border: 1px solid white;
-
-				.postContent {
-					margin-top: 0.3rem;
-					word-break: break-all;
-					text-align: start;
-					padding: 0.3rem;
-					background-color: rgba(0, 0, 0, .8);
-					letter-spacing: 1px;
-					@include bRad (0.5rem);
-
+			.userPostWrapper, .myPostWrapper {
+				max-height: 45%;
+				overflow: auto;
+				margin-bottom: 0;
+				&::-webkit-scrollbar {
+					width: 5px;
+				}
+				&::-webkit-scrollbar-track-piece {
+					background-color: white;
+				}
+				&::-webkit-scrollbar-thumb {
+					height: 5px;
+					background-color: #666;
+					border-radius: 3px;
 				}
 
-				.userInfo {
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: space-between;
-					align-items: center;
-					word-break: break-all;
+				.userPost, .myPost {
+          display: flex;
+					background-color: rgba(0, 0, 0, .4);
+					margin-top: 0.5rem;
+					padding: 0.5rem;
+					text-align: left;
+					@include bRad (0.5rem);
+					border: 1px solid white;
 
-					.postAvatar {
-						max-width: 3rem;
-						border-radius: 100%;
-						border: 1px solid white;
-						margin-right: 3px;
+
+
+					.postContent, .myPostContent {
+						width: 100%;
+						display: flex;
+						justify-content: space-between;
+						margin-top: 0.3rem;
+						word-break: break-all;
+						text-align: start;
+						padding: 0.3rem;
+						background-color: rgba(0, 0, 0, .8);
+						letter-spacing: 1px;
+						@include bRad (0.5rem);
+						&:first-child {
+
+							margin-right: 1rem;
+						}
+						.date {
+text-align: right;
+							color: gray;
+							white-space: nowrap;
+						}
+
+					}
+
+
+
+					.userInfo {
+						display: flex;
+						flex-wrap: wrap;
+						flex-direction: column;
+						align-items: center;
+						word-break: break-all;
+
+
+
+						.postAvatar {
+							max-width: 3rem;
+							border-radius: 100%;
+							border: 1px solid white;
+							margin-right: 3px;
+						}
 					}
 				}
+
+
+			}
+			.userPostWrapper {
+				margin-right: 15%;
+			}
+			.myPostWrapper {
+				margin-left: 15%;
 			}
 
 			.userPost {
-				max-width: 85%;
+				margin-right: 0.5rem;
 
 			}
 
 			.myPost {
-				max-width: 100%;
-				margin-left: 15%;
+
+				margin-right: 0.5rem;
 				background-color: rgba(0, 0, 0, .1);
 			}
 		}

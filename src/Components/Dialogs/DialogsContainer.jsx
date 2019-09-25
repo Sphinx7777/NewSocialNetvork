@@ -39,6 +39,7 @@ let mapStateToProps = (state) => {
 		myMessages: state.dialogsPage.myMessages,
 		friendMessages: state.dialogsPage.friendMessages,
 		userProfile: state.profilePage.profile,
+		loadProfile: state.profilePage.loadProfile,
 		loginId: state.auth.id,
 		myPhoto: state.auth.myPhoto,
 		login: state.auth.login,

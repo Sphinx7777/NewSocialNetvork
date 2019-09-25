@@ -7,7 +7,7 @@ let instans = axios.create({
 	baseURL: `https://social-network.samuraijs.com/api/1.0/`,
 	withCredentials: true,
 	headers: {
-		'API-KEY': 'db1d40cc-4208-4f37-bc5e-856605c7e662'
+		'API-KEY': 'ddc4d51c-4a11-4c3f-8813-49fdeb109cbd'
 	}
 });
 
@@ -106,11 +106,11 @@ export const SettingsApi = {
 export const dialogsApi = {
 
 	sendNewMessage(id,body) {
-		return instans.post(`dialogs/${id}//messages`,{body})
+		return instans.post(`dialogs/${id}/messages`,{body})
 			.then(response => response.data)
 	},
 	getFiendMessage(id) {
-		return instans.get(`dialogs/${id}//messages`)
+		return instans.get(`dialogs/${id}/messages`)
 			.then(response => response.data)
 	},
 };

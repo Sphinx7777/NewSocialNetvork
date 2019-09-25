@@ -12,7 +12,12 @@ let minLength3=minLengthCreator(3);
 const DialogsReduxForm = ({pristine,handleSubmit,submitting,reset}) => {
 
 	return (
-		<form  className={s.newDialogForm} onSubmit={handleSubmit}>
+		<form  className={s.newDialogForm} onSubmit={handleSubmit} onKeyPressCapture={(event) => {
+
+			if (event.key === 'Enter') {
+				handleSubmit()
+			}
+		}} >
 			<Field
 						 component={TextAreaComponent}
 						 cols='170' rows='3' name={'newTextDialog'}
@@ -20,7 +25,7 @@ const DialogsReduxForm = ({pristine,handleSubmit,submitting,reset}) => {
 
 			/>
 			<div className={s.newDialogBtn}>
-				<button className={s.Btn} disabled={pristine || submitting}>Sent message</button>
+				<button className={s.Btn} disabled={pristine || submitting}>Send message</button>
 				<button className={s.clearBtn} type="button" disabled={pristine} onClick={reset}>
 					Clear field
 				</button>

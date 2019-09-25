@@ -7,31 +7,27 @@ import {NavLink} from "react-router-dom";
 
 
 export const Dialogs = ({
-													sendNewMessage, users, getNewProfile, myPhoto,
-													userProfile,myMessages,sendMessageStatus,getFriendMessage,
-													loadFriendMessages,friendMessages
+													sendNewMessage, users, getNewProfile, myPhoto,loadProfile,
+													userProfile, myMessages, sendMessageStatus, getFriendMessage,
+													loadFriendMessages, friendMessages,
 												}) => {
 	const [profile, setProfile] = useState(userProfile);
 	const [friend, setUsers] = useState(users);
 	const [messages, setMessages] = useState(myMessages);
 	const [newFriendMessages, setFriendMessages] = useState(friendMessages);
 
-	let getDialogs = (id)=>{
+	let getDialogs = (id) => {
 		getNewProfile(id);
 		getFriendMessage(id)
 	};
 
 	useEffect(() => {
-
-			setFriendMessages(friendMessages)
-
-	}, [loadFriendMessages,friendMessages]);
+		setFriendMessages(friendMessages)
+	}, [profile, friendMessages]);
 
 	useEffect(() => {
-
-			setProfile(userProfile)
-
-	}, [userProfile,sendMessageStatus]);
+		setProfile(userProfile)
+	}, [userProfile]);
 
 	useEffect(() => {
 		setMessages(myMessages)
@@ -47,13 +43,12 @@ export const Dialogs = ({
 	};
 
 	let onSubmit = (values) => {
-		values.newTextDialog && sendNewMessage(profile.userId,values.newTextDialog);
+		values.newTextDialog && sendNewMessage(profile.userId, values.newTextDialog);
 		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
 		return disableBtnSend(5000).then(() => {
 			return true;
 		})
 	};
-
 
 	return (
 		<>
@@ -76,42 +71,46 @@ export const Dialogs = ({
 			</div>
 			<div className={s.dialogsWrapper}>
 				<div className={s.dialogs}>
-
 					{profile && <div className={s.posts}>
-
-						<div className={s.userPost}>
-							<div className={s.userInfo}>
-                <NavLink to={`/profile/${profile.userId}`}>
-								<img className={s.postAvatar} src={profile.photos.large || ava} alt=""/>
-								</NavLink>
-								<b>{profile.fullName}</b>
-								<b>09:12:2019</b>
-							</div>
-							<div className={s.postContent}>
-								jhhg juhyguji uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg jhhg juhyguji
-								uhyugygh ygtfygg uhijuy ygtyghh uhhhyftg
-							</div>
+						<div className={s.userPostWrapper}>
+							{newFriendMessages.map(m =>
+								<div key={m.id+Math.random()} className={s.userPost}>
+									<div className={s.userInfo}>
+										<NavLink to={`/profile/${profile.userId}`}>
+											<img className={s.postAvatar} src={profile.photos.large || ava} alt=""/>
+										</NavLink>
+										<b>{m.senderName}</b>
+									</div>
+									<div className={s.postContent}>
+										<div>{m.body}</div>
+										<div>
+											<div
+												className={s.date}>{m.addedAt.slice(8, 10)}.{m.addedAt.slice(5, 7)}.{m.addedAt.slice(0, 4)}</div>
+											<div className={s.date}>{m.addedAt.slice(11, 13)}.{m.addedAt.slice(14, 16)}</div>
+										</div>
+									</div>
+								</div>)}
 						</div>
-
-
-						<div className={s.myPost}>
-							<div className={s.userInfo}>
-								<img className={s.postAvatar} src={myPhoto.large || ava} alt=""/>
-								{messages.map(m=>
-										<React.Fragment key={m.id}>
-									<b>{m.senderName}</b>
-									<b>{m.addedAt}</b>
-								</React.Fragment>
-								)}
-							</div>
-							{messages.map(m=>
-								<div key={m.id+m.recipientId} className={s.postContent}>
-									{m.body}
-								</div>
-							)}
+						<div className={s.myPostWrapper}>
+							{messages.map(m =>
+								<div key={m.id} className={s.myPost}>
+									<div  className={s.myPostContent}>
+										<div>{m.body}</div>
+										<div>
+											<div className={s.date}>
+												{m.addedAt.slice(8, 10)}.{m.addedAt.slice(5, 7)}.{m.addedAt.slice(0, 4)}
+											</div>
+											<div className={s.date}>
+												{m.addedAt.slice(11, 13)}.{m.addedAt.slice(14, 16)}
+											</div>
+										</div>
+									</div>
+									<div className={s.userInfo}>
+										<img className={s.postAvatar} src={myPhoto.large || ava} alt=""/>
+										<b>{m.senderName}</b>
+									</div>
+								</div>)}
 						</div>
-
-
 					</div>}
 				</div>
 				<div className={s.dialogForm}>

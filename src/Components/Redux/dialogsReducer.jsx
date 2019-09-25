@@ -76,10 +76,10 @@ const dialogsReducer = (state = initialState, action) => {
 			return {...state, friendLoaded: true}
 		}
 		case SET_MY_MESSAGES: {
-			return {...state, ...state.myMessages.push({...action.data}),sendMessageStatus:true}
+			return {...state, ...state.myMessages.unshift({...action.data}),sendMessageStatus:true}
 		}
 		case SET_FRIEND_MESSAGES: {
-			return {...state, ...state.friendMessages.push(...action.items),loadFriendMessages:true}
+			return {...state, ...state.friendMessages.unshift(...action.items)}
 		}
 		case SET_STATUS_SEND_MESSAGE: {
 			return {...state, sendMessageStatus:action.status}
@@ -128,6 +128,7 @@ export const getFriendMessage = (id) => {
 		let data = await dialogsApi.getFiendMessage(id);
 		if (!data.error) {
 			await dispatch(setFriendMessages(data.items));
+			await dispatch(setStatusFriendMessages(true));
 		}
 	}
 };
