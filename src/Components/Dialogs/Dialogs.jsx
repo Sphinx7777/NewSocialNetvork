@@ -7,38 +7,34 @@ import {NavLink} from "react-router-dom";
 
 
 export const Dialogs = ({
-													sendNewMessage, users, getNewProfile, myPhoto,loadProfile,
-													userProfile, myMessages, sendMessageStatus, getFriendMessage,
-													loadFriendMessages, friendMessages,
+													sendNewMessage, friends, getNewProfile,myId, myPhoto,
+													userProfile, getMessages,deleteMessage,
+													allMessages,
 												}) => {
 	const [profile, setProfile] = useState(userProfile);
-	const [friend, setUsers] = useState(users);
-	const [messages, setMessages] = useState(myMessages);
-	const [newFriendMessages, setFriendMessages] = useState(friendMessages);
+	const [friend, setUsers] = useState(friends);
+	const [messages, setMessages] = useState(allMessages);
 
 	let getDialogs = (id) => {
 		getNewProfile(id);
-		getFriendMessage(id)
+		getMessages(id)
 	};
 
-	useEffect(() => {
-		setFriendMessages(friendMessages)
-	}, [profile, friendMessages]);
 
 	useEffect(() => {
 		setProfile(userProfile)
 	}, [userProfile]);
 
 	useEffect(() => {
-		setMessages(myMessages)
-	}, [myMessages]);
+		setMessages(allMessages)
+	}, [allMessages]);
 
 
 	let searchFriend = (name) => {
 		if (name.length) {
-			setUsers(() => users.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
+			setUsers(() => friends.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
 		} else {
-			setUsers(users);
+			setUsers(friends);
 		}
 	};
 
@@ -70,49 +66,36 @@ export const Dialogs = ({
 				}
 			</div>
 			<div className={s.dialogsWrapper}>
-				<div style={{color:'red',fontSize:'2rem'}}>Диалоги еще в разработке...ждем бєк и оппонентов.....</div>
+				{/*<div style={{color:'red',fontSize:'2rem'}}>Диалоги еще в разработке...ждем бєк и оппонентов.....</div>*/}
 
 				<div className={s.dialogs}>
-					{profile && <div className={s.posts}>
-						<div className={s.userPostWrapper}>
-							{newFriendMessages.map(m =>
-								<div key={m.id+Math.random()} className={s.userPost}>
+					{!messages.length && <div>Полковнику никто не пишет....</div>}
+					{profile && messages.length
+					&& <div className={s.posts}>
+							{messages.length && messages.map(m =>
+								<div key={m.id+Math.random()} className={s.postWrapper+' '+(m.senderId === myId ? s.myPostWrapper :'')}>
+								<div className={s.userPost}>
 									<div className={s.userInfo}>
 										<NavLink to={`/profile/${profile.userId}`}>
-											<img className={s.postAvatar} src={profile.photos.large || ava} alt=""/>
+											{m.senderId === myId ? <img className={s.postAvatar} src={myPhoto.large || ava} alt=""/>
+											:<img className={s.postAvatar} src={profile.photos ? profile.photos.large : ava} alt=""/>
+											}
 										</NavLink>
 										<b>{m.senderName}</b>
 									</div>
-									<div className={s.postContent}>
+									<div className={s.postContentr+' '+(m.senderId === myId ? s.myPostContent :'')}>
 										<div>{m.body}</div>
 										<div>
 											<div
 												className={s.date}>{m.addedAt.slice(8, 10)}.{m.addedAt.slice(5, 7)}.{m.addedAt.slice(0, 4)}</div>
-											<div className={s.date}>{m.addedAt.slice(11, 13)}.{m.addedAt.slice(14, 16)}</div>
+											<div className={s.hour}>{m.addedAt.slice(11, 13)}.{m.addedAt.slice(14, 16)}</div>
+											<div className={s.dell} onClick={()=>{deleteMessage(m.id,profile.userId)}}>Удалить</div>
 										</div>
 									</div>
+								</div>
 								</div>)}
-						</div>
-						<div className={s.myPostWrapper}>
-							{messages.map(m =>
-								<div key={m.id} className={s.myPost}>
-									<div  className={s.myPostContent}>
-										<div>{m.body}</div>
-										<div>
-											<div className={s.date}>
-												{m.addedAt.slice(8, 10)}.{m.addedAt.slice(5, 7)}.{m.addedAt.slice(0, 4)}
-											</div>
-											<div className={s.date}>
-												{m.addedAt.slice(11, 13)}.{m.addedAt.slice(14, 16)}
-											</div>
-										</div>
-									</div>
-									<div className={s.userInfo}>
-										<img className={s.postAvatar} src={myPhoto.large || ava} alt=""/>
-										<b>{m.senderName}</b>
-									</div>
-								</div>)}
-						</div>
+
+
 					</div>}
 				</div>
 				<div className={s.dialogForm}>

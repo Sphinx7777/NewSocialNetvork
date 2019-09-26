@@ -108,7 +108,7 @@ export const addUserAsFriend = (userId) => {
 		dispatch(setFriendBtnState(false));
 		let data = await friendsApi.addUsersAsFriend(userId);
 		if (data.resultCode === 0)
-			dispatch(setAddUserAsFriend(true));
+		dispatch(setAddUserAsFriend(true));
 		dispatch(setFriendBtnState(true))
 	}
 };
