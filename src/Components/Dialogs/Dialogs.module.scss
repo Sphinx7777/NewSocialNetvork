@@ -4,7 +4,7 @@
 }
 
 
-.users {
+.friends {
 	@include bRad (0.5rem);
 	width: 8rem;
 	float: left;
@@ -28,7 +28,7 @@
 		border-radius: 3px;
 	}
 
-	.userItem {
+	.friendItem {
 		display: block;
 		text-align: center;
 		max-width: 100%;
@@ -52,7 +52,7 @@
 		}
 	}
 
-	.userItem.active {
+	.friendItem.active {
 		border: 1px solid red;
 		background-color: rgba(0, 0, 0, .4);
 	}
@@ -192,7 +192,7 @@
 
 
 @media screen and (max-width: 600px) {
-	.users {
+	.friends {
 		font-size: 0.8rem;
 	}
 }

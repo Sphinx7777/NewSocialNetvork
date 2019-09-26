@@ -12,7 +12,7 @@ export const Dialogs = ({
 													allMessages,
 												}) => {
 	const [profile, setProfile] = useState(userProfile);
-	const [friend, setUsers] = useState(friends);
+	const [friend, setFriends] = useState(friends);
 	const [messages, setMessages] = useState(allMessages);
 
 	let getDialogs = (id) => {
@@ -32,9 +32,9 @@ export const Dialogs = ({
 
 	let searchFriend = (name) => {
 		if (name.length) {
-			setUsers(() => friends.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
+			setFriends(() => friends.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
 		} else {
-			setUsers(friends);
+			setFriends(friends);
 		}
 	};
 
@@ -48,13 +48,13 @@ export const Dialogs = ({
 
 	return (
 		<>
-			<div className={s.users}>
+			<div className={s.friends}>
 				<input className={s.search} placeholder='Search ' type='text' onChange={(event) => {
 					searchFriend(event.target.value)
 				}}/>
 				{friend.length ?
 					friend.map(u =>
-						<div key={u.id} className={s.userItem + ' ' + (profile && u.id === profile.userId && s.active)}
+						<div key={u.id} className={s.friendItem + ' ' + (profile && u.id === profile.userId && s.active)}
 								 onClick={() => {
 									 getDialogs(u.id)
 								 }}
@@ -66,7 +66,7 @@ export const Dialogs = ({
 				}
 			</div>
 			<div className={s.dialogsWrapper}>
-				{/*<div style={{color:'red',fontSize:'2rem'}}>Диалоги еще в разработке...ждем бєк и оппонентов.....</div>*/}
+				<div style={{color:'red',fontSize:'1.5rem'}}>Диалоги еще в разработке.Ждем оппонентов.Пока никто еще не пишет...</div>
 
 				<div className={s.dialogs}>
 					{!messages.length && <div>Полковнику никто не пишет....</div>}
@@ -83,7 +83,7 @@ export const Dialogs = ({
 										</NavLink>
 										<b>{m.senderName}</b>
 									</div>
-									<div className={s.postContentr+' '+(m.senderId === myId ? s.myPostContent :'')}>
+									<div className={s.postContent+' '+(m.senderId === myId ? s.myPostContent :'')}>
 										<div>{m.body}</div>
 										<div>
 											<div
