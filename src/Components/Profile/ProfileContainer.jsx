@@ -12,7 +12,7 @@ import {compose} from "redux";
 import {getloadLogin} from "../Redux/selectors";
 
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.PureComponent {
 
 	componentDidMount() {
 		let userId = this.props.match.params.userId;

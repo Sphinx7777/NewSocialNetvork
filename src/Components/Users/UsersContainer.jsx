@@ -21,7 +21,10 @@ class UsersContainer extends React.Component {
 		if(prevProps.numberUsersOnPage !== numberUsersOnPage)
 			getNewUsers(currentPage,numberUsersOnPage);
 	}
-
+	shouldComponentUpdate(nextProps,nextState) {
+		return nextProps.loadedUsers !== this.props.loadedUsers ||
+			nextState !== this.state
+	}
 	onClickNumberOfPage = (currentPage) => {
 		this.props.getNewUsers(currentPage, this.props.numberUsersOnPage)
 	};

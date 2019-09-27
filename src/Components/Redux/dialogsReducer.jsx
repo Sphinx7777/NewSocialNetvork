@@ -42,7 +42,7 @@ const dialogsReducer = (state = initialState, action) => {
 	}
 };
 
-const setFriends = (users) => ({type: SET_FRIEND_USERS, users});
+export const setFriends = (users) => ({type: SET_FRIEND_USERS, users});
 const setTotalCountOfUsers = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
 const setStatusFriendLoaded = () => ({type: SET_STATUS_FRIEND_LOADED});
 const setStatusSendMessage = (status) => ({type: SET_STATUS_SEND_MESSAGE,status});

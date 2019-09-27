@@ -6,7 +6,7 @@ import {addNewPost} from "../../Redux/profileReducer";
 import photo from './../../../Images/skull2.png';
 
 
-class MyPosts extends React.Component {
+class MyPosts extends React.PureComponent {
 	onSubmit = (formData) => {
 
 this.props.addNewPost(formData.text);

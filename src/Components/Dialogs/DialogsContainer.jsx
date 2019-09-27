@@ -1,7 +1,7 @@
 import React from 'react';
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
-import {deleteMessage, getMessages, getUsersForFriends, sendNewMessage} from "../Redux/dialogsReducer";
+import {deleteMessage, getMessages, getUsersForFriends, sendNewMessage, setFriends} from "../Redux/dialogsReducer";
 import {compose} from "redux";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {getNewProfile} from "../Redux/profileReducer";
@@ -11,6 +11,13 @@ import {Preloader} from "../Others/Preloader/Preloader";
 
 
 class DialogsContainer extends React.Component {
+
+	shouldComponentUpdate(nextProps,nextState) {
+		return nextProps.friendLoaded !== this.props.friendLoaded ||
+			nextProps.userProfile !== this.props.userProfile ||
+			nextProps.allMessages !== this.props.allMessages ||
+			nextState !== this.state
+	}
 
 	componentDidMount() {
 		this.props.getUsersForFriends(this.props.page,100);
@@ -47,5 +54,5 @@ export default compose(withAuthRedirect,
 	connect(mapStateToProps,
 		{getUsersForFriends,getNewProfile,
 			getMyPhoto,sendNewMessage,getMessages,
-			deleteMessage}))(DialogsContainer);
+			deleteMessage,setFriends}))(DialogsContainer);
 
