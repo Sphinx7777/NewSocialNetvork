@@ -3,13 +3,19 @@
 	outline: none;
 }
 
+.search {
+	@include bRad (0.3rem);
+	margin-left: 0.5rem;
+	display: block;
+	max-width: 8rem;
+}
 
-.users {
+.friends {
 	@include bRad (0.5rem);
 	width: 8rem;
 	float: left;
 	max-height: 73vh;
-	margin: 1rem 0 0 0.5rem;
+	margin: 0.2rem 0 0 0.5rem;
 	background-color: rgba(0, 0, 0, .2);
 	overflow: auto;
 	outline: none;
@@ -28,7 +34,7 @@
 		border-radius: 3px;
 	}
 
-	.userItem {
+	.friendItem {
 		display: block;
 		text-align: center;
 		max-width: 100%;
@@ -52,14 +58,9 @@
 		}
 	}
 
-	.userItem.active {
+	.friendItem.active {
 		border: 1px solid red;
 		background-color: rgba(0, 0, 0, .4);
-	}
-
-	.search {
-		@include bRad (0.3rem);
-		max-width: 100%;
 	}
 }
 
@@ -70,7 +71,7 @@
 	padding: 0.5rem;
 	border-radius: 1rem;
 	outline: none;
-	margin: 1rem 0.5rem 0 8.5rem;
+	margin: -1rem 0.5rem 0 8.5rem;
 
 	.dialogs {
 		background-color: rgba(0, 0, 0, .2);
@@ -98,29 +99,17 @@
 
 		.posts {
 			color: white;
-			height: 96%;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 
-			.userPostWrapper, .myPostWrapper {
-				max-height: 45%;
-				overflow: auto;
-				margin-bottom: 0;
-				&::-webkit-scrollbar {
-					width: 5px;
-				}
-				&::-webkit-scrollbar-track-piece {
-					background-color: white;
-				}
-				&::-webkit-scrollbar-thumb {
-					height: 5px;
-					background-color: #666;
-					border-radius: 3px;
-				}
+
+			.postWrapper, .myPostWrapper {
+				margin-bottom: 0.5rem;
+
 
 				.userPost, .myPost {
-          display: flex;
+					display: flex;
 					background-color: rgba(0, 0, 0, .4);
 					margin-top: 0.5rem;
 					padding: 0.5rem;
@@ -129,10 +118,9 @@
 					border: 1px solid white;
 
 
-
 					.postContent, .myPostContent {
 						width: 100%;
-						display: flex;
+
 						justify-content: space-between;
 						margin-top: 0.3rem;
 						word-break: break-all;
@@ -141,18 +129,48 @@
 						background-color: rgba(0, 0, 0, .8);
 						letter-spacing: 1px;
 						@include bRad (0.5rem);
-						&:first-child {
 
+						&:first-child {
 							margin-right: 1rem;
 						}
-						.date {
-text-align: right;
-							color: gray;
-							white-space: nowrap;
+
+						.attributes {
+							display: flex;
+							justify-content: space-between;
+							max-width: 100%;
+							border-bottom: 1px solid darkgrey;
+							@include bRad (0.5rem);
+							padding: 5px;
+
+							.date, .hour, .dell {
+								text-align: right;
+								color: gray;
+								white-space: nowrap;
+								display: inline-block;
+							}
+
+							@media screen and (max-width: 500px) {
+								.date, .hour, .dell {
+									font-size: 0.7rem;
+								}
+								.date {
+									margin-right: 5px;
+								}
+							}
+
+							.dell {
+								color: red;
+								cursor: pointer;
+							}
+
+							.postText {
+								margin-top: 3px;
+								padding: 5px;
+							}
 						}
 
-					}
 
+					}
 
 
 					.userInfo {
@@ -161,7 +179,6 @@ text-align: right;
 						flex-direction: column;
 						align-items: center;
 						word-break: break-all;
-
 
 
 						.postAvatar {
@@ -175,11 +192,14 @@ text-align: right;
 
 
 			}
-			.userPostWrapper {
+
+			.postWrapper {
 				margin-right: 15%;
 			}
-			.myPostWrapper {
+
+			.postWrapper.myPostWrapper {
 				margin-left: 15%;
+				margin-right: 0;
 			}
 
 			.userPost {
@@ -187,7 +207,7 @@ text-align: right;
 
 			}
 
-			.myPost {
+			.userPost.myPost {
 
 				margin-right: 0.5rem;
 				background-color: rgba(0, 0, 0, .1);
@@ -201,9 +221,56 @@ text-align: right;
 }
 
 
-@media screen and (max-width: 600px) {
-	.users {
+@media screen and (max-width: 750px) {
+	.friends {
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.friends, .dialogsWrapper {
 		font-size: 0.8rem;
 	}
 }
+
+@media screen and (max-width: 600px) {
+	.friends {
+		width: 6rem;
+	}
+	.dialogsWrapper {
+		margin-left: 6.5rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.friends {
+		float: none;
+		display: flex;
+		height: 100%;
+		width: 96%;
+
+
+		.search {
+
+		}
+
+
+		.friendItem {
+			padding: 3px;
+			margin: 2px;
+			min-width: 3.5rem;
+
+			.ava {
+
+			}
+		}
+
+	}
+	.dialogsWrapper {
+		margin: 0 auto;
+
+
+	}
+}
+
 

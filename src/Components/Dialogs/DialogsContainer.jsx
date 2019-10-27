@@ -1,7 +1,7 @@
 import React from 'react';
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
-import {getFriendMessage, getUsersForFriends, sendNewMessage} from "../Redux/dialogsReducer";
+import {deleteMessage, getMessages, getUsersForFriends, sendNewMessage, setFriends} from "../Redux/dialogsReducer";
 import {compose} from "redux";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {getNewProfile} from "../Redux/profileReducer";
@@ -12,11 +12,17 @@ import {Preloader} from "../Others/Preloader/Preloader";
 
 class DialogsContainer extends React.Component {
 
+	shouldComponentUpdate(nextProps,nextState) {
+		return nextProps.friendLoaded !== this.props.friendLoaded ||
+			nextProps.userProfile !== this.props.userProfile ||
+			nextProps.allMessages !== this.props.allMessages ||
+			nextState !== this.state
+	}
+
 	componentDidMount() {
 		this.props.getUsersForFriends(this.props.page,100);
 		this.props.getMyPhoto(this.props.loginId)
 }
-
 
 	render() {
 		if(this.props.friendLoaded){
@@ -30,23 +36,23 @@ class DialogsContainer extends React.Component {
 
 let mapStateToProps = (state) => {
 	return {
-		users: state.dialogsPage.users,
+		friends: state.dialogsPage.friends,
 		totalCount: state.dialogsPage.totalCount,
 		page: state.dialogsPage.page,
 		friendLoaded: state.dialogsPage.friendLoaded,
 		sendMessageStatus: state.dialogsPage.sendMessageStatus,
-		loadFriendMessages: state.dialogsPage.loadFriendMessages,
-		myMessages: state.dialogsPage.myMessages,
-		friendMessages: state.dialogsPage.friendMessages,
+		allMessages: state.dialogsPage.allMessages,
 		userProfile: state.profilePage.profile,
-		loadProfile: state.profilePage.loadProfile,
 		loginId: state.auth.id,
 		myPhoto: state.auth.myPhoto,
+		myId: state.auth.id,
 		login: state.auth.login,
 
 	}
 };
 export default compose(withAuthRedirect,
 	connect(mapStateToProps,
-		{getUsersForFriends,getNewProfile,getMyPhoto,sendNewMessage,getFriendMessage}))(DialogsContainer);
+		{getUsersForFriends,getNewProfile,
+			getMyPhoto,sendNewMessage,getMessages,
+			deleteMessage,setFriends}))(DialogsContainer);
 
