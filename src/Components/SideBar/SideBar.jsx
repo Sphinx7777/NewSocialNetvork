@@ -22,7 +22,7 @@ let hideMenu = ()=> {
 		{menu	?	<div className={s.sideBar}>
 			<NavLink className={s.item} activeClassName={s.activeItem} exact to='/'>Main</NavLink>
 			<a className={s.item} target='_blank' rel='noopener noreferrer'
-							 href="https://sphinx7777.github.io/Portfolio">Portfolio</a>
+							 href="https://sphinx7777.github.io/reactTypeScript">Portfolio</a>
 			{link('/users', 'Users')}
 			{link('/profile', 'Profile')}
 			{link('/dialogs', 'Dialogs')}
