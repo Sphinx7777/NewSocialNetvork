@@ -24,7 +24,7 @@ return (
 										captchaUrl={props.captchaUrl}
 		/>
 		<div>
-			Тестовые Email и Password
+			Тестовые Email и Password :
 			<div>Email: free@samuraijs.com</div>
 			<div>Password: free</div>
 		</div>
