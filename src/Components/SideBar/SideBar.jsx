@@ -40,5 +40,3 @@ let hideMenu = ()=> {
 		</div>
 	</div>)
 };
-/*
-rel='noopener noreferrer'*/
