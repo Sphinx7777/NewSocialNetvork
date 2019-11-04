@@ -1,1 +1,0 @@
-{"version":3,"sources":["C:\\NewSocialNetwork\\SocialNetvork/src\\Components\\Music\\Music.module.scss"],"names":[],"mappings":"AAAA,+CAGE,iBAAkB,CAClB,SAAU,CACZ,cAAe","file":"10.1e0acd5f.chunk.css","sourcesContent":[".musicWrapper {\r\n\r\n\t.music {\r\n\t\ttext-align: center;\r\n\t\tcolor: red;\r\nfont-size: 2rem;\r\n\r\n\r\n\t}\r\n}\r\n"]}
