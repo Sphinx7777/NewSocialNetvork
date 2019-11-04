@@ -55,7 +55,8 @@ export const Dialogs = ({
 			<Friends {...{friend, profile,getDialogs}} />
 			</div>
 			<div className={s.dialogsWrapper}>
-				<div style={{color: 'red', fontSize: '1.5rem'}}>Диалоги еще в разработке.Ждем оппонентов.Пока никто еще не
+				<div style={{color: 'red', fontSize: '1.5rem'}}>Диалоги еще в разработке.
+					Пока никто еще кроме <b>' free '</b> не
 					пишет...
 				</div>
 
