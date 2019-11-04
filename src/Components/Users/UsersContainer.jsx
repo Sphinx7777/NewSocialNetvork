@@ -8,23 +8,18 @@ import {getloadLogin, getUsers} from "../Redux/selectors";
 
 
 
-class UsersContainer extends React.Component {
-
-
+class UsersContainer extends React.PureComponent {
 
 	componentDidMount() {
 		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
 		getNewUsers(currentPage,numberUsersOnPage);
 	}
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps, prevState, snapshot) {
 		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
 		if(prevProps.numberUsersOnPage !== numberUsersOnPage)
 			getNewUsers(currentPage,numberUsersOnPage);
 	}
-	shouldComponentUpdate(nextProps,nextState) {
-		return nextProps.loadedUsers !== this.props.loadedUsers ||
-			nextState !== this.state
-	}
+
 	onClickNumberOfPage = (currentPage) => {
 		this.props.getNewUsers(currentPage, this.props.numberUsersOnPage)
 	};

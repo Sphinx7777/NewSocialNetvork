@@ -32,7 +32,7 @@ const usersReducer = (state=initialState, action) => {
 			return {...state, currentPage:action.currentPage}
 		}
 		case SET_NUMBER_USERS_ON_PAGE: {
-			return {...state, numberUsersOnPage:action.numberUsersOnPage}
+			return {...state, ...state.numberUsersOnPage=action.numberUsersOnPage}
 		}
 		default:
 			return state;
