@@ -7,7 +7,7 @@ let mapStateToProps = (state) => {
 		loadLogin: state.auth.loadLogin
 	}
 };
-// редирект на страницу логина со страниц с необходимостью авторизации
+
 export const withAuthRedirect =(Component) => {
 	class redirectWrapper extends React.Component  {
 	render() {

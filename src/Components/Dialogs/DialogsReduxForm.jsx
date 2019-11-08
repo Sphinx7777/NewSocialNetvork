@@ -26,7 +26,7 @@ const DialogsReduxForm = ({pristine,handleSubmit,submitting,reset}) => {
 			/>
 			<div className={s.newDialogBtn}>
 				<button className={s.Btn} disabled={pristine || submitting}>Send message</button>
-				<button className={s.clearBtn} type="button" disabled={pristine} onClick={reset}>
+				<button className={s.clearBtn} type="reset" disabled={pristine} onClick={reset}>
 					Clear field
 				</button>
 
