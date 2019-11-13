@@ -21,6 +21,7 @@
 			border-radius: 0.5rem;
 			padding: 0.3rem 0.5rem;
 			font-weight: bold;
+
 			&:hover {
 				border: 3px solid red;
 				color: red;
@@ -44,6 +45,7 @@
 		font-style: italic;
 		margin: 0 auto;
 	}
+
 	@media screen and (max-width: 450px) {
 		.promo {
 			opacity: 0;
@@ -63,6 +65,7 @@
 		max-width: 2rem;
 		cursor: pointer;
 		margin-right: 1.5rem;
+
 		&:hover {
 			border: 3px solid white;
 			background-color: black;
@@ -91,7 +94,7 @@
 			font-weight: bold;
 		}
 
-		.item:hover, .activeItem,  .item:active{
+		.item:hover, .activeItem, .item:active {
 			border: 3px solid red;
 			color: red;
 		}
@@ -101,12 +104,13 @@
 
 @media screen and (max-width: 750px) {
 	.sideBarWrapper {
-justify-content: flex-end;
+		justify-content: flex-end;
 
 		.loginHeader {
 			margin-right: 1.5rem;
 
 		}
+
 		.sideBar {
 			flex-direction: column;
 			position: absolute;

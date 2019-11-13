@@ -3,31 +3,43 @@ import s from './Login.module.scss';
 import LoginReduxForm from "./LoginReduxForm";
 
 
-export const Login = (props) => {
+export const Login = (
+	{
+		loginMe,
+		loadLogin,
+		history,
+		captchaUrl,
+		logOutMe
+	}) => {
 
-	let	onSubmit = (formData)=> {
-	let promise=props.loginMe(formData);
-	promise.then(()=> {
-		props.loadLogin &&
-		props.history.goBack();
-	})
-};
+	const onSubmit = (formData) => {
+		const promise = loginMe(formData);
+		promise.then(() => {
+			loadLogin &&
+			history.goBack();
+		})
+	};
 
-return (
+	return (
 		<div className={s.login}>
-			{props.loadLogin ? <h2>Logged in</h2> : <h2>Log in</h2>}
-
-
-		<LoginReduxForm onSubmit={onSubmit}
-										logOutMe={props.logOutMe}
-										loadLogin={props.loadLogin}
-										captchaUrl={props.captchaUrl}
-		/>
-		<div>
-			Тестовые Email и Password :
-			<div>Email: free@samuraijs.com</div>
-			<div>Password: free</div>
-		</div>
+			{loadLogin
+				? <h2>Logged in</h2>
+				: <h2>Log in</h2>}
+			<LoginReduxForm {...{
+				onSubmit,
+				logOutMe,
+				loadLogin,
+				captchaUrl
+			}}/>
+			<div>
+				Тестовые Email и Password :
+				<div>
+					Email: free@samuraijs.com
+				</div>
+				<div>
+					Password: free
+				</div>
+			</div>
 		</div>
 	);
 };

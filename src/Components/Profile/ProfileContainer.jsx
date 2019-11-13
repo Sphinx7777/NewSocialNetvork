@@ -2,9 +2,12 @@ import React from 'react';
 import {Profile} from "./Profile";
 import {connect} from "react-redux";
 import {
-	addUserAsFriend, dellUserAsFriend,
-	getFriendStatus, getNewProfile,
-	getStatus,updateStatus
+	addUserAsFriend,
+	dellUserAsFriend,
+	getFriendStatus,
+	getNewProfile,
+	getStatus,
+	updateStatus
 } from "../Redux/profileReducer";
 import {Redirect, withRouter} from "react-router-dom";
 import {Preloader} from "../Others/Preloader/Preloader";
@@ -15,9 +18,11 @@ import {getloadLogin} from "../Redux/selectors";
 class ProfileContainer extends React.PureComponent {
 
 	componentDidMount() {
+
 		let userId = this.props.match.params.userId;
+
 		if (!userId) {
-			userId = this.props.loginId
+			userId = this.props.loginId;
 		}
 		if (this.props.match.params.userId || this.props.loginId) {
 			this.props.getNewProfile(userId);
@@ -37,10 +42,14 @@ class ProfileContainer extends React.PureComponent {
 
 
 	render() {
+
 		if (!this.props.match.params.userId) {
-			return <Redirect to={this.props.loginId ? `/profile/${this.props.loginId}` : `/login`}/>
+			return <Redirect to={this.props.loginId
+				? `/profile/${this.props.loginId}`
+				: `/login`}/>
 		}
-	if (!this.props.loadProfile) return <Preloader/>;
+
+		if (!this.props.loadProfile) return <Preloader/>;
 
 		return <Profile
 			{...this.props.profile}
@@ -71,9 +80,12 @@ let mapStateToProps = (state) => {
 
 export default compose(
 	connect(mapStateToProps, {
-		updateStatus, dellUserAsFriend,
-		addUserAsFriend, getNewProfile,
-		getFriendStatus, getStatus
+		updateStatus,
+		dellUserAsFriend,
+		addUserAsFriend,
+		getNewProfile,
+		getFriendStatus,
+		getStatus
 	}),
 	withRouter)(ProfileContainer);
 

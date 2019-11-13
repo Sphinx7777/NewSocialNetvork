@@ -5,12 +5,19 @@ import {NavLink} from "react-router-dom";
 
 export const LoginSideBar = (props) => {
 
-return (
+	return (
 		<div className={s.loginHeader}>
-			{!props.loadLogin ? <NavLink to='/login' className={s.loginLink}>Go login</NavLink> :
+			{!props.loadLogin
+				? <NavLink to='/login' className={s.loginLink}>
+					Go login
+				</NavLink>
+				:
 				<NavLink className={s.loginName} to='/login'>
-					<span >{props.login}</span>
-				</NavLink>}
+					<span>
+						{props.login}
+					</span>
+				</NavLink>
+			}
 		</div>
 	);
 };

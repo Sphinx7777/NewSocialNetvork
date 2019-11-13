@@ -1,20 +1,16 @@
-
-
 .newDialogForm {
 	position: relative;
-  display: flex;
+	display: flex;
 	justify-content: stretch;
 	max-width: 100%;
 	margin: 0 auto;
-
 
 	.newDialogBtn {
 
 		display: flex;
 		flex-direction: column;
 
-
-		.Btn,.clearBtn {
+		.Btn, .clearBtn {
 			width: 6rem;
 			padding: 3px;
 			border: 1px solid black;
@@ -22,6 +18,4 @@
 			outline: none;
 		}
 	}
-
-
 }

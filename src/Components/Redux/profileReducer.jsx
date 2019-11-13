@@ -26,39 +26,51 @@ let initialState = {
 	postsUpdate: true
 };
 
-const profileReducer = (state = initialState,
-												{type, post, profile, friendStatus, data, status, friendBtnState}) => {
+const profileReducer = (state = initialState, {
+	type, post, profile, friendStatus, data, status, friendBtnState
+}) => {
 	switch (type) {
+
 		case SET_NEW_PROFILE: {
 			return {...state, profile: profile}
 		}
+
 		case SET_STATUS_LOAD_PROFILE: {
 			return {...state, loadProfile: true}
 		}
+
 		case SET_FRIEND_STATUS: {
 			return {...state, friendStatus: friendStatus}
 		}
+
 		case SET_ADD_USER_AS_FRIEND: {
 			return {...state, friendStatus: data}
 		}
+
 		case SET_DELL_USER_FROM_FRIENDS: {
 			return {...state, friendStatus: data}
 		}
+
 		case SET_STATUS: {
 			return {...state, status: status}
 		}
+
 		case SET_UPDATE_STATUS: {
 			return {...state, status: status}
 		}
+
 		case SET_FRIEND_BTN_STATE: {
 			return {...state, friendBtnState: friendBtnState}
 		}
+
 		case SET_NEW_POST: {
 			return {...state, ...state.posts.unshift({text: post}), postsUpdate: true}
 		}
+
 		case SET_UPDATE_LOAD_POST: {
 			return {...state, postsUpdate: data}
 		}
+
 		default:
 			return state;
 	}
@@ -91,7 +103,6 @@ export const getNewProfile = (userId) => {
 	}
 };
 
-
 export const getFriendStatus = (userId) => {
 	return async (dispatch) => {
 		let data = await friendsApi.getFriendStatus(userId);
@@ -99,16 +110,12 @@ export const getFriendStatus = (userId) => {
 	}
 };
 
-
-
-
-
 export const addUserAsFriend = (userId) => {
 	return async (dispatch) => {
 		dispatch(setFriendBtnState(false));
 		let data = await friendsApi.addUsersAsFriend(userId);
 		if (data.resultCode === 0)
-		dispatch(setAddUserAsFriend(true));
+			dispatch(setAddUserAsFriend(true));
 		dispatch(setFriendBtnState(true))
 	}
 };
@@ -123,16 +130,13 @@ export const dellUserAsFriend = (userId) => {
 	}
 };
 
-
-
-
-
 export const getStatus = (userId) => {
 	return async (dispatch) => {
 		let data = await profileApi.getUserStatus(userId);
 		dispatch(setStatus(data))
 	}
 };
+
 export const updateStatus = (status) => {
 	return async (dispatch) => {
 		let data = await profileApi.updateUserStatus(status);

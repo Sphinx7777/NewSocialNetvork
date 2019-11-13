@@ -17,18 +17,23 @@ let initialState = {
 
 const settingsReducer = (state = initialState, {type, formData, status}) => {
 	switch (type) {
+
 		case SET_MY_SETTINGS: {
 			return {...state, aboutMe: {...formData}, submitFinished: true}
 		}
+
 		case SET_USER_PHOTO: {
 			return {...state, photos: {...formData}}
 		}
+
 		case SET_UPLOAD_PHOTO: {
 			return {...state, uploadPhotos: status}
 		}
+
 		case SET_STOP_SUBMIT: {
 			return {...state, submitFinished: false}
 		}
+
 		default:
 			return state;
 	}
@@ -44,8 +49,8 @@ export const sendSettingsForm = (formData) => {
 	return async (dispatch) => {
 		let data = await SettingsApi.sendFormSettings(formData);
 		if (data.resultCode === 0) {
-		 dispatch(setMySettings(formData));
-		 return true;
+			dispatch(setMySettings(formData));
+			return true;
 		} else {
 			dispatch(stopSubmit('settingsForm', {_error: data.messages[0]}))
 		}

@@ -1,7 +1,5 @@
-import {profileApi, loginApi,SecurityApi} from "../Api/Api";
+import {profileApi, loginApi, SecurityApi} from "../Api/Api";
 import {stopSubmit} from "redux-form";
-
-
 
 const SET_MY_LOGIN = '/authReducer///SET_MY_LOGIN';
 const SET_MY_REGISTRATION = '/authReducer///SET_MY_REGISTRATION';
@@ -14,25 +12,30 @@ let initialState = {
 	email: null,
 	login: null,
 	loadLogin: false,
-	myPhoto : null,
+	myPhoto: null,
 	captchaUrl: null
 
 };
 
-const authReducer = (state = initialState, {type, data,photo,captchaUrl}) => {
+const authReducer = (state = initialState, {type, data, photo, captchaUrl}) => {
 	switch (type) {
+
 		case SET_MY_LOGIN: {
 			return {...state, ...data, loadLogin: true}
 		}
+
 		case SET_MY_REGISTRATION: {
 			return {...state, loadLogin: data}
 		}
+
 		case SET_MY_PHOTO: {
-			return {...state, myPhoto:photo}
+			return {...state, myPhoto: photo}
 		}
+
 		case SET_CAPTCHA_URL: {
-			return {...state, captchaUrl:captchaUrl}
+			return {...state, captchaUrl: captchaUrl}
 		}
+
 		default:
 			return state;
 	}
@@ -44,14 +47,13 @@ export const setMyPhoto = (photo) => ({type: SET_MY_PHOTO, photo});
 export const setCaptchaUrl = (captchaUrl) => ({type: SET_CAPTCHA_URL, captchaUrl});
 
 
-
-
 export const authMe = () => async (dispatch) => {
 	let data = await loginApi.getMyLogin();
 	if (data.resultCode === 0) {
 		dispatch(setMylogin(data.data));
 	}
 };
+
 export const getMyPhoto = (loginId) => async (dispatch) => {
 	let data = await profileApi.getProfile(loginId);
 	dispatch(setMyPhoto(data.photos));
@@ -65,7 +67,7 @@ export const loginMe = (data) => {
 			dispatch(authMe());
 			dispatch(setCaptchaUrl(null));
 		} else {
-			if(result.resultCode === 10){
+			if (result.resultCode === 10) {
 				dispatch(getCaptchaUrl())
 			}
 			dispatch(stopSubmit('loginForm', {_error: result.messages[0]}))
@@ -73,10 +75,11 @@ export const loginMe = (data) => {
 		}
 	}
 };
-export const getCaptchaUrl= () => {
+
+export const getCaptchaUrl = () => {
 	return async (dispatch) => {
 		let captchaUrl = await SecurityApi.getCaptchaUrl();
-			dispatch(setCaptchaUrl(captchaUrl.url));
+		dispatch(setCaptchaUrl(captchaUrl.url));
 
 	}
 };

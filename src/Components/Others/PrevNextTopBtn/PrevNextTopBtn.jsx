@@ -3,7 +3,7 @@ import s from './PrevNextTopBtn.module.scss';
 
 
 export const PrevNextTopBtn = (props) => {
-	let {
+	const {
 		currentPage, // текущая страница
 		onClickNumberOfPage, // обработчик клика
 		totalNumberOfUsers, // общее количество айтемов
@@ -11,33 +11,49 @@ export const PrevNextTopBtn = (props) => {
 	} = props;
 
 
-	let totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
-	let pages = []; // получение динамического количества страниц
+	const totalCountUsers = Math.ceil(totalNumberOfUsers / numberUsersOnPage);
+	const pages = []; // получение динамического количества страниц
 	for (let i = 1; i <= totalCountUsers; i++) {
 		pages.push(i);
 	}
 
 
-  // Скрол на верх страницы
-	let toTheTop = () => {
+	// Скрол на верх страницы
+	const toTheTop = () => {
 		window.scrollTo(0, 0);
 	};
-  // Сборка и логика обработчика кликов для именения текущей страницы
+
+	const goToThePrevPages = () => {
+		onClickNumberOfPage(
+			currentPage > 1
+				? currentPage - 1
+				: currentPage);
+		toTheTop();
+	};
+	const goToTheNextPage = () => {
+		onClickNumberOfPage(
+			currentPage < pages.length
+				? currentPage + 1
+				: currentPage);
+		toTheTop();
+	};
+
+	// Сборка и логика обработчика кликов для именения текущей страницы
 	return (
 		<div className={s.showPages}>
-			<button onClick={() => {
-				onClickNumberOfPage(currentPage > 1 ? currentPage - 1 : currentPage);
-				toTheTop();
-			}} className={s.showPrevPage} disabled={currentPage === 1}>Show prev page ↩
+			<button className={s.showPrevPage}
+							onClick={goToThePrevPages}
+							disabled={currentPage === 1}>
+				Show prev page ↩
 			</button>
-			<button className={s.toTheTop} onClick={() => {
-				toTheTop();
-			}}>⇪ To the top ⇪
+			<button className={s.toTheTop}
+							onClick={toTheTop}>
+				⇪ To the top ⇪
 			</button>
-			<button onClick={() => {
-				onClickNumberOfPage(currentPage < pages.length ? currentPage + 1 : currentPage);
-				toTheTop();
-			}} className={s.showNextPage} disabled={currentPage === pages.length}>↪ Show next page
+			<button className={s.showNextPage}
+							onClick={goToTheNextPage}
+							disabled={currentPage === pages.length}>
+				↪ Show next page
 			</button>
 		</div>
 	);

@@ -4,21 +4,29 @@ import DialogsReduxForm from "./DialogsReduxForm";
 import {Posts} from "./Posts";
 import {Friends} from "./Friends";
 
+const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-export const Dialogs = ({
-													sendNewMessage, friends, getNewProfile, myId, myPhoto,
-													userProfile, getMessages, deleteMessage,
-													allMessages,
-												}) => {
+export const Dialogs = (
+	{
+		sendNewMessage,
+		friends,
+		getNewProfile,
+		myId,
+		myPhoto,
+		userProfile,
+		getMessages,
+		deleteMessage,
+		allMessages,
+	}) => {
+
 	const [profile, setProfile] = useState(userProfile);
 	const [friend, setFriends] = useState(friends);
 	const [messages, setMessages] = useState(allMessages);
 
-	let getDialogs = (id) => {
+	const getDialogs = (id) => {
 		getNewProfile(id);
 		getMessages(id)
 	};
-
 
 	useEffect(() => {
 		setProfile(userProfile)
@@ -28,8 +36,7 @@ export const Dialogs = ({
 		setMessages(allMessages)
 	}, [allMessages]);
 
-
-	let searchFriend = (name) => {
+	const searchFriend = (name) => {
 		if (name.length) {
 			setFriends(() => friends.filter(t => t.name.toLowerCase().match(name.toLowerCase())));
 		} else {
@@ -37,35 +44,51 @@ export const Dialogs = ({
 		}
 	};
 
-	let onSubmit = (values) => {
-		values.newTextDialog && sendNewMessage(profile.userId, values.newTextDialog);
-		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
+	const onSubmit = (values) => {
+		values.newTextDialog &&
+		sendNewMessage(profile.userId, values.newTextDialog);
 		return disableBtnSend(5000).then(() => {
 			return true;
 		})
 	};
 
+	const friendSearch = event => searchFriend(event.target.value);
+
 	return (
 		<>
-			<input className={s.search} placeholder='Search ' type='text' onChange={(event) => {
-				searchFriend(event.target.value)
-			}}/>
+			<input className={s.search}
+						 placeholder='Search '
+						 type='text'
+						 onChange={friendSearch}/>
 			<div className={s.friends}>
-
-			<Friends {...{friend, profile,getDialogs}} />
+				<Friends {...{
+					friend,
+					profile,
+					getDialogs
+				}}
+				/>
 			</div>
 			<div className={s.dialogsWrapper}>
-				<div style={{color: 'red', fontSize: '1.5rem'}}>Диалоги еще в разработке.
+				<div style={
+					{
+						color: 'red',
+						fontSize: '1.5rem'
+					}}>
+					Диалоги еще в разработке.
 					Пока никто еще кроме <b>' free '</b> не
 					пишет...
 				</div>
-
 				<div className={s.dialogs}>
 					{!messages.length && <div>Полковнику никто не пишет....</div>}
 					{
-						profile && messages.length
-						&&
-						<Posts {...{messages, profile, deleteMessage, myId, myPhoto}}/>
+						profile && messages.length &&
+						<Posts {...{
+							messages,
+							profile,
+							deleteMessage,
+							myId,
+							myPhoto
+						}}/>
 					}
 				</div>
 				<div className={s.dialogForm}>

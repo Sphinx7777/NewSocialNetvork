@@ -4,29 +4,39 @@ import SettingsReduxForm from "./SettingsReduxForm";
 import UploadPhoto from "./UploadPhoto";
 
 
-
 class Settings extends React.Component {
+
 	onSubmit = (photo) => {
 		this.props.sendUserPhotos(photo);
 	};
-	componentDidMount() {
-
-	}
 
 	render() {
-		return (
 
+		const {
+			profile,
+			onSubmit,
+			submitFinished,
+			setSubmitFinished,
+			uploadPhotos,
+			setUploadPhoto
+		} = this.props;
+
+		return (
 			<div className={s.settings}>
-				<SettingsReduxForm
-					initialValues={this.props.profile}
-					onSubmit={this.props.onSubmit}
-					submitFinished={this.props.submitFinished}
-					setSubmitFinished={this.props.setSubmitFinished}
+				<SettingsReduxForm {...
+					{
+						initialValues: profile,
+						onSubmit,
+						submitFinished,
+						setSubmitFinished
+					}}
 				/>
-				<UploadPhoto
-					onSubmit={this.onSubmit}
-					uploadPhotos={this.props.uploadPhotos}
-					setUploadPhoto={this.props.setUploadPhoto}
+				<UploadPhoto {...
+					{
+						onSubmit: this.onSubmit,
+						uploadPhotos,
+						setUploadPhoto
+					}}
 				/>
 			</div>
 		)

@@ -15,7 +15,6 @@
 	text-align: center;
 	overflow: auto;
 
-
 	.stringPages {
 		background-color: rgba(0, 0, 0, .6);
 		border-radius: 0.5rem;
@@ -237,33 +236,14 @@
 		}
 	}
 }
+
 @media screen and (max-width: 500px) {
 	.users {
 		.stringPages {
 
 			.numberUsers {
 				display: none;
-
-
-				.numbers {
-
-					.maxUsers {
-
-					}
-				}
-
-				.numberUsersBtn {
-
-				}
-
-				.numberUsersBtn:disabled {
-
-				}
 			}
-		}
-
-		.stringPages {
-
 		}
 	}
 }

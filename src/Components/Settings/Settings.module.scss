@@ -123,9 +123,11 @@
 				}
 			}
 		}
+
 		@media screen and (max-width: 580px) {
 			.settingsForm {
 				display: block;
+
 				.description {
 					margin-left: 0;
 				}
@@ -148,6 +150,7 @@
 			}
 		}
 	}
+
 	@media screen and (max-width: 580px) {
 		.settingsFormWrapper {
 			display: block;
@@ -156,6 +159,7 @@
 	}
 
 }
+
 @media screen and (max-width: 900px) {
 	.settings {
 		display: flex;
@@ -168,6 +172,7 @@
 		}
 	}
 }
+
 @media screen and (max-width: 580px) {
 	.settings {
 		flex-wrap: nowrap;

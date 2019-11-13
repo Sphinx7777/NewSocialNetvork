@@ -8,7 +8,11 @@ import {AvaAndBtnFriends} from "./AvaAndBtnFriends";
 
 export const Profile = (props) => {
 	let {
-		photos, loginId, userId, loadProfile,fullName
+		photos,
+		loginId,
+		userId,
+		loadProfile,
+		fullName
 	} = props;
 
 	if (!loadProfile) return <Preloader/>;
@@ -19,7 +23,13 @@ export const Profile = (props) => {
 				<AvaAndBtnFriends {...props}/>
 				<DescriptionProfile {...props}/>
 			</div>
-			<MyPosts fullName={fullName} photos={photos} userId={userId} loginId={loginId}/>
+			<MyPosts {...{
+				photos,
+				loginId,
+				userId,
+				loadProfile,
+				fullName
+			}}/>
 		</div>
 	)
 };

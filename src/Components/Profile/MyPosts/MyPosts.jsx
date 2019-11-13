@@ -5,12 +5,12 @@ import {connect} from "react-redux";
 import {addNewPost} from "../../Redux/profileReducer";
 import photo from './../../../Images/skull2.png';
 
+const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 class MyPosts extends React.PureComponent {
-	onSubmit = (formData) => {
 
-this.props.addNewPost(formData.text);
-		const disableBtnSend = ms => new Promise(resolve => setTimeout(resolve, ms));
+	onSubmit = (formData) => {
+		this.props.addNewPost(formData.text);
 		return disableBtnSend(5000).then(() => {
 			return true;
 		})
@@ -18,30 +18,54 @@ this.props.addNewPost(formData.text);
 
 
 	render() {
-	return (
-		<div className={s.myPostsWrapper}>
-			{this.props.userId === this.props.loginId ?
-				<div className={s.myPostFormWrapper}>
-				<MyPostFormRedux postsUpdate={this.props.postsUpdate} onSubmit={this.onSubmit}/>
-				</div> : <></>
-			}
-			<div className={s.myPosts}>
-				{this.props.posts.map((m,index) => {
-					return (
-						<div key={index} className={s.post}>
-							<div className={s.userInfo}>
-								<img className={s.userInfoPhoto} src={!this.props.photos.small ? photo : this.props.photos.small} alt=""/>
-								<span className={s.userInfoText}>{this.props.fullName}</span>
+
+		const {
+			postsUpdate,
+			posts,
+			photos,
+			fullName
+		} = this.props;
+
+		return (
+			<div className={s.myPostsWrapper}>
+				{this.props.userId === this.props.loginId
+					? <div className={s.myPostFormWrapper}>
+						<MyPostFormRedux {...{
+							postsUpdate,
+							onSubmit: this.onSubmit
+						}}/>
+					</div>
+					: <></>
+				}
+				<div className={s.myPosts}>
+					{posts.map((m, index) => {
+						return (
+							<div key={index} className={s.post}>
+								<div className={s.userInfo}>
+									<img className={s.userInfoPhoto}
+											 src={!photos.small
+												 ? photo
+												 : photos.small}
+											 alt=""
+									/>
+									<span className={s.userInfoText}>
+										{fullName}
+									</span>
+								</div>
+								<div className={s.postText}>
+									<label className={s.postTextLabel}>
+										{m.text}
+									</label>
+								</div>
 							</div>
-							<div className={s.postText}>
-								<label className={s.postTextLabel}>{m.text}</label>
-							</div>
-						</div>
-					)})}
+						)
+					})}
+				</div>
 			</div>
-		</div>
-	)}
+		)
+	}
 }
+
 let mapStateToProps = (state) => {
 	return {
 		posts: state.profilePage.posts,

@@ -1,7 +1,13 @@
 import React from 'react';
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
-import {deleteMessage, getMessages, getUsersForFriends, sendNewMessage, setFriends} from "../Redux/dialogsReducer";
+import {
+	deleteMessage,
+	getMessages,
+	getUsersForFriends,
+	sendNewMessage,
+	setFriends
+} from "../Redux/dialogsReducer";
 import {compose} from "redux";
 import {withAuthRedirect} from "../Hoc/Redirect/withAuthRedirect";
 import {getNewProfile} from "../Redux/profileReducer";
@@ -9,10 +15,9 @@ import {getMyPhoto} from "../Redux/authReducer";
 import {Preloader} from "../Others/Preloader/Preloader";
 
 
-
 class DialogsContainer extends React.Component {
 
-	shouldComponentUpdate(nextProps,nextState) {
+	shouldComponentUpdate(nextProps, nextState) {
 		return nextProps.friendLoaded !== this.props.friendLoaded ||
 			nextProps.userProfile !== this.props.userProfile ||
 			nextProps.allMessages !== this.props.allMessages ||
@@ -20,17 +25,17 @@ class DialogsContainer extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getUsersForFriends(this.props.page,100);
+		this.props.getUsersForFriends(this.props.page, 100);
 		this.props.getMyPhoto(this.props.loginId)
-}
+	}
 
 	render() {
-		if(this.props.friendLoaded){
+
+		if (this.props.friendLoaded) {
 			return <Dialogs {...this.props}/>
-		}else{
+		} else {
 			return <Preloader/>
 		}
-
 	}
 }
 
@@ -52,7 +57,13 @@ let mapStateToProps = (state) => {
 };
 export default compose(withAuthRedirect,
 	connect(mapStateToProps,
-		{getUsersForFriends,getNewProfile,
-			getMyPhoto,sendNewMessage,getMessages,
-			deleteMessage,setFriends}))(DialogsContainer);
+		{
+			getUsersForFriends,
+			getNewProfile,
+			getMyPhoto,
+			sendNewMessage,
+			getMessages,
+			deleteMessage,
+			setFriends
+		}))(DialogsContainer);
 

@@ -11,11 +11,18 @@ import {getloadLogin, getUsers} from "../Redux/selectors";
 class UsersContainer extends React.PureComponent {
 
 	componentDidMount() {
-		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
+		const {
+			numberUsersOnPage,
+			getNewUsers,
+			currentPage
+		}=this.props;
+
 		getNewUsers(currentPage,numberUsersOnPage);
 	}
+
 	componentDidUpdate(prevProps, prevState, snapshot) {
-		let {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
+		const {numberUsersOnPage,getNewUsers,currentPage,}=this.props;
+
 		if(prevProps.numberUsersOnPage !== numberUsersOnPage)
 			getNewUsers(currentPage,numberUsersOnPage);
 	}
@@ -25,14 +32,12 @@ class UsersContainer extends React.PureComponent {
 	};
 
 	render() {
+
 		if (!this.props.loadedUsers) {
 			return <Preloader/>
 		}
 
-		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}
-
-
-		/>
+		return <Users {...this.props} onClickNumberOfPage={this.onClickNumberOfPage}/>
 	}
 }
 
@@ -47,5 +52,8 @@ let mapStateToProps = (state) => {
 	}
 };
 export default compose(
-	connect(mapStateToProps, {getNewUsers,SetNumberUsersOnPageAC,searchUsers}))(UsersContainer);
+	connect(mapStateToProps, {
+		getNewUsers,
+		SetNumberUsersOnPageAC,
+		searchUsers}))(UsersContainer);
 

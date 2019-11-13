@@ -8,16 +8,22 @@ const minlength3 = minLengthCreator(3);
 
 const MyPostFormRedux = (props) => {
 
+	const {handleSubmit, onSubmit} = props;
 
 	return (
-		<form className={s.myPostForm} onSubmit={props.handleSubmit(props.onSubmit)}>
+		<form className={s.myPostForm}
+					onSubmit={handleSubmit(onSubmit)}>
 			<div className={s.formInput}>
-				<Field component={TextAreaComponent} label='At least 3 characters every 5 seconds'
-							 name='text' validate={[minlength3]}/>
+				<Field component={TextAreaComponent}
+							 label='At least 3 characters every 5 seconds'
+							 name='text'
+							 validate={[minlength3]}/>
 			</div>
 			<div>
-
-				<button disabled={props.pristine || props.submitting} className={s.formButton}>Add new post</button>
+				<button className={s.formButton}
+								disabled={props.pristine || props.submitting}>
+					Add new post
+				</button>
 			</div>
 		</form>
 	)

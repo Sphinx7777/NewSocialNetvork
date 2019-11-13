@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 class SideBarContainer extends React.Component  {
 
 render() {
+
 	return <SideBar loadLogin={this.props.loadLogin} login={this.props.login}/>
 }
 

@@ -10,6 +10,7 @@ let initialState = {
 
 const initialsReducer = (state = initialState, action) => {
 	switch (action.type) {
+
 		case SET_INITIALS_FINISHED: {
 			return {...state,initialisation: true}
 		}
