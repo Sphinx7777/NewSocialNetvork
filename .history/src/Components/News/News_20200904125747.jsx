@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, {Fragment, useState} from 'react';
 import s from './News.module.scss';
-import { StringOfPage } from "../Others/StringOfPage/StringOfPage";
-import { PrevNextTopBtn } from "../Others/PrevNextTopBtn/PrevNextTopBtn";
-import { optionsForNews } from "../Others/MyComponents/Select/Options";
-import { Select } from "../Others/MyComponents/Select/Select";
+import {StringOfPage} from "../Others/StringOfPage/StringOfPage";
+import {PrevNextTopBtn} from "../Others/PrevNextTopBtn/PrevNextTopBtn";
+import {optionsForNews} from "../Others/MyComponents/Select/Options";
+import {Select} from "../Others/MyComponents/Select/Select";
 
 
 export const News = (
@@ -28,15 +28,15 @@ export const News = (
 		<div className={s.newsWrapper}>
 			<div className={s.inputWrapper}>
 				<input className={s.searchInput}
-					placeholder='Search...'
-					type="text"
-					onChange={valueForSearch}
-					value={searchValue}
+							 placeholder='Search...'
+							 type="text"
+							 onChange={valueForSearch}
+							 value={searchValue}
 				/>
 				<Select value={hitsPerPage}
-					onChange={setNumberPerPage}
-					label=': на странице'
-					options={optionsForNews}
+								onChange={setNumberPerPage}
+								label=': на странице'
+								options={optionsForNews}
 				/>
 			</div>
 			<div className={s.stringPage}>
@@ -45,7 +45,7 @@ export const News = (
 					currentPage,
 					totalNumberOfUsers: totalCountUsers,
 					numberUsersOnPage: hitsPerPage
-				}} />
+				}}/>
 			</div>
 
 			{validNews.map((
@@ -60,9 +60,9 @@ export const News = (
 				}) =>
 				<Fragment key={objectID}>
 					<a className={s.newsLink}
-						href={url}
-						target='_blank'
-						rel='noopener noreferrer'>
+						 href={url}
+						 target='_blank'
+						 rel='noopener noreferrer'>
 						<div className={s.newsTitle}>
 							{title}
 						</div>
@@ -97,7 +97,7 @@ export const News = (
 				onClickNumberOfPage,
 				totalNumberOfUsers: totalCountUsers,
 				numberUsersOnPage: hitsPerPage
-			}} />
+			}}/>
 		</div>
 	)
 };
