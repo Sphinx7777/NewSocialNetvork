@@ -1,4 +1,5 @@
 import {usersApi} from "../Api/Api";
+import { IUsersPage, IUser } from "../common";
 
 const SET_NEW_USERS = '/usersReducer///SET_NEW_USERS';
 const SET_TOTAL_NUMBERS_OF_USERS = '/usersReducer///SET_TOTAL_NUMBERS_OF_USERS';
@@ -6,7 +7,17 @@ const SET_CURRENT_PAGE = '/usersReducer///SET_CURRENT_PAGE';
 const SET_NUMBER_USERS_ON_PAGE = '/usersReducer///SET_NUMBER_USERS_ON_PAGE';
 const SET_LOAD_USERS = '/usersReducer///SET_LOAD_USERS';
 
-let initialState = {
+interface IUsersAction {
+    type: string;
+	users: IUser[];
+	status: number;
+	totalCount: number;
+	currentPage: number;
+	numberUsersOnPage: number;
+
+}
+
+let initialState: IUsersPage = {
 	users: [],
 	totalNumberOfUsers: null,
 	currentPage: 1,
@@ -14,7 +25,7 @@ let initialState = {
 	loadedUsers: false
 };
 
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state: IUsersPage = initialState, action: IUsersAction) => {
 	switch (action.type) {
 
 		case SET_NEW_USERS: {
@@ -34,7 +45,7 @@ const usersReducer = (state = initialState, action) => {
 		}
 
 		case SET_NUMBER_USERS_ON_PAGE: {
-			return {...state, ...state.numberUsersOnPage = action.numberUsersOnPage}
+			return {...state, numberUsersOnPage: action.numberUsersOnPage}
 		}
 
 		default:
@@ -42,21 +53,21 @@ const usersReducer = (state = initialState, action) => {
 	}
 };
 
-const setNewUsersAC = (users) => ({type: SET_NEW_USERS, users});
-const setLoadUsersAC = (status) => ({type: SET_LOAD_USERS, status});
-const setTotalNumberOfUsersAC = (totalCount) => (
+const setNewUsersAC = (users: IUser[]) => ({type: SET_NEW_USERS, users});
+const setLoadUsersAC = (status: boolean) => ({type: SET_LOAD_USERS, status});
+const setTotalNumberOfUsersAC = (totalCount: number) => (
 	{
 		type: SET_TOTAL_NUMBERS_OF_USERS, totalCount
 	});
-const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const SetNumberUsersOnPageAC = (numberUsersOnPage) => (
+const setCurrentPageAC = (currentPage: number) => ({type: SET_CURRENT_PAGE, currentPage});
+export const SetNumberUsersOnPageAC = (numberUsersOnPage: number) => (
 	{
 		type: SET_NUMBER_USERS_ON_PAGE, numberUsersOnPage
 	});
 
 
-export const getNewUsers = (currentPage, numberUsersOnPage) => {
-	return async (dispatch) => {
+export const getNewUsers = (currentPage: number, numberUsersOnPage: number) => {
+	return async (dispatch: any) => {
 		dispatch(setLoadUsersAC(false));
 		dispatch(setCurrentPageAC(currentPage));
 		let data = await usersApi.getUsers(currentPage, numberUsersOnPage);
@@ -66,8 +77,8 @@ export const getNewUsers = (currentPage, numberUsersOnPage) => {
 	}
 };
 
-export const searchUsers = (name) => {
-	return async (dispatch) => {
+export const searchUsers = (name: string) => {
+	return async (dispatch: any) => {
 		/*dispatch(setLoadUsersAC(false));*/
 		let data = await usersApi.searchUser(name);
 		dispatch(setNewUsersAC(data.items));

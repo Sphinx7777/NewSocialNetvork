@@ -1,4 +1,4 @@
-import React, {Suspense, lazy} from 'react';
+import React, {Suspense, lazy, useEffect} from 'react';
 import s from './App.module.scss';
 import SideBarContainer from "./Components/SideBar/SideBarContainer";
 import {Route, Switch, withRouter} from "react-router-dom";
@@ -8,6 +8,7 @@ import {Preloader} from "./Components/Others/Preloader/Preloader";
 import {compose} from "redux";
 import {initializationApp} from "./Components/Redux/initialsReducer";
 import {Footer} from "./Components/Footer/Footer";
+import { IState } from './Components/common';
 
 const ProfileContainer = lazy(() => import("./Components/Profile/ProfileContainer"));
 const UsersContainer = lazy(() => import("./Components/Users/UsersContainer"));
@@ -17,24 +18,24 @@ const DialogsContainer = lazy(() => import("./Components/Dialogs/DialogsContaine
 const NewsContainer = lazy(() => import("./Components/News/NewsContainer"));
 const LoginContainer = lazy(() => import("./Components/Login/LoginContainer"));
 
+interface IAppProps {
+	initializationApp: () => void;
+	initialisation: boolean;
+}
+const App = (props: IAppProps) => {
 
-class App extends React.Component {
-
-	componentDidMount() {
-		this.props.initializationApp()
-	}
-
-	render() {
-		if (!this.props.initialisation) return <Preloader/>;
-
-		return (
+	useEffect(() => {
+		props.initializationApp()
+    }, [])
+		
+	if (!props.initialisation) return <Preloader/>;
+        return (
 			<div className={s.app}>
 				<SideBarContainer/>
 				<div className={s.contentWrapper}>
 					<Switch>
 						<Route exact path='/' render={() => <MainContainer/>}/>
-
-						<Suspense fallback={<Preloader/>}>
+                        <Suspense fallback={<Preloader/>}>
 							<Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
 							<Route path='/users' render={() => <UsersContainer/>}/>
 							<Route path='/login' render={() => <LoginContainer/>}/>
@@ -48,15 +49,14 @@ class App extends React.Component {
 				<Footer/>
 			</div>
 		);
-	}
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: IState) => {
 	return {
 		initialisation: state.initial.initialisation
 	}
 };
-export default compose(
+export default compose<any>(
 	withRouter,
 	connect(mapStateToProps, {initializationApp}))(App);
 

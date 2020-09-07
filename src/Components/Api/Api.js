@@ -32,6 +32,12 @@ export const usersApi = {
 			.then(response => response.data)
 	},
 
+	getFriends(currentPage, numberUsersOnPage) {
+		return instans.get(`users/
+		?page=${currentPage}&count=${numberUsersOnPage}&friend=true`)
+			.then(response => response.data)
+	},
+
 	searchUser(name) {
 		return instans.get(`users/
 		?term=${name}`)

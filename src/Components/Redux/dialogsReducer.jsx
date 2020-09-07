@@ -57,14 +57,13 @@ const setMessages = (items) => ({type: SET_MESSAGES, items});
 
 export const getUsersForFriends = (page = 1, count = 100) => {
 	return async (dispatch) => {
-		let data = await usersApi.getUsers(page, count);
-		await dispatch(setTotalCountOfUsers(data.totalCount));
-		let countPage = Math.ceil(data.totalCount / 100);
-		for (page; page <= countPage; page++) {
-			let data = await usersApi.getUsers(page, count);
+		let data = await usersApi.getFriends(page, count);
+		console.log('getUsersForFriends', data)
+		if (data?.items?.length > 0) {
+			dispatch(setTotalCountOfUsers(data.totalCount));
 			dispatch(setFriends(data.items,));
+			dispatch(setStatusFriendLoaded());
 		}
-		dispatch(setStatusFriendLoaded());
 	}
 };
 
